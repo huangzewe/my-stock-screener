@@ -36,7 +36,7 @@ py -m venv .venv
 
 ## 寄出台股多頭排列 Email
 
-先複製 `.env.example` 成 `.env`，填入 SMTP 設定與收件人。Gmail 建議使用 App Password，不要使用一般登入密碼。
+先複製 `.env.example` 成 `.env`，填入 SMTP 設定與收件人。建議建立一個專門寄信的 Gmail 或 Outlook 帳號，例如「台股多頭篩選器」，再用該帳號的 SMTP 或 App Password 寄信。Gmail 建議使用 App Password，不要使用一般登入密碼。
 
 ```powershell
 Copy-Item .env.example .env
@@ -56,6 +56,20 @@ notepad .env
 ```
 
 預設股票池是 `backend/config/taiwan_universe.sample.csv`，只寄出符合 `股價 > MA5 > MA20 > MA60` 的台股清單。
+
+`.env` 主要設定：
+
+```env
+SCREENER_EMAIL_TO=junge3e3@gmail.com
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USERNAME=你的專用寄件Gmail
+SMTP_PASSWORD=你的Gmail App Password
+SMTP_FROM=你的專用寄件Gmail
+SMTP_FROM_NAME=台股多頭篩選器
+SMTP_USE_TLS=true
+SMTP_USE_SSL=false
+```
 
 ## 啟動 API
 

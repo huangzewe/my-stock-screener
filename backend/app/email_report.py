@@ -4,6 +4,7 @@ import argparse
 import os
 import smtplib
 from dataclasses import dataclass
+from email.headerregistry import Address
 from email.message import EmailMessage
 from html import escape
 from pathlib import Path
@@ -26,6 +27,7 @@ class EmailConfig:
     username: str | None
     password: str | None
     sender: str
+    sender_name: str
     recipients: list[str]
     use_tls: bool
     use_ssl: bool
@@ -43,6 +45,7 @@ def load_email_config(to_override: str | None = None) -> EmailConfig:
         username=os.getenv("SMTP_USERNAME") or None,
         password=os.getenv("SMTP_PASSWORD") or None,
         sender=os.getenv("SMTP_FROM") or os.getenv("SMTP_USERNAME") or "",
+        sender_name=os.getenv("SMTP_FROM_NAME", "台股多頭篩選器"),
         recipients=recipient_list,
         use_tls=os.getenv("SMTP_USE_TLS", "true").lower() == "true",
         use_ssl=os.getenv("SMTP_USE_SSL", "false").lower() == "true",
@@ -159,7 +162,11 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
 def create_message(config: EmailConfig, subject: str, text: str, html: str) -> EmailMessage:
     message = EmailMessage()
     message["Subject"] = subject
-    message["From"] = config.sender
+    if "@" in config.sender:
+        username, domain = config.sender.rsplit("@", 1)
+        message["From"] = Address(display_name=config.sender_name, username=username, domain=domain)
+    else:
+        message["From"] = config.sender
     message["To"] = ", ".join(config.recipients)
     message.set_content(text)
     message.add_alternative(html, subtype="html")
