@@ -121,25 +121,41 @@ export default function Home() {
   const stocks = payload?.stocks ?? [];
   const industries = useMemo(() => Array.from(new Set(stocks.map((stock) => stock.industry))).sort(), [stocks]);
   const bullishCount = stocks.filter((stock) => stock.is_bullish_alignment).length;
+  const normalizedQuery = query.trim().toLowerCase();
+  const isSearchMode = normalizedQuery.length > 0;
 
   const filtered = useMemo(() => {
     return stocks
       .filter((stock) => {
         const text = `${stock.symbol} ${stock.name} ${stock.industry}`.toLowerCase();
         return (
-          text.includes(query.toLowerCase()) &&
+          text.includes(normalizedQuery) &&
           (market === "ALL" || stock.market === market) &&
           (industry === "ALL" || stock.industry === industry) &&
-          (!bullishOnly || stock.is_bullish_alignment) &&
-          stock.score >= minScore &&
-          (stock.pe === null || stock.pe <= maxPe) &&
-          (stock.roe ?? -999) >= minRoe &&
-          (stock.momentum_60d ?? -999) >= minMomentum &&
-          (stock.volume_ratio_20d ?? 0) >= minVolumeRatio
+          (isSearchMode ||
+            ((!bullishOnly || stock.is_bullish_alignment) &&
+              stock.score >= minScore &&
+              (stock.pe === null || stock.pe <= maxPe) &&
+              (stock.roe ?? -999) >= minRoe &&
+              (stock.momentum_60d ?? -999) >= minMomentum &&
+              (stock.volume_ratio_20d ?? 0) >= minVolumeRatio))
         );
       })
       .sort((a, b) => numericValue(b, sortKey) - numericValue(a, sortKey));
-  }, [bullishOnly, industry, market, maxPe, minMomentum, minRoe, minScore, minVolumeRatio, query, sortKey, stocks]);
+  }, [
+    bullishOnly,
+    industry,
+    isSearchMode,
+    market,
+    maxPe,
+    minMomentum,
+    minRoe,
+    minScore,
+    minVolumeRatio,
+    normalizedQuery,
+    sortKey,
+    stocks
+  ]);
 
   const averageScore =
     filtered.length === 0
@@ -254,6 +270,11 @@ export default function Home() {
 
         {error && <div className="status-banner">{error}</div>}
         {loading && <div className="status-banner">正在讀取 yfinance 篩選資料...</div>}
+        {isSearchMode && (
+          <div className="status-banner">
+            搜尋模式：已暫時略過多頭排列、分數、PE、ROE、動能與量比條件，顯示股票池中的相符股票。
+          </div>
+        )}
 
         <section className="summary-grid" aria-label="篩選摘要">
           <Metric icon={<TrendingUp size={20} />} label="多頭排列" value={bullishCount.toString()} tone="teal" />
