@@ -34,6 +34,29 @@ py -m venv .venv
 
 網站會讀取完整 JSON，但前端預設先套用「多頭排列」條件：`股價 > MA5 > MA20 > MA60`。
 
+## 寄出台股多頭排列 Email
+
+先複製 `.env.example` 成 `.env`，填入 SMTP 設定與收件人。Gmail 建議使用 App Password，不要使用一般登入密碼。
+
+```powershell
+Copy-Item .env.example .env
+notepad .env
+```
+
+先預覽信件內容：
+
+```powershell
+.\.venv\Scripts\python -m backend.app.email_report --dry-run
+```
+
+寄出信件：
+
+```powershell
+.\.venv\Scripts\python -m backend.app.email_report
+```
+
+預設股票池是 `backend/config/taiwan_universe.sample.csv`，只寄出符合 `股價 > MA5 > MA20 > MA60` 的台股清單。
+
 ## 啟動 API
 
 ```powershell
