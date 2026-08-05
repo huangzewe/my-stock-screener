@@ -388,6 +388,56 @@ input[type="range"] {
   padding: 14px;
 }
 
+.status-banner {
+  border: 1px solid #bfd9d5;
+  border-radius: 8px;
+  background: #eefaf7;
+  color: var(--teal);
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.check-field {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 0 12px;
+  color: var(--ink);
+}
+
+.check-field input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--teal);
+}
+
+.rule-stack {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.rule-step {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdfe;
+  padding: 10px 12px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.rule-step.active {
+  border-color: #8ed6cc;
+  background: #e9faf7;
+  color: var(--teal);
+}
+
 .table-shell {
   overflow: hidden;
 }
@@ -426,6 +476,31 @@ input[type="range"] {
 }
 
 .stock-cell small {
+  color: var(--muted);
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tag {
+  border-radius: 999px;
+  background: #e8f4f1;
+  color: var(--teal);
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ma-stack {
+  display: grid;
+  gap: 3px;
+}
+
+.ma-stack small,
+.table-toolbar small {
   color: var(--muted);
 }
 

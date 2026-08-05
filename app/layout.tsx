@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "我的股票篩選系統",
-  description: "個人股票篩選、觀察清單與指標比較工具"
+  description: "以 yfinance 資料與多頭排列邏輯打造的個人量化選股工具"
 };
 
 export default function RootLayout({

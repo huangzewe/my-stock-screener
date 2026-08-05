@@ -1,6 +1,10 @@
 .next
 node_modules
 .pnpm-store
+.venv
+__pycache__
+*.pyc
+backend/storage
 out
 dist
 .env*

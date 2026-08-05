@@ -9,7 +9,6 @@ import {
   Download,
   LineChart,
   ListFilter,
-  Plus,
   RefreshCw,
   Search,
   SlidersHorizontal,
@@ -18,283 +17,129 @@ import {
   TrendingUp,
   X
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-type Market = "US" | "TW" | "ETF";
+type Market = "US" | "TW" | "TWO" | "ETF" | "OTHER";
+
 type Stock = {
   symbol: string;
   name: string;
   market: Market;
-  sector: string;
-  price: number;
-  change: number;
-  pe: number;
-  epsGrowth: number;
-  revenueGrowth: number;
-  grossMargin: number;
-  roe: number;
-  dividendYield: number;
-  debtRatio: number;
-  momentum: number;
-  volumeRatio: number;
+  industry: string;
+  currency: string | null;
+  price: number | null;
+  change_percent: number | null;
+  pe: number | null;
+  dividend_yield: number | null;
+  pbr: number | null;
+  roe: number | null;
+  gross_margin: number | null;
+  debt_to_equity: number | null;
+  ma5: number | null;
+  ma20: number | null;
+  ma60: number | null;
+  is_bullish_alignment: boolean;
+  alignment_gap: number | null;
+  momentum_60d: number | null;
+  volume_ratio_20d: number | null;
+  drawdown_1y: number | null;
   score: number;
   tags: string[];
 };
 
-type SortKey = keyof Pick<
-  Stock,
+type ScreenerPayload = {
+  generated_at: string;
+  source: string;
+  universe_size: number;
+  stocks: Stock[];
+};
+
+type SortKey =
   | "score"
-  | "change"
+  | "change_percent"
+  | "momentum_60d"
+  | "volume_ratio_20d"
+  | "alignment_gap"
   | "pe"
-  | "epsGrowth"
-  | "revenueGrowth"
   | "roe"
-  | "dividendYield"
-  | "momentum"
->;
-
-const stocks: Stock[] = [
-  {
-    symbol: "NVDA",
-    name: "NVIDIA",
-    market: "US",
-    sector: "AI 半導體",
-    price: 178.42,
-    change: 2.4,
-    pe: 38.6,
-    epsGrowth: 45,
-    revenueGrowth: 62,
-    grossMargin: 74,
-    roe: 91,
-    dividendYield: 0.02,
-    debtRatio: 17,
-    momentum: 86,
-    volumeRatio: 1.4,
-    score: 94,
-    tags: ["成長", "大型股", "高動能"]
-  },
-  {
-    symbol: "TSM",
-    name: "台積電 ADR",
-    market: "US",
-    sector: "晶圓代工",
-    price: 238.15,
-    change: 1.1,
-    pe: 27.2,
-    epsGrowth: 28,
-    revenueGrowth: 33,
-    grossMargin: 58,
-    roe: 31,
-    dividendYield: 1.1,
-    debtRatio: 24,
-    momentum: 78,
-    volumeRatio: 1.1,
-    score: 89,
-    tags: ["品質", "AI 供應鏈"]
-  },
-  {
-    symbol: "2330",
-    name: "台積電",
-    market: "TW",
-    sector: "半導體",
-    price: 1295,
-    change: 0.7,
-    pe: 25.8,
-    epsGrowth: 25,
-    revenueGrowth: 30,
-    grossMargin: 57,
-    roe: 30,
-    dividendYield: 1.3,
-    debtRatio: 22,
-    momentum: 72,
-    volumeRatio: 0.9,
-    score: 87,
-    tags: ["權值", "品質"]
-  },
-  {
-    symbol: "AAPL",
-    name: "Apple",
-    market: "US",
-    sector: "消費電子",
-    price: 229.31,
-    change: -0.4,
-    pe: 31.3,
-    epsGrowth: 8,
-    revenueGrowth: 5,
-    grossMargin: 46,
-    roe: 136,
-    dividendYield: 0.4,
-    debtRatio: 31,
-    momentum: 54,
-    volumeRatio: 0.8,
-    score: 71,
-    tags: ["大型股", "品牌"]
-  },
-  {
-    symbol: "MSFT",
-    name: "Microsoft",
-    market: "US",
-    sector: "雲端軟體",
-    price: 514.26,
-    change: 0.9,
-    pe: 34.1,
-    epsGrowth: 17,
-    revenueGrowth: 15,
-    grossMargin: 69,
-    roe: 35,
-    dividendYield: 0.6,
-    debtRatio: 18,
-    momentum: 69,
-    volumeRatio: 1,
-    score: 84,
-    tags: ["品質", "AI 軟體"]
-  },
-  {
-    symbol: "0050",
-    name: "元大台灣50",
-    market: "ETF",
-    sector: "台股 ETF",
-    price: 205.75,
-    change: 0.3,
-    pe: 21.5,
-    epsGrowth: 13,
-    revenueGrowth: 12,
-    grossMargin: 49,
-    roe: 20,
-    dividendYield: 2.4,
-    debtRatio: 12,
-    momentum: 61,
-    volumeRatio: 0.7,
-    score: 76,
-    tags: ["ETF", "核心配置"]
-  },
-  {
-    symbol: "UNH",
-    name: "UnitedHealth",
-    market: "US",
-    sector: "醫療保險",
-    price: 548.12,
-    change: 1.8,
-    pe: 18.4,
-    epsGrowth: 12,
-    revenueGrowth: 9,
-    grossMargin: 24,
-    roe: 24,
-    dividendYield: 1.5,
-    debtRatio: 37,
-    momentum: 67,
-    volumeRatio: 1.3,
-    score: 80,
-    tags: ["價值", "防禦"]
-  },
-  {
-    symbol: "AMZN",
-    name: "Amazon",
-    market: "US",
-    sector: "電商雲端",
-    price: 224.88,
-    change: 1.6,
-    pe: 36.9,
-    epsGrowth: 31,
-    revenueGrowth: 14,
-    grossMargin: 49,
-    roe: 23,
-    dividendYield: 0,
-    debtRatio: 29,
-    momentum: 75,
-    volumeRatio: 1.2,
-    score: 83,
-    tags: ["成長", "雲端"]
-  },
-  {
-    symbol: "2317",
-    name: "鴻海",
-    market: "TW",
-    sector: "電子代工",
-    price: 183.5,
-    change: -1.2,
-    pe: 15.7,
-    epsGrowth: 11,
-    revenueGrowth: 8,
-    grossMargin: 6,
-    roe: 10,
-    dividendYield: 3.2,
-    debtRatio: 42,
-    momentum: 48,
-    volumeRatio: 1.6,
-    score: 62,
-    tags: ["價值", "AI 伺服器"]
-  },
-  {
-    symbol: "GOOGL",
-    name: "Alphabet",
-    market: "US",
-    sector: "搜尋與雲端",
-    price: 196.04,
-    change: 0.5,
-    pe: 24.6,
-    epsGrowth: 18,
-    revenueGrowth: 13,
-    grossMargin: 58,
-    roe: 32,
-    dividendYield: 0.4,
-    debtRatio: 8,
-    momentum: 64,
-    volumeRatio: 0.9,
-    score: 82,
-    tags: ["品質", "合理估值"]
-  }
-];
-
-const sectors = Array.from(new Set(stocks.map((stock) => stock.sector)));
+  | "dividend_yield";
 
 const presets = [
   {
-    name: "成長動能",
-    description: "營收與 EPS 成長明顯，股價動能偏強。",
-    filters: { minScore: 78, maxPe: 45, minRevenueGrowth: 14, minRoe: 18, minMomentum: 65 }
+    name: "多頭排列優先",
+    description: "股價 > MA5 > MA20 > MA60，先確認趨勢方向。",
+    filters: { bullishOnly: true, minScore: 45, maxPe: 80, minRoe: -100, minMomentum: -100, minVolumeRatio: 0 }
   },
   {
-    name: "穩健品質",
-    description: "ROE、毛利率與負債結構較漂亮。",
-    filters: { minScore: 75, maxPe: 35, minRevenueGrowth: 8, minRoe: 22, minMomentum: 50 }
+    name: "多頭 + 動能",
+    description: "多頭排列之外，60 日動能也要維持正值。",
+    filters: { bullishOnly: true, minScore: 50, maxPe: 80, minRoe: -100, minMomentum: 0, minVolumeRatio: 0 }
   },
   {
-    name: "價值股息",
-    description: "估值較低，且有較好的現金殖利率。",
-    filters: { minScore: 55, maxPe: 22, minRevenueGrowth: 0, minRoe: 8, minMomentum: 35 }
+    name: "多頭 + 品質",
+    description: "多頭排列，並要求 ROE 至少 15%。",
+    filters: { bullishOnly: true, minScore: 50, maxPe: 60, minRoe: 15, minMomentum: -100, minVolumeRatio: 0 }
   }
 ];
 
 export default function Home() {
+  const [payload, setPayload] = useState<ScreenerPayload | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [market, setMarket] = useState<"ALL" | Market>("ALL");
-  const [sector, setSector] = useState("ALL");
-  const [minScore, setMinScore] = useState(70);
-  const [maxPe, setMaxPe] = useState(40);
-  const [minRevenueGrowth, setMinRevenueGrowth] = useState(8);
-  const [minRoe, setMinRoe] = useState(12);
-  const [minMomentum, setMinMomentum] = useState(50);
+  const [industry, setIndustry] = useState("ALL");
+  const [bullishOnly, setBullishOnly] = useState(true);
+  const [minScore, setMinScore] = useState(45);
+  const [maxPe, setMaxPe] = useState(80);
+  const [minRoe, setMinRoe] = useState(-100);
+  const [minMomentum, setMinMomentum] = useState(-100);
+  const [minVolumeRatio, setMinVolumeRatio] = useState(0);
   const [sortKey, setSortKey] = useState<SortKey>("score");
-  const [watchlist, setWatchlist] = useState<string[]>(["TSM", "2330", "MSFT"]);
+  const [watchlist, setWatchlist] = useState<string[]>(["2330.TW", "MSFT", "NVDA"]);
+
+  const loadData = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(`/data/screener-data.json?ts=${Date.now()}`, { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error(`資料讀取失敗：HTTP ${response.status}`);
+      }
+      setPayload((await response.json()) as ScreenerPayload);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "資料讀取失敗");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    void loadData();
+  }, []);
+
+  const stocks = payload?.stocks ?? [];
+  const industries = useMemo(() => Array.from(new Set(stocks.map((stock) => stock.industry))).sort(), [stocks]);
+  const bullishCount = stocks.filter((stock) => stock.is_bullish_alignment).length;
 
   const filtered = useMemo(() => {
     return stocks
       .filter((stock) => {
-        const text = `${stock.symbol} ${stock.name} ${stock.sector}`.toLowerCase();
+        const text = `${stock.symbol} ${stock.name} ${stock.industry}`.toLowerCase();
         return (
           text.includes(query.toLowerCase()) &&
           (market === "ALL" || stock.market === market) &&
-          (sector === "ALL" || stock.sector === sector) &&
+          (industry === "ALL" || stock.industry === industry) &&
+          (!bullishOnly || stock.is_bullish_alignment) &&
           stock.score >= minScore &&
-          stock.pe <= maxPe &&
-          stock.revenueGrowth >= minRevenueGrowth &&
-          stock.roe >= minRoe &&
-          stock.momentum >= minMomentum
+          (stock.pe === null || stock.pe <= maxPe) &&
+          (stock.roe ?? -999) >= minRoe &&
+          (stock.momentum_60d ?? -999) >= minMomentum &&
+          (stock.volume_ratio_20d ?? 0) >= minVolumeRatio
         );
       })
-      .sort((a, b) => b[sortKey] - a[sortKey]);
-  }, [market, maxPe, minMomentum, minRevenueGrowth, minRoe, minScore, query, sector, sortKey]);
+      .sort((a, b) => numericValue(b, sortKey) - numericValue(a, sortKey));
+  }, [bullishOnly, industry, market, maxPe, minMomentum, minRoe, minScore, minVolumeRatio, query, sortKey, stocks]);
 
   const averageScore =
     filtered.length === 0
@@ -303,18 +148,31 @@ export default function Home() {
 
   const toggleWatch = (symbol: string) => {
     setWatchlist((current) =>
-      current.includes(symbol)
-        ? current.filter((item) => item !== symbol)
-        : [...current, symbol]
+      current.includes(symbol) ? current.filter((item) => item !== symbol) : [...current, symbol]
     );
   };
 
   const applyPreset = (preset: (typeof presets)[number]) => {
+    setBullishOnly(preset.filters.bullishOnly);
     setMinScore(preset.filters.minScore);
     setMaxPe(preset.filters.maxPe);
-    setMinRevenueGrowth(preset.filters.minRevenueGrowth);
     setMinRoe(preset.filters.minRoe);
     setMinMomentum(preset.filters.minMomentum);
+    setMinVolumeRatio(preset.filters.minVolumeRatio);
+  };
+
+  const exportCsv = () => {
+    const header = ["symbol", "name", "market", "industry", "price", "ma5", "ma20", "ma60", "momentum_60d", "score"];
+    const rows = filtered.map((stock) =>
+      header.map((key) => JSON.stringify(String(stock[key as keyof Stock] ?? ""))).join(",")
+    );
+    const blob = new Blob([[header.join(","), ...rows].join("\n")], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "bullish-screener.csv";
+    link.click();
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -333,15 +191,15 @@ export default function Home() {
         <nav className="nav-list" aria-label="主選單">
           <a className="active" href="#screener">
             <ListFilter size={18} />
-            篩選器
-          </a>
-          <a href="#watchlist">
-            <Star size={18} />
-            觀察清單
+            多頭篩選
           </a>
           <a href="#rules">
             <Target size={18} />
             策略模板
+          </a>
+          <a href="#watchlist">
+            <Star size={18} />
+            觀察清單
           </a>
           <a href="#alerts">
             <Bell size={18} />
@@ -353,13 +211,11 @@ export default function Home() {
           <div className="section-label">觀察清單</div>
           {watchlist.map((symbol) => {
             const stock = stocks.find((item) => item.symbol === symbol);
-            if (!stock) return null;
             return (
               <div className="watch-row" key={symbol}>
                 <span>{symbol}</span>
-                <strong className={stock.change >= 0 ? "up" : "down"}>
-                  {stock.change >= 0 ? "+" : ""}
-                  {stock.change}%
+                <strong className={(stock?.change_percent ?? 0) >= 0 ? "up" : "down"}>
+                  {formatPercent(stock?.change_percent)}
                 </strong>
               </div>
             );
@@ -385,42 +241,51 @@ export default function Home() {
           </div>
 
           <div className="top-actions">
-            <button className="ghost-button" type="button">
+            <button className="ghost-button" type="button" onClick={() => void loadData()}>
               <RefreshCw size={16} />
-              更新資料
+              重新讀取
             </button>
-            <button className="primary-button" type="button">
-              <Plus size={16} />
-              新策略
+            <button className="primary-button" type="button" onClick={() => setBullishOnly((value) => !value)}>
+              <TrendingUp size={16} />
+              {bullishOnly ? "只看多頭" : "全部股票"}
             </button>
           </div>
         </header>
 
+        {error && <div className="status-banner">{error}</div>}
+        {loading && <div className="status-banner">正在讀取 yfinance 篩選資料...</div>}
+
         <section className="summary-grid" aria-label="篩選摘要">
-          <Metric icon={<BarChart3 size={20} />} label="符合股票" value={filtered.length.toString()} tone="teal" />
-          <Metric icon={<TrendingUp size={20} />} label="平均分數" value={averageScore.toString()} tone="blue" />
-          <Metric icon={<Star size={20} />} label="觀察中" value={watchlist.length.toString()} tone="amber" />
-          <Metric icon={<Bell size={20} />} label="啟用提醒" value="4" tone="rose" />
+          <Metric icon={<TrendingUp size={20} />} label="多頭排列" value={bullishCount.toString()} tone="teal" />
+          <Metric icon={<BarChart3 size={20} />} label="符合條件" value={filtered.length.toString()} tone="blue" />
+          <Metric icon={<Star size={20} />} label="平均分數" value={averageScore.toString()} tone="amber" />
+          <Metric icon={<Bell size={20} />} label="股票池" value={(payload?.universe_size ?? 0).toString()} tone="rose" />
         </section>
 
         <section className="content-grid">
           <section className="filter-panel" id="screener">
             <div className="panel-heading">
               <div>
-                <p>篩選條件</p>
-                <h2>把你的投資偏好變成規則</h2>
+                <p>第一層條件</p>
+                <h2>先篩選多頭排列：股價 &gt; MA5 &gt; MA20 &gt; MA60</h2>
               </div>
               <SlidersHorizontal size={20} />
             </div>
 
             <div className="field-grid">
+              <label className="check-field">
+                <input type="checkbox" checked={bullishOnly} onChange={(event) => setBullishOnly(event.target.checked)} />
+                只保留多頭排列股票
+              </label>
+
               <label>
                 市場
                 <span className="select-wrap">
                   <select value={market} onChange={(event) => setMarket(event.target.value as "ALL" | Market)}>
                     <option value="ALL">全部市場</option>
                     <option value="US">美股</option>
-                    <option value="TW">台股</option>
+                    <option value="TW">台股上市</option>
+                    <option value="TWO">台股上櫃</option>
                     <option value="ETF">ETF</option>
                   </select>
                   <ChevronDown size={16} />
@@ -430,9 +295,9 @@ export default function Home() {
               <label>
                 產業
                 <span className="select-wrap">
-                  <select value={sector} onChange={(event) => setSector(event.target.value)}>
+                  <select value={industry} onChange={(event) => setIndustry(event.target.value)}>
                     <option value="ALL">全部產業</option>
-                    {sectors.map((item) => (
+                    {industries.map((item) => (
                       <option value={item} key={item}>
                         {item}
                       </option>
@@ -443,30 +308,23 @@ export default function Home() {
               </label>
 
               <Slider label="最低分數" value={minScore} min={0} max={100} suffix="" onChange={setMinScore} />
-              <Slider label="最高本益比" value={maxPe} min={5} max={60} suffix="x" onChange={setMaxPe} />
-              <Slider
-                label="最低營收成長"
-                value={minRevenueGrowth}
-                min={-10}
-                max={70}
-                suffix="%"
-                onChange={setMinRevenueGrowth}
-              />
-              <Slider label="最低 ROE" value={minRoe} min={0} max={60} suffix="%" onChange={setMinRoe} />
-              <Slider label="最低動能" value={minMomentum} min={0} max={100} suffix="" onChange={setMinMomentum} />
+              <Slider label="最高本益比" value={maxPe} min={5} max={120} suffix="x" onChange={setMaxPe} />
+              <Slider label="最低 ROE" value={minRoe} min={-100} max={80} suffix="%" onChange={setMinRoe} />
+              <Slider label="最低 60 日動能" value={minMomentum} min={-80} max={120} suffix="%" onChange={setMinMomentum} />
+              <Slider label="最低量比" value={minVolumeRatio} min={0} max={3} step={0.1} suffix="x" onChange={setMinVolumeRatio} />
 
               <label>
                 排序
                 <span className="select-wrap">
                   <select value={sortKey} onChange={(event) => setSortKey(event.target.value as SortKey)}>
                     <option value="score">綜合分數</option>
-                    <option value="change">今日漲跌</option>
+                    <option value="momentum_60d">60 日動能</option>
+                    <option value="alignment_gap">股價離 MA60</option>
+                    <option value="volume_ratio_20d">20 日量比</option>
+                    <option value="change_percent">今日漲跌</option>
                     <option value="pe">本益比</option>
-                    <option value="epsGrowth">EPS 成長</option>
-                    <option value="revenueGrowth">營收成長</option>
                     <option value="roe">ROE</option>
-                    <option value="dividendYield">殖利率</option>
-                    <option value="momentum">動能</option>
+                    <option value="dividend_yield">殖利率</option>
                   </select>
                   <ArrowDownUp size={16} />
                 </span>
@@ -478,8 +336,15 @@ export default function Home() {
             <div className="panel-heading compact">
               <div>
                 <p>策略模板</p>
-                <h2>快速套用常用篩選</h2>
+                <h2>你的選股流程</h2>
               </div>
+            </div>
+
+            <div className="rule-stack">
+              <div className="rule-step active">1. 多頭排列</div>
+              <div className="rule-step">2. 動能確認</div>
+              <div className="rule-step">3. 品質與估值</div>
+              <div className="rule-step">4. 加入觀察清單</div>
             </div>
 
             <div className="preset-list">
@@ -493,7 +358,9 @@ export default function Home() {
 
             <div className="alert-box" id="alerts">
               <Bell size={18} />
-              <p>當股票通過目前條件、跌破動能門檻或估值進入甜蜜區時，可在下一版接上 Email/LINE/Slack 提醒。</p>
+              <p>
+                目前是盤後資料篩選。下一步可以加入排程，讓 Python 每天收盤後更新 JSON，網站自動顯示最新多頭排列名單。
+              </p>
             </div>
           </section>
         </section>
@@ -503,8 +370,9 @@ export default function Home() {
             <div>
               <p>篩選結果</p>
               <h2>{filtered.length} 檔候選股票</h2>
+              <small>資料時間：{payload ? formatDate(payload.generated_at) : "尚未載入"}</small>
             </div>
-            <button className="ghost-button" type="button">
+            <button className="ghost-button" type="button" onClick={exportCsv}>
               <Download size={16} />
               匯出 CSV
             </button>
@@ -515,10 +383,10 @@ export default function Home() {
               <span>股票</span>
               <span>價格</span>
               <span>漲跌</span>
-              <span>本益比</span>
-              <span>營收</span>
-              <span>ROE</span>
+              <span>均線排列</span>
               <span>動能</span>
+              <span>量比</span>
+              <span>PE / ROE</span>
               <span>分數</span>
               <span>追蹤</span>
             </div>
@@ -528,23 +396,32 @@ export default function Home() {
                 <div className="stock-cell">
                   <strong>{stock.symbol}</strong>
                   <small>
-                    {stock.name} · {stock.sector}
+                    {stock.name} · {stock.industry}
+                  </small>
+                  <div className="tag-row">
+                    {stock.tags.map((tag) => (
+                      <span className="tag" key={`${stock.symbol}-${tag}`}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <span>{formatPrice(stock)}</span>
+                <span className={(stock.change_percent ?? 0) >= 0 ? "up" : "down"}>{formatPercent(stock.change_percent)}</span>
+                <div className="ma-stack">
+                  <strong className={stock.is_bullish_alignment ? "up" : "down"}>
+                    {stock.is_bullish_alignment ? "多頭" : "未成立"}
+                  </strong>
+                  <small>
+                    {formatNumber(stock.ma5)} / {formatNumber(stock.ma20)} / {formatNumber(stock.ma60)}
                   </small>
                 </div>
-                <span>{stock.market === "TW" || stock.market === "ETF" ? "NT$" : "$"}{stock.price.toLocaleString()}</span>
-                <span className={stock.change >= 0 ? "up" : "down"}>
-                  {stock.change >= 0 ? "+" : ""}
-                  {stock.change}%
-                </span>
-                <span>{stock.pe}x</span>
-                <span>{stock.revenueGrowth}%</span>
-                <span>{stock.roe}%</span>
+                <span>{formatPercent(stock.momentum_60d)}</span>
+                <span>{formatRatio(stock.volume_ratio_20d)}</span>
                 <span>
-                  <span className="momentum">
-                    <i style={{ width: `${stock.momentum}%` }} />
-                  </span>
+                  {formatNumber(stock.pe)}x / {formatPercent(stock.roe)}
                 </span>
-                <strong>{stock.score}</strong>
+                <strong>{stock.score.toFixed(1)}</strong>
                 <button
                   className={`star-button ${watchlist.includes(stock.symbol) ? "selected" : ""}`}
                   type="button"
@@ -560,6 +437,42 @@ export default function Home() {
       </section>
     </main>
   );
+}
+
+function numericValue(stock: Stock, key: SortKey) {
+  return stock[key] ?? -999;
+}
+
+function formatDate(value: string) {
+  return new Intl.DateTimeFormat("zh-TW", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(new Date(value));
+}
+
+function formatNumber(value: number | null | undefined) {
+  if (value === null || value === undefined) return "-";
+  return value.toLocaleString("zh-TW", { maximumFractionDigits: 2 });
+}
+
+function formatPercent(value: number | null | undefined) {
+  if (value === null || value === undefined) return "-";
+  const prefix = value > 0 ? "+" : "";
+  return `${prefix}${value.toFixed(2)}%`;
+}
+
+function formatRatio(value: number | null | undefined) {
+  if (value === null || value === undefined) return "-";
+  return `${value.toFixed(2)}x`;
+}
+
+function formatPrice(stock: Stock) {
+  if (stock.price === null) return "-";
+  const prefix = stock.currency === "TWD" ? "NT$" : stock.currency === "USD" ? "$" : "";
+  return `${prefix}${stock.price.toLocaleString("zh-TW", { maximumFractionDigits: 2 })}`;
 }
 
 function Metric({
@@ -587,6 +500,7 @@ function Slider({
   value,
   min,
   max,
+  step = 1,
   suffix,
   onChange
 }: {
@@ -594,6 +508,7 @@ function Slider({
   value: number;
   min: number;
   max: number;
+  step?: number;
   suffix: string;
   onChange: (value: number) => void;
 }) {
@@ -610,6 +525,7 @@ function Slider({
         type="range"
         min={min}
         max={max}
+        step={step}
         value={value}
         onChange={(event) => onChange(Number(event.target.value))}
       />
