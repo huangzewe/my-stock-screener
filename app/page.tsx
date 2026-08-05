@@ -86,6 +86,9 @@ export default function Home() {
   const [payload, setPayload] = useState<ScreenerPayload | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [lookupStocks, setLookupStocks] = useState<Stock[]>([]);
+  const [lookupLoading, setLookupLoading] = useState(false);
+  const [lookupError, setLookupError] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [market, setMarket] = useState<"ALL" | Market>("ALL");
   const [industry, setIndustry] = useState("ALL");
@@ -120,20 +123,69 @@ export default function Home() {
 
   const stocks = payload?.stocks ?? [];
   const industries = useMemo(() => Array.from(new Set(stocks.map((stock) => stock.industry))).sort(), [stocks]);
-  const bullishCount = stocks.filter((stock) => stock.is_bullish_alignment).length;
   const normalizedQuery = query.trim().toLowerCase();
   const isSearchMode = normalizedQuery.length > 0;
+  const searchableStocks = useMemo(() => {
+    if (!isSearchMode) {
+      return stocks;
+    }
+
+    const localSymbols = new Set(stocks.map((stock) => stock.symbol));
+    return [...stocks, ...lookupStocks.filter((stock) => !localSymbols.has(stock.symbol))];
+  }, [isSearchMode, lookupStocks, stocks]);
+  const bullishCount = searchableStocks.filter((stock) => stock.is_bullish_alignment).length;
+
+  useEffect(() => {
+    if (!isSearchMode) {
+      setLookupStocks([]);
+      setLookupError(null);
+      setLookupLoading(false);
+      return;
+    }
+
+    const controller = new AbortController();
+    const timer = window.setTimeout(async () => {
+      setLookupLoading(true);
+      setLookupError(null);
+
+      try {
+        const response = await fetch(`/api/lookup?q=${encodeURIComponent(query.trim())}`, {
+          cache: "no-store",
+          signal: controller.signal
+        });
+        if (!response.ok) {
+          throw new Error(`即時查詢失敗：HTTP ${response.status}`);
+        }
+        const data = (await response.json()) as { stocks?: Stock[] };
+        setLookupStocks(data.stocks ?? []);
+      } catch (err) {
+        if (!controller.signal.aborted) {
+          setLookupError(err instanceof Error ? err.message : "即時查詢失敗");
+          setLookupStocks([]);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setLookupLoading(false);
+        }
+      }
+    }, 350);
+
+    return () => {
+      controller.abort();
+      window.clearTimeout(timer);
+    };
+  }, [isSearchMode, query]);
 
   const filtered = useMemo(() => {
-    return stocks
+    return searchableStocks
       .filter((stock) => {
         const text = `${stock.symbol} ${stock.name} ${stock.industry}`.toLowerCase();
         return (
           text.includes(normalizedQuery) &&
-          (market === "ALL" || stock.market === market) &&
-          (industry === "ALL" || stock.industry === industry) &&
           (isSearchMode ||
-            ((!bullishOnly || stock.is_bullish_alignment) &&
+            ((market === "ALL" || stock.market === market) &&
+              (industry === "ALL" || stock.industry === industry) &&
+              (!bullishOnly || stock.is_bullish_alignment) &&
               stock.score >= minScore &&
               (stock.pe === null || stock.pe <= maxPe) &&
               (stock.roe ?? -999) >= minRoe &&
@@ -154,7 +206,7 @@ export default function Home() {
     minVolumeRatio,
     normalizedQuery,
     sortKey,
-    stocks
+    searchableStocks
   ]);
 
   const averageScore =
@@ -272,9 +324,11 @@ export default function Home() {
         {loading && <div className="status-banner">正在讀取 yfinance 篩選資料...</div>}
         {isSearchMode && (
           <div className="status-banner">
-            搜尋模式：已暫時略過多頭排列、分數、PE、ROE、動能與量比條件，顯示股票池中的相符股票。
+            搜尋模式：已暫時略過所有篩選條件，並會即時查詢 Yahoo Finance 代號。
           </div>
         )}
+        {lookupLoading && <div className="status-banner">正在即時查詢股票代號...</div>}
+        {lookupError && <div className="status-banner">{lookupError}</div>}
 
         <section className="summary-grid" aria-label="篩選摘要">
           <Metric icon={<TrendingUp size={20} />} label="多頭排列" value={bullishCount.toString()} tone="teal" />
