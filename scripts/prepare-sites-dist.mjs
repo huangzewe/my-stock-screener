@@ -1,13 +1,23 @@
-import { copyFileSync, mkdirSync, writeFileSync } from "node:fs";
+import { copyFileSync, cpSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
 const distDir = join(process.cwd(), "dist");
+const clientDir = join(distDir, "client");
 const hostingSource = join(process.cwd(), ".openai", "hosting.json");
 const hostingTarget = join(distDir, ".openai", "hosting.json");
 const workerTarget = join(distDir, "server", "index.js");
 
+mkdirSync(clientDir, { recursive: true });
 mkdirSync(dirname(hostingTarget), { recursive: true });
 mkdirSync(dirname(workerTarget), { recursive: true });
+
+for (const entry of readdirSync(distDir, { withFileTypes: true })) {
+  if ([".openai", "client", "server"].includes(entry.name)) {
+    continue;
+  }
+
+  cpSync(join(distDir, entry.name), join(clientDir, entry.name), { recursive: true });
+}
 
 copyFileSync(hostingSource, hostingTarget);
 
