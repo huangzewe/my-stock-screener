@@ -206,7 +206,7 @@ export default function Home() {
               (!bullishOnly || stock.is_bullish_alignment) &&
               stock.score >= minScore &&
               (stock.pe === null || stock.pe <= maxPe) &&
-              (stock.roe === null || stock.roe >= minRoe) &&
+              (stock.roe === null ? minRoe <= -100 : stock.roe >= minRoe) &&
               (stock.momentum_60d ?? -999) >= minMomentum &&
               (stock.volume_ratio_20d ?? 0) >= minVolumeRatio))
         );
