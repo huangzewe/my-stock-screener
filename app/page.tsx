@@ -109,22 +109,25 @@ export default function Home() {
         `https://raw.githubusercontent.com/huangzewe/my-stock-screener/main/public/data/screener-data.json?ts=${Date.now()}`,
         `/data/screener-data.json?ts=${Date.now()}`
       ];
-      let response: Response | null = null;
+      let latestPayload: ScreenerPayload | null = null;
       for (const source of dataSources) {
         try {
           const candidate = await fetch(source, { cache: "no-store" });
           if (candidate.ok) {
-            response = candidate;
-            break;
+            const candidatePayload = (await candidate.json()) as ScreenerPayload;
+            if (candidatePayload.universe_size >= 1000) {
+              latestPayload = candidatePayload;
+              break;
+            }
           }
         } catch {
           // Try the packaged snapshot when the daily GitHub dataset is unavailable.
         }
       }
-      if (!response) {
+      if (!latestPayload) {
         throw new Error("無法讀取每日市場資料");
       }
-      setPayload((await response.json()) as ScreenerPayload);
+      setPayload(latestPayload);
     } catch (err) {
       setError(err instanceof Error ? err.message : "資料讀取失敗");
     } finally {
