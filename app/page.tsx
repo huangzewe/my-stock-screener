@@ -105,9 +105,24 @@ export default function Home() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`/data/screener-data.json?ts=${Date.now()}`, { cache: "no-store" });
-      if (!response.ok) {
-        throw new Error(`資料讀取失敗：HTTP ${response.status}`);
+      const dataSources = [
+        `https://raw.githubusercontent.com/huangzewe/my-stock-screener/main/public/data/screener-data.json?ts=${Date.now()}`,
+        `/data/screener-data.json?ts=${Date.now()}`
+      ];
+      let response: Response | null = null;
+      for (const source of dataSources) {
+        try {
+          const candidate = await fetch(source, { cache: "no-store" });
+          if (candidate.ok) {
+            response = candidate;
+            break;
+          }
+        } catch {
+          // Try the packaged snapshot when the daily GitHub dataset is unavailable.
+        }
+      }
+      if (!response) {
+        throw new Error("無法讀取每日市場資料");
       }
       setPayload((await response.json()) as ScreenerPayload);
     } catch (err) {
@@ -188,7 +203,7 @@ export default function Home() {
               (!bullishOnly || stock.is_bullish_alignment) &&
               stock.score >= minScore &&
               (stock.pe === null || stock.pe <= maxPe) &&
-              (stock.roe ?? -999) >= minRoe &&
+              (stock.roe === null || stock.roe >= minRoe) &&
               (stock.momentum_60d ?? -999) >= minMomentum &&
               (stock.volume_ratio_20d ?? 0) >= minVolumeRatio))
         );

@@ -38,15 +38,23 @@ def _dividend_yield_percent(value: object) -> float | None:
     return round(number, 2)
 
 
-def _score_component(value: float | None, low: float, high: float, inverse: bool = False) -> float:
+def _score_component(value: float | None, low: float, high: float, inverse: bool = False) -> float | None:
     if value is None:
-        return 0
+        return None
     if high == low:
-        return 0
+        return None
     normalized = max(0, min(1, (value - low) / (high - low)))
     if inverse:
         normalized = 1 - normalized
     return normalized * 100
+
+
+def _weighted_score(parts: list[tuple[float | None, float]]) -> float | None:
+    available = [(value, weight) for value, weight in parts if value is not None]
+    total_weight = sum(weight for _, weight in available)
+    if not available or total_weight <= 0:
+        return None
+    return sum(value * weight for value, weight in available) / total_weight
 
 
 def build_stock(snapshot: MarketSnapshot) -> ScreenerStock | None:
@@ -106,23 +114,39 @@ def build_stock(snapshot: MarketSnapshot) -> ScreenerStock | None:
     debt_to_equity = _clean_number(info.get("debtToEquity"))
 
     trend_bonus = 100 if is_bullish_alignment else 0
-    value_score = (
-        _score_component(pe, 5, 45, inverse=True) * 0.55
-        + _score_component(dividend_yield, 0, 6) * 0.25
-        + _score_component(pbr, 0.5, 8, inverse=True) * 0.2
+    value_score = _weighted_score(
+        [
+            (_score_component(pe, 5, 45, inverse=True), 0.55),
+            (_score_component(dividend_yield, 0, 6), 0.25),
+            (_score_component(pbr, 0.5, 8, inverse=True), 0.2),
+        ]
     )
-    quality_score = (
-        _score_component(roe, 0, 35) * 0.45
-        + _score_component(gross_margin, 10, 70) * 0.35
-        + _score_component(debt_to_equity, 0, 160, inverse=True) * 0.2
+    quality_score = _weighted_score(
+        [
+            (_score_component(roe, 0, 35), 0.45),
+            (_score_component(gross_margin, 10, 70), 0.35),
+            (_score_component(debt_to_equity, 0, 160, inverse=True), 0.2),
+        ]
     )
-    momentum_score = (
-        _score_component(momentum_60d, -20, 40) * 0.5
-        + _score_component(volume_ratio_20d, 0.5, 2.2) * 0.15
-        + _score_component(drawdown_1y, -45, 0) * 0.1
-        + trend_bonus * 0.25
+    momentum_score = _weighted_score(
+        [
+            (_score_component(momentum_60d, -20, 40), 0.5),
+            (_score_component(volume_ratio_20d, 0.5, 2.2), 0.15),
+            (_score_component(drawdown_1y, -45, 0), 0.1),
+            (trend_bonus, 0.25),
+        ]
     )
-    total_score = round(value_score * 0.2 + quality_score * 0.3 + momentum_score * 0.5, 1)
+    total_score = round(
+        _weighted_score(
+            [
+                (value_score, 0.2),
+                (quality_score, 0.3),
+                (momentum_score, 0.5),
+            ]
+        )
+        or 0,
+        1,
+    )
 
     tags = []
     if is_bullish_alignment:

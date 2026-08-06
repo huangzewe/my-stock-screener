@@ -12,11 +12,11 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 from .export_static import generate_payload
-from .models import ScreenerFilters, ScreenerStock
+from .models import ScreenerFilters, ScreenerPayload, ScreenerStock
+from .screener import run_screener
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_UNIVERSE = PROJECT_ROOT / "backend" / "config" / "taiwan_universe.sample.csv"
 DEFAULT_ENV = PROJECT_ROOT / ".env"
 
 
@@ -186,7 +186,17 @@ def send_message(config: EmailConfig, message: EmailMessage) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Email Taiwan bullish-alignment screener results.")
-    parser.add_argument("--universe", type=Path, default=DEFAULT_UNIVERSE)
+    parser.add_argument(
+        "--universe",
+        type=Path,
+        default=None,
+        help="Optional CSV override. By default the complete TWSE/TPEx market is refreshed.",
+    )
+    parser.add_argument(
+        "--data",
+        type=Path,
+        help="Use an existing screener JSON file instead of downloading the market again.",
+    )
     parser.add_argument("--to", help="Recipient email. Overrides SCREENER_EMAIL_TO.")
     parser.add_argument("--min-score", type=float, default=0)
     parser.add_argument("--max-pe", type=float, default=999)
@@ -204,8 +214,16 @@ def main() -> None:
         min_momentum_60d=args.min_momentum_60d,
         min_volume_ratio=args.min_volume_ratio,
     )
-    payload = generate_payload(args.universe, filters)
-    stocks = payload.stocks
+    if args.data:
+        payload = ScreenerPayload.model_validate_json(args.data.read_text(encoding="utf-8"))
+        stocks = run_screener(payload.stocks, filters)
+    else:
+        payload = generate_payload(
+            args.universe,
+            filters,
+            full_taiwan_market=args.universe is None,
+        )
+        stocks = payload.stocks
     generated_at = payload.generated_at.astimezone().strftime("%Y-%m-%d %H:%M")
     subject = f"台股多頭排列清單：{len(stocks)} 檔符合條件"
     text = build_text(stocks, generated_at, payload.universe_size)

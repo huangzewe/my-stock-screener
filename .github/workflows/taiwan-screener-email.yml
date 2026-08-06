@@ -1,25 +1,23 @@
-name: Taiwan Bullish Screener Email
+name: Daily Taiwan Market Screener
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 8 * * *"
-      timezone: "Asia/Taipei"
-    - cron: "0 22 * * *"
+    - cron: "30 18 * * 1-5"
       timezone: "Asia/Taipei"
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: taiwan-screener-email
   cancel-in-progress: false
 
 jobs:
-  send-email:
-    name: Send Taiwan bullish screener email
+  refresh-and-send:
+    name: Refresh full market and send report
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
 
     steps:
       - name: Checkout repository
@@ -35,6 +33,22 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
 
+      - name: Refresh complete Taiwan market data
+        run: >-
+          python -m backend.app.export_static
+          --full-taiwan-market
+          --min-score 0
+          --max-pe 999
+          --include-non-bullish
+
+      - name: Publish latest dataset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/screener-data.json backend/config/taiwan_universe.csv
+          git diff --cached --quiet || git commit -m "Update daily Taiwan market data"
+          git push
+
       - name: Send report
         env:
           SCREENER_EMAIL_TO: ${{ secrets.SCREENER_EMAIL_TO }}
@@ -46,4 +60,4 @@ jobs:
           SMTP_FROM_NAME: ${{ secrets.SMTP_FROM_NAME }}
           SMTP_USE_TLS: "true"
           SMTP_USE_SSL: "false"
-        run: python -m backend.app.email_report
+        run: python -m backend.app.email_report --data public/data/screener-data.json

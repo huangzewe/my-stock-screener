@@ -56,5 +56,7 @@ class ScreenerPayload(BaseModel):
     generated_at: datetime
     source: str
     universe_size: int
+    processed_size: int = 0
+    failed_size: int = 0
     filters: ScreenerFilters
     stocks: list[ScreenerStock]
