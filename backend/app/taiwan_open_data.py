@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import time
+from datetime import date
 from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -11,6 +12,7 @@ TWSE_COMPANIES_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap03_L"
 TPEX_COMPANIES_URL = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O"
 TWSE_VALUATIONS_URL = "https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL"
 TPEX_VALUATIONS_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis"
+TWSE_STOCK_DAY_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY"
 
 
 # Official industry codes shared by the TWSE and TPEx company datasets.
@@ -55,8 +57,7 @@ INDUSTRY_NAMES = {
 }
 
 
-def fetch_json(url: str, *, timeout: int = 60, attempts: int = 3) -> list[dict[str, Any]]:
-    """Download a public market dataset with bounded retries."""
+def _request_json(url: str, *, timeout: int = 60, attempts: int = 3) -> Any:
     last_error: Exception | None = None
     for attempt in range(attempts):
         try:
@@ -68,15 +69,20 @@ def fetch_json(url: str, *, timeout: int = 60, attempts: int = 3) -> list[dict[s
                 },
             )
             with urlopen(request, timeout=timeout) as response:
-                payload = json.load(response)
-            if not isinstance(payload, list):
-                raise ValueError(f"Expected a JSON list from {url}")
-            return payload
+                return json.load(response)
         except (HTTPError, URLError, TimeoutError, ValueError, json.JSONDecodeError) as error:
             last_error = error
             if attempt + 1 < attempts:
                 time.sleep(2**attempt)
     raise RuntimeError(f"Unable to download {url}: {last_error}") from last_error
+
+
+def fetch_json(url: str, *, timeout: int = 60, attempts: int = 3) -> list[dict[str, Any]]:
+    """Download a public market dataset with bounded retries."""
+    payload = _request_json(url, timeout=timeout, attempts=attempts)
+    if not isinstance(payload, list):
+        raise ValueError(f"Expected a JSON list from {url}")
+    return payload
 
 
 def clean_number(value: object) -> float | None:
@@ -119,3 +125,33 @@ def fetch_taiwan_valuations() -> dict[str, dict[str, float | None]]:
             }
 
     return valuations
+
+
+def _month_starts(end: date, count: int) -> list[date]:
+    months: list[date] = []
+    year, month = end.year, end.month
+    for _ in range(count):
+        months.append(date(year, month, 1))
+        month -= 1
+        if month == 0:
+            year -= 1
+            month = 12
+    return months
+
+
+def fetch_taiwan_trading_dates(*, months: int = 15, end: date | None = None) -> set[date]:
+    """Use the official TWSE daily record to identify real Taiwan trading days."""
+    trading_dates: set[date] = set()
+    for month_start in _month_starts(end or date.today(), months):
+        query_date = month_start.strftime("%Y%m%d")
+        url = f"{TWSE_STOCK_DAY_URL}?date={query_date}&stockNo=2330&response=json"
+        payload = _request_json(url)
+        for row in payload.get("data", []) if isinstance(payload, dict) else []:
+            try:
+                roc_year, month, day = (int(part) for part in str(row[0]).split("/"))
+                trading_dates.add(date(roc_year + 1911, month, day))
+            except (IndexError, TypeError, ValueError):
+                continue
+    if not trading_dates:
+        raise RuntimeError("TWSE returned no trading dates")
+    return trading_dates

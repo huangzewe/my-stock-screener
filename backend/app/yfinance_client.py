@@ -8,7 +8,7 @@ import pandas as pd
 import yfinance as yf
 
 from .models import UniverseStock
-from .taiwan_open_data import fetch_taiwan_valuations
+from .taiwan_open_data import fetch_taiwan_trading_dates, fetch_taiwan_valuations
 
 
 @dataclass(frozen=True)
@@ -46,6 +46,13 @@ def _ticker_history(frame: pd.DataFrame, symbol: str, batch_size: int) -> pd.Dat
         return pd.DataFrame()
 
 
+def _filter_taiwan_trading_days(history: pd.DataFrame, trading_dates: set) -> pd.DataFrame:
+    if history.empty or not trading_dates:
+        return history
+    mask = [timestamp.date() in trading_dates for timestamp in history.index]
+    return history.loc[mask].copy()
+
+
 def fetch_snapshots(
     stocks: list[UniverseStock],
     *,
@@ -55,11 +62,16 @@ def fetch_snapshots(
 ) -> tuple[list[MarketSnapshot], list[str]]:
     """Fetch price histories in batches and enrich Taiwan stocks with official valuations."""
     valuations: dict[str, dict] = {}
+    trading_dates: set = set()
     if any(stock.market in {"TW", "TWO"} for stock in stocks):
         try:
             valuations = fetch_taiwan_valuations()
         except Exception as error:
             print(f"[warn] valuation data unavailable: {error}")
+        try:
+            trading_dates = fetch_taiwan_trading_dates()
+        except Exception as error:
+            print(f"[warn] official trading calendar unavailable: {error}")
 
     snapshots: list[MarketSnapshot] = []
     failed: list[str] = []
@@ -104,6 +116,11 @@ def fetch_snapshots(
             if history is None:
                 failed.append(stock.symbol)
                 continue
+            if stock.market in {"TW", "TWO"}:
+                history = _filter_taiwan_trading_days(history, trading_dates)
+                if history.empty:
+                    failed.append(stock.symbol)
+                    continue
             snapshots.append(
                 MarketSnapshot(
                     stock=stock,

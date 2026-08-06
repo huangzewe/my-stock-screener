@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import unittest
+from datetime import date
 from unittest.mock import patch
 
 import pandas as pd
@@ -8,7 +9,7 @@ import pandas as pd
 from backend.app.factors import build_stock
 from backend.app.models import UniverseStock
 from backend.app.universe import load_full_taiwan_universe
-from backend.app.yfinance_client import MarketSnapshot
+from backend.app.yfinance_client import MarketSnapshot, _filter_taiwan_trading_days
 
 
 class FullMarketUniverseTests(unittest.TestCase):
@@ -62,6 +63,21 @@ class FactorCoverageTests(unittest.TestCase):
         self.assertIsNone(stock.roe)
         self.assertGreater(stock.score, 50)
         self.assertLessEqual(stock.score, 100)
+
+
+class TradingCalendarTests(unittest.TestCase):
+    def test_phantom_holiday_quote_is_removed_before_moving_average(self) -> None:
+        history = pd.DataFrame(
+            {"Close": [100, 999, 101], "Volume": [10, 10, 10]},
+            index=pd.to_datetime(["2026-07-09", "2026-07-10", "2026-07-13"]),
+        )
+
+        filtered = _filter_taiwan_trading_days(
+            history,
+            {date(2026, 7, 9), date(2026, 7, 13)},
+        )
+
+        self.assertEqual(filtered["Close"].tolist(), [100, 101])
 
 
 if __name__ == "__main__":

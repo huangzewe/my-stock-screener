@@ -3,7 +3,7 @@ name: Daily Taiwan Market Screener
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 18 * * 1-5"
+    - cron: "0 22 * * 1-5"
       timezone: "Asia/Taipei"
 
 permissions:
