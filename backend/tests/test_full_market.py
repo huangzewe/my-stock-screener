@@ -8,6 +8,7 @@ import pandas as pd
 
 from backend.app.factors import build_stock
 from backend.app.models import UniverseStock
+from backend.app.official_daily import fetch_official_daily_quotes
 from backend.app.universe import load_full_taiwan_universe
 from backend.app.yfinance_client import MarketSnapshot, _filter_taiwan_trading_days
 
@@ -78,6 +79,32 @@ class TradingCalendarTests(unittest.TestCase):
         )
 
         self.assertEqual(filtered["Close"].tolist(), [100, 101])
+
+    @patch("backend.app.official_daily.fetch_json")
+    def test_bulk_official_quotes_cover_listed_and_otc_stocks(self, fetch_json_mock) -> None:
+        fetch_json_mock.side_effect = [
+            [
+                {
+                    "Date": "1150807",
+                    "Code": "2330",
+                    "ClosingPrice": "2,370.00",
+                    "TradeVolume": "12,345",
+                }
+            ],
+            [
+                {
+                    "Date": "1150807",
+                    "SecuritiesCompanyCode": "6488",
+                    "Close": "880.00",
+                    "TradingShares": "6,789",
+                }
+            ],
+        ]
+
+        quotes = fetch_official_daily_quotes()
+
+        self.assertEqual(quotes["2330.TW"], (date(2026, 8, 7), 2370.0, 12345.0))
+        self.assertEqual(quotes["6488.TWO"], (date(2026, 8, 7), 880.0, 6789.0))
 
 
 if __name__ == "__main__":

@@ -3,7 +3,8 @@ name: Daily Taiwan Market Screener
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 22 * * 1-5"
+    # Start a few minutes early because GitHub scheduled jobs are not real-time.
+    - cron: "55 21 * * *"
       timezone: "Asia/Taipei"
 
 permissions:
@@ -11,13 +12,13 @@ permissions:
 
 concurrency:
   group: taiwan-screener-email
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   refresh-and-send:
-    name: Refresh full market and send report
+    name: Refresh official market data and send report
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
@@ -34,22 +35,18 @@ jobs:
           python -m pip install -r backend/requirements.txt
 
       - name: Refresh complete Taiwan market data
+        timeout-minutes: 5
+        continue-on-error: true
         run: >-
           python -m backend.app.export_static
           --full-taiwan-market
+          --official-daily
           --min-score 0
           --max-pe 999
           --include-non-bullish
 
-      - name: Publish latest dataset
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/screener-data.json backend/config/taiwan_universe.csv
-          git diff --cached --quiet || git commit -m "Update daily Taiwan market data"
-          git push
-
       - name: Send report
+        if: always()
         env:
           SCREENER_EMAIL_TO: ${{ secrets.SCREENER_EMAIL_TO }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
@@ -60,4 +57,19 @@ jobs:
           SMTP_FROM_NAME: ${{ secrets.SMTP_FROM_NAME }}
           SMTP_USE_TLS: "true"
           SMTP_USE_SSL: "false"
-        run: python -m backend.app.email_report --data public/data/screener-data.json
+        run: |
+          for attempt in 1 2 3; do
+            python -m backend.app.email_report --data public/data/screener-data.json && exit 0
+            echo "Email attempt ${attempt} failed; retrying..."
+            sleep 20
+          done
+          exit 1
+
+      - name: Publish latest dataset
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/screener-data.json backend/config/taiwan_universe.csv backend/data/taiwan_history.json
+          git diff --cached --quiet || git commit -m "Update daily Taiwan market data"
+          git push

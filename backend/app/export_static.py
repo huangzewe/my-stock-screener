@@ -7,6 +7,7 @@ from pathlib import Path
 
 from .factors import build_stock
 from .models import ScreenerFilters, ScreenerPayload
+from .official_daily import snapshots_from_history, update_history_store
 from .screener import run_screener
 from .universe import load_full_taiwan_universe, load_universe, write_universe
 from .yfinance_client import fetch_snapshots
@@ -15,6 +16,7 @@ from .yfinance_client import fetch_snapshots
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_UNIVERSE = PROJECT_ROOT / "backend" / "config" / "watchlist.sample.csv"
 FULL_TAIWAN_UNIVERSE = PROJECT_ROOT / "backend" / "config" / "taiwan_universe.csv"
+TAIWAN_HISTORY = PROJECT_ROOT / "backend" / "data" / "taiwan_history.json"
 BACKEND_OUTPUT = PROJECT_ROOT / "backend" / "storage" / "screener-data.json"
 FRONTEND_OUTPUT = PROJECT_ROOT / "public" / "data" / "screener-data.json"
 
@@ -24,6 +26,7 @@ def generate_payload(
     filters: ScreenerFilters,
     *,
     full_taiwan_market: bool = False,
+    official_daily: bool = False,
 ) -> ScreenerPayload:
     if full_taiwan_market:
         universe = load_full_taiwan_universe()
@@ -35,7 +38,12 @@ def generate_payload(
 
     stocks = []
 
-    snapshots, failed_symbols = fetch_snapshots(universe)
+    if official_daily:
+        history_payload, latest_market_date = update_history_store(TAIWAN_HISTORY, universe)
+        snapshots, failed_symbols = snapshots_from_history(universe, history_payload)
+        print(f"[ok] official market history updated through {latest_market_date}")
+    else:
+        snapshots, failed_symbols = fetch_snapshots(universe)
     for snapshot in snapshots:
         try:
             screener_stock = build_stock(snapshot)
@@ -49,7 +57,13 @@ def generate_payload(
     results = run_screener(stocks, filters)
     return ScreenerPayload(
         generated_at=datetime.now(timezone.utc),
-        source="TWSE/TPEx + yfinance" if full_taiwan_market else "yfinance",
+        source=(
+            "TWSE/TPEx official daily"
+            if official_daily
+            else "TWSE/TPEx + yfinance"
+            if full_taiwan_market
+            else "yfinance"
+        ),
         universe_size=len(universe),
         processed_size=len(stocks),
         failed_size=len(set(failed_symbols)),
@@ -74,6 +88,11 @@ def main() -> None:
         action="store_true",
         help="Refresh and scan every TWSE and TPEx company.",
     )
+    parser.add_argument(
+        "--official-daily",
+        action="store_true",
+        help="Update from the exchanges' bulk daily quotes and the rolling history cache.",
+    )
     parser.add_argument("--min-score", type=float, default=55)
     parser.add_argument("--max-pe", type=float, default=60)
     parser.add_argument("--min-roe", type=float, default=-100)
@@ -94,6 +113,7 @@ def main() -> None:
         args.universe,
         filters,
         full_taiwan_market=args.full_taiwan_market,
+        official_daily=args.official_daily,
     )
     write_payload(payload, [BACKEND_OUTPUT, FRONTEND_OUTPUT])
 
