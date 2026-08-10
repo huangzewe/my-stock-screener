@@ -13,6 +13,21 @@ from .taiwan_open_data import (
 )
 
 
+EXCLUDED_INDUSTRIES = frozenset(
+    {
+        "紡織纖維",
+        "建材營造",
+        "貿易百貨",
+        "居家生活",
+        "生技醫療業",
+        "綠能環保",
+        "橡膠工業",
+        "金融保險",
+        "運動休閒",
+    }
+)
+
+
 def load_universe(path: Path) -> list[UniverseStock]:
     with path.open("r", encoding="utf-8-sig", newline="") as file:
         rows = csv.DictReader(file)
@@ -43,12 +58,15 @@ def load_full_taiwan_universe() -> list[UniverseStock]:
         code = str(row.get("公司代號") or "").strip()
         if not _valid_common_stock_code(code):
             continue
+        industry = industry_name(row.get("產業別"))
+        if industry in EXCLUDED_INDUSTRIES:
+            continue
         stocks.append(
             UniverseStock(
                 symbol=f"{code}.TW",
                 name=str(row.get("公司簡稱") or row.get("公司名稱") or code).strip(),
                 market="TW",
-                industry=industry_name(row.get("產業別")),
+                industry=industry,
             )
         )
 
@@ -56,12 +74,15 @@ def load_full_taiwan_universe() -> list[UniverseStock]:
         code = str(row.get("SecuritiesCompanyCode") or "").strip()
         if not _valid_common_stock_code(code):
             continue
+        industry = industry_name(row.get("SecuritiesIndustryCode"))
+        if industry in EXCLUDED_INDUSTRIES:
+            continue
         stocks.append(
             UniverseStock(
                 symbol=f"{code}.TWO",
                 name=str(row.get("CompanyAbbreviation") or row.get("CompanyName") or code).strip(),
                 market="TWO",
-                industry=industry_name(row.get("SecuritiesIndustryCode")),
+                industry=industry,
             )
         )
 
