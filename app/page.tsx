@@ -108,13 +108,13 @@ export default function Home() {
   const [market, setMarket] = useState<"ALL" | Market>("ALL");
   const [industry, setIndustry] = useState("ALL");
   const [bullishOnly, setBullishOnly] = useState(false);
-  const [minScore, setMinScore] = useState(45);
+  const [minScore, setMinScore] = useState(0);
   const [maxPe, setMaxPe] = useState(999);
   const [minRoe, setMinRoe] = useState(-100);
   const [minMomentum, setMinMomentum] = useState(-100);
   const [minVolumeRatio, setMinVolumeRatio] = useState(0);
   const [sortKey, setSortKey] = useState<SortKey>("score");
-  const [watchlist, setWatchlist] = useState<string[]>(["2330.TW", "MSFT", "NVDA"]);
+  const [watchlist, setWatchlist] = useState<string[]>(["2330.TW", "2454.TW", "2317.TW"]);
 
   const loadData = async () => {
     setLoading(true);
@@ -382,7 +382,7 @@ export default function Home() {
         </header>
 
         {error && <div className="status-banner">{error}</div>}
-        {loading && <div className="status-banner">正在讀取 yfinance 篩選資料...</div>}
+        {loading && <div className="status-banner">正在讀取台股全市場篩選資料...</div>}
         {isSearchMode && (
           <div className="status-banner">
             搜尋模式：已暫時略過所有篩選條件，並會即時查詢 Yahoo Finance 代號。
@@ -534,7 +534,18 @@ export default function Home() {
             {filtered.map((stock) => (
               <div className="table-row" role="row" key={stock.symbol}>
                 <div className="stock-cell">
-                  <strong>{stock.symbol}</strong>
+                  <div className="stock-symbol-line">
+                    <strong>{stock.symbol}</strong>
+                    <button
+                      className={`watch-toggle ${watchlist.includes(stock.symbol) ? "active" : ""}`}
+                      type="button"
+                      aria-label={`${watchlist.includes(stock.symbol) ? "移除" : "加入"}${stock.name}自選股`}
+                      aria-pressed={watchlist.includes(stock.symbol)}
+                      onClick={() => toggleWatch(stock.symbol)}
+                    >
+                      <Star size={14} fill={watchlist.includes(stock.symbol) ? "currentColor" : "none"} />
+                    </button>
+                  </div>
                   <small>{stock.name}</small>
                   <div className="tag-row">
                     {stock.tags.map((tag) => (

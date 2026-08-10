@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T06:12:14.823083Z",
+  "generated_at": "2026-08-10T06:23:37.762952Z",
   "source": "TWSE/TPEx official daily",
   "universe_size": 1500,
   "processed_size": 1500,
@@ -23,7 +23,7 @@
       "price": 52.9,
       "change_percent": 9.87,
       "pe": null,
-      "dividend_yield": 19.0,
+      "dividend_yield": 0.19,
       "pbr": 2.04,
       "roe": null,
       "gross_margin": null,
@@ -2484,7 +2484,7 @@
       "price": 823.0,
       "change_percent": -3.52,
       "pe": 152.69,
-      "dividend_yield": 18.0,
+      "dividend_yield": 0.18,
       "pbr": 9.75,
       "roe": 8.36,
       "gross_margin": 23.77,
@@ -5643,49 +5643,6 @@
       ]
     },
     {
-      "symbol": "3030.TW",
-      "name": "德律",
-      "market": "TW",
-      "industry": "其他電子業",
-      "currency": null,
-      "price": 290.0,
-      "change_percent": -1.86,
-      "pe": 21.97,
-      "dividend_yield": 2.41,
-      "pbr": 7.04,
-      "roe": 35.72,
-      "gross_margin": 59.41,
-      "debt_to_equity": 52.21,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 43.47,
-      "eps_growth_yoy": null,
-      "ma5": 293.2,
-      "ma20": 288.05,
-      "ma60": 331.48,
-      "is_bullish_alignment": false,
-      "alignment_gap": -12.51,
-      "momentum_60d": -29.95,
-      "momentum_120d": 59.78,
-      "volume_ratio_20d": 0.6,
-      "drawdown_1y": -30.87,
-      "score": 51.3,
-      "value_score": 59.5,
-      "quality_growth_score": 89.7,
-      "momentum_score": 24.0,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "品質與成長表現強",
-        "營收年增率突出"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
       "symbol": "2327.TW",
       "name": "國巨*",
       "market": "TW",
@@ -6441,6 +6398,49 @@
         "科技優先",
         "營收成長",
         "動能強"
+      ]
+    },
+    {
+      "symbol": "3014.TW",
+      "name": "聯陽",
+      "market": "TW",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 135.0,
+      "change_percent": 3.45,
+      "pe": 13.64,
+      "dividend_yield": 6.3,
+      "pbr": 3.05,
+      "roe": 25.78,
+      "gross_margin": 57.21,
+      "debt_to_equity": 50.4,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.12,
+      "eps_growth_yoy": null,
+      "ma5": 130.0,
+      "ma20": 129.1,
+      "ma60": 143.46,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.9,
+      "momentum_60d": -1.82,
+      "momentum_120d": 14.41,
+      "volume_ratio_20d": 3.32,
+      "drawdown_1y": -19.88,
+      "score": 49.1,
+      "value_score": 86.8,
+      "quality_growth_score": 56.5,
+      "momentum_score": 35.9,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "低 PE 可能反映景氣循環下行"
+      ],
+      "tags": [
+        "科技優先"
       ]
     },
     {
@@ -7595,50 +7595,6 @@
       ]
     },
     {
-      "symbol": "3014.TW",
-      "name": "聯陽",
-      "market": "TW",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 135.0,
-      "change_percent": 3.45,
-      "pe": 13.64,
-      "dividend_yield": 6.3,
-      "pbr": 3.05,
-      "roe": 25.78,
-      "gross_margin": 57.21,
-      "debt_to_equity": 50.4,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -112.01,
-      "eps_growth_yoy": null,
-      "ma5": 130.0,
-      "ma20": 129.1,
-      "ma60": 143.46,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.9,
-      "momentum_60d": -1.82,
-      "momentum_120d": 14.41,
-      "volume_ratio_20d": 3.32,
-      "drawdown_1y": -19.88,
-      "score": 47.4,
-      "value_score": 86.8,
-      "quality_growth_score": 51.8,
-      "momentum_score": 35.9,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "低 PE 可能反映景氣循環下行"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "5484.TW",
       "name": "慧友",
       "market": "TW",
@@ -8443,7 +8399,7 @@
       "price": 77.9,
       "change_percent": -1.89,
       "pe": 432.78,
-      "dividend_yield": 6.0,
+      "dividend_yield": 0.06,
       "pbr": 1.98,
       "roe": null,
       "gross_margin": null,
@@ -8604,50 +8560,6 @@
       "tags": [
         "科技優先",
         "營收成長"
-      ]
-    },
-    {
-      "symbol": "6680.TWO",
-      "name": "鑫創電子",
-      "market": "TWO",
-      "industry": "電腦及週邊設備業",
-      "currency": null,
-      "price": 56.12,
-      "change_percent": 0.0,
-      "pe": 61.49,
-      "dividend_yield": 0.52,
-      "pbr": 2.53,
-      "roe": 72.0,
-      "gross_margin": 34.32,
-      "debt_to_equity": 178.11,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 6.99,
-      "eps_growth_yoy": null,
-      "ma5": 53.96,
-      "ma20": 53.35,
-      "ma60": 52.32,
-      "is_bullish_alignment": true,
-      "alignment_gap": 7.25,
-      "momentum_60d": 2.3,
-      "momentum_120d": -13.34,
-      "volume_ratio_20d": 0.0,
-      "drawdown_1y": -21.89,
-      "score": 45.6,
-      "value_score": 31.9,
-      "quality_growth_score": 50.0,
-      "momentum_score": 45.7,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "股價維持多頭排列"
-      ],
-      "risks": [
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先",
-        "多頭排列"
       ]
     },
     {
@@ -8867,52 +8779,6 @@
       "tags": [
         "科技優先",
         "營收成長"
-      ]
-    },
-    {
-      "symbol": "4976.TW",
-      "name": "佳凌",
-      "market": "TW",
-      "industry": "光電業",
-      "currency": null,
-      "price": 36.25,
-      "change_percent": -2.42,
-      "pe": null,
-      "dividend_yield": null,
-      "pbr": 2.34,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 62.14,
-      "eps_growth_yoy": null,
-      "ma5": 37.04,
-      "ma20": 34.89,
-      "ma60": 35.15,
-      "is_bullish_alignment": false,
-      "alignment_gap": 3.13,
-      "momentum_60d": 19.05,
-      "momentum_120d": 21.04,
-      "volume_ratio_20d": 0.63,
-      "drawdown_1y": -36.96,
-      "score": 45.3,
-      "value_score": 85.1,
-      "quality_growth_score": 100.0,
-      "momentum_score": 32.3,
-      "data_completeness": 56.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "品質與成長表現強",
-        "營收年增率突出"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先",
-        "營收成長",
-        "動能強"
       ]
     },
     {
@@ -9348,49 +9214,6 @@
       "risks": [
         "可用資料偏少，分數不確定性較高"
       ],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
-      "symbol": "3150.TW",
-      "name": "鈺寶-創",
-      "market": "TW",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 16.65,
-      "change_percent": 3.1,
-      "pe": null,
-      "dividend_yield": 3.0,
-      "pbr": 1.25,
-      "roe": 46.0,
-      "gross_margin": 44.8,
-      "debt_to_equity": 16.42,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 33.9,
-      "eps_growth_yoy": null,
-      "ma5": 16.26,
-      "ma20": 16.65,
-      "ma60": 18.29,
-      "is_bullish_alignment": false,
-      "alignment_gap": -8.95,
-      "momentum_60d": -11.67,
-      "momentum_120d": -5.67,
-      "volume_ratio_20d": 1.05,
-      "drawdown_1y": -29.89,
-      "score": 44.8,
-      "value_score": 97.2,
-      "quality_growth_score": 81.8,
-      "momentum_score": 15.7,
-      "data_completeness": 78.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "品質與成長表現強",
-        "營收年增率突出"
-      ],
-      "risks": [],
       "tags": [
         "科技優先",
         "營收成長"
@@ -9837,6 +9660,50 @@
       ]
     },
     {
+      "symbol": "6269.TW",
+      "name": "台郡",
+      "market": "TW",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 66.6,
+      "change_percent": 3.26,
+      "pe": null,
+      "dividend_yield": null,
+      "pbr": 1.02,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.99,
+      "eps_growth_yoy": null,
+      "ma5": 60.6,
+      "ma20": 56.57,
+      "ma60": 64.21,
+      "is_bullish_alignment": false,
+      "alignment_gap": 3.72,
+      "momentum_60d": 18.93,
+      "momentum_120d": 12.5,
+      "volume_ratio_20d": 3.38,
+      "drawdown_1y": -23.89,
+      "score": 44.3,
+      "value_score": 99.8,
+      "quality_growth_score": 18.0,
+      "momentum_score": 44.3,
+      "data_completeness": 56.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先",
+        "動能強"
+      ]
+    },
+    {
       "symbol": "3555.TWO",
       "name": "博士旺",
       "market": "TWO",
@@ -10232,6 +10099,47 @@
       ]
     },
     {
+      "symbol": "3030.TW",
+      "name": "德律",
+      "market": "TW",
+      "industry": "其他電子業",
+      "currency": null,
+      "price": 290.0,
+      "change_percent": -1.86,
+      "pe": 21.97,
+      "dividend_yield": 2.41,
+      "pbr": 7.04,
+      "roe": 35.72,
+      "gross_margin": 59.41,
+      "debt_to_equity": 52.21,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.43,
+      "eps_growth_yoy": null,
+      "ma5": 293.2,
+      "ma20": 288.05,
+      "ma60": 331.48,
+      "is_bullish_alignment": false,
+      "alignment_gap": -12.51,
+      "momentum_60d": -29.95,
+      "momentum_120d": 59.78,
+      "volume_ratio_20d": 0.6,
+      "drawdown_1y": -30.87,
+      "score": 43.8,
+      "value_score": 59.5,
+      "quality_growth_score": 68.6,
+      "momentum_score": 24.0,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "品質與成長表現強"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "2397.TW",
       "name": "友通",
       "market": "TW",
@@ -10269,51 +10177,6 @@
         "估值相對合理"
       ],
       "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
-      "symbol": "3672.TWO",
-      "name": "康聯訊",
-      "market": "TWO",
-      "industry": "通信網路業",
-      "currency": null,
-      "price": 12.5,
-      "change_percent": -3.1,
-      "pe": null,
-      "dividend_yield": 0.0,
-      "pbr": 1.64,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 66.8,
-      "eps_growth_yoy": null,
-      "ma5": 12.79,
-      "ma20": 13.03,
-      "ma60": 12.22,
-      "is_bullish_alignment": false,
-      "alignment_gap": 2.25,
-      "momentum_60d": 10.62,
-      "momentum_120d": 5.93,
-      "volume_ratio_20d": 0.03,
-      "drawdown_1y": -21.38,
-      "score": 43.7,
-      "value_score": 92.9,
-      "quality_growth_score": 100.0,
-      "momentum_score": 29.6,
-      "data_completeness": 56.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "品質與成長表現強",
-        "營收年增率突出"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
       "tags": [
         "科技優先",
         "營收成長"
@@ -10365,44 +10228,47 @@
       ]
     },
     {
-      "symbol": "3504.TW",
-      "name": "揚明光",
-      "market": "TW",
-      "industry": "光電業",
+      "symbol": "6241.TWO",
+      "name": "鑫永洋",
+      "market": "TWO",
+      "industry": "通信網路業",
       "currency": null,
-      "price": 73.6,
-      "change_percent": -4.54,
-      "pe": null,
-      "dividend_yield": null,
-      "pbr": 2.95,
-      "roe": 78.0,
-      "gross_margin": 17.3,
-      "debt_to_equity": 56.56,
+      "price": 15.85,
+      "change_percent": 2.92,
+      "pe": 63.4,
+      "dividend_yield": 0.0,
+      "pbr": 2.04,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
       "peg": null,
       "free_cashflow_yield": null,
-      "revenue_growth_yoy": -2.38,
+      "revenue_growth_yoy": -1.18,
       "eps_growth_yoy": null,
-      "ma5": 76.14,
-      "ma20": 68.72,
-      "ma60": 76.55,
+      "ma5": 16.2,
+      "ma20": 16.57,
+      "ma60": 13.91,
       "is_bullish_alignment": false,
-      "alignment_gap": -3.86,
-      "momentum_60d": 11.18,
-      "momentum_120d": 36.3,
-      "volume_ratio_20d": 0.8,
-      "drawdown_1y": -19.56,
+      "alignment_gap": 13.94,
+      "momentum_60d": 66.14,
+      "momentum_120d": 23.35,
+      "volume_ratio_20d": 0.39,
+      "drawdown_1y": -15.69,
       "score": 43.7,
-      "value_score": 78.3,
-      "quality_growth_score": 45.7,
-      "momentum_score": 39.4,
-      "data_completeness": 78.8,
+      "value_score": 34.0,
+      "quality_growth_score": 17.6,
+      "momentum_score": 50.5,
+      "data_completeness": 62.8,
       "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
+        "符合科技產業偏好"
       ],
-      "risks": [],
+      "risks": [
+        "可用資料偏少，分數不確定性較高",
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
       "tags": [
-        "科技優先"
+        "科技優先",
+        "動能強"
       ]
     },
     {
@@ -10547,7 +10413,7 @@
       "price": 67.8,
       "change_percent": 6.1,
       "pe": null,
-      "dividend_yield": 15.0,
+      "dividend_yield": 0.15,
       "pbr": 5.42,
       "roe": null,
       "gross_margin": null,
@@ -10709,6 +10575,47 @@
         "科技優先",
         "營收成長",
         "動能強"
+      ]
+    },
+    {
+      "symbol": "3652.TW",
+      "name": "精聯",
+      "market": "TW",
+      "industry": "電腦及週邊設備業",
+      "currency": null,
+      "price": 33.9,
+      "change_percent": -0.88,
+      "pe": 16.46,
+      "dividend_yield": 3.54,
+      "pbr": 1.32,
+      "roe": 8.74,
+      "gross_margin": 34.58,
+      "debt_to_equity": 41.76,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.21,
+      "eps_growth_yoy": null,
+      "ma5": 31.73,
+      "ma20": 31.09,
+      "ma60": 33.76,
+      "is_bullish_alignment": false,
+      "alignment_gap": 0.41,
+      "momentum_60d": 13.0,
+      "momentum_120d": 19.79,
+      "volume_ratio_20d": 2.76,
+      "drawdown_1y": -20.61,
+      "score": 43.2,
+      "value_score": 90.7,
+      "quality_growth_score": 26.2,
+      "momentum_score": 44.3,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
       ]
     },
     {
@@ -11153,7 +11060,7 @@
       "price": 2305.0,
       "change_percent": -2.95,
       "pe": 302.89,
-      "dividend_yield": 17.0,
+      "dividend_yield": 0.17,
       "pbr": 50.31,
       "roe": null,
       "gross_margin": null,
@@ -11198,7 +11105,7 @@
       "price": 421.0,
       "change_percent": -6.86,
       "pe": null,
-      "dividend_yield": 5.0,
+      "dividend_yield": 0.05,
       "pbr": 6.38,
       "roe": null,
       "gross_margin": null,
@@ -11551,7 +11458,7 @@
       "price": 1080.0,
       "change_percent": -2.26,
       "pe": 126.91,
-      "dividend_yield": 19.0,
+      "dividend_yield": 0.19,
       "pbr": 14.17,
       "roe": 14.5,
       "gross_margin": 20.73,
@@ -11807,6 +11714,47 @@
       ]
     },
     {
+      "symbol": "2484.TW",
+      "name": "希華",
+      "market": "TW",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 71.7,
+      "change_percent": 0.7,
+      "pe": 51.58,
+      "dividend_yield": 0.98,
+      "pbr": 2.79,
+      "roe": 6.72,
+      "gross_margin": 24.64,
+      "debt_to_equity": 23.87,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.4,
+      "eps_growth_yoy": null,
+      "ma5": 69.38,
+      "ma20": 71.9,
+      "ma60": 66.21,
+      "is_bullish_alignment": false,
+      "alignment_gap": 8.3,
+      "momentum_60d": 89.18,
+      "momentum_120d": 160.73,
+      "volume_ratio_20d": 0.74,
+      "drawdown_1y": -25.62,
+      "score": 42.0,
+      "value_score": 41.2,
+      "quality_growth_score": 20.2,
+      "momentum_score": 56.8,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先",
+        "動能強"
+      ]
+    },
+    {
       "symbol": "6207.TWO",
       "name": "雷科",
       "market": "TWO",
@@ -11892,94 +11840,6 @@
       "tags": [
         "科技優先",
         "營收成長"
-      ]
-    },
-    {
-      "symbol": "2471.TW",
-      "name": "資通",
-      "market": "TW",
-      "industry": "資訊服務業",
-      "currency": null,
-      "price": 48.4,
-      "change_percent": -0.1,
-      "pe": 10.0,
-      "dividend_yield": 6.84,
-      "pbr": 2.64,
-      "roe": 17.5,
-      "gross_margin": 38.09,
-      "debt_to_equity": 92.25,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 36.64,
-      "eps_growth_yoy": null,
-      "ma5": 48.59,
-      "ma20": 49.69,
-      "ma60": 51.56,
-      "is_bullish_alignment": false,
-      "alignment_gap": -6.12,
-      "momentum_60d": -4.91,
-      "momentum_120d": -4.91,
-      "volume_ratio_20d": 0.36,
-      "drawdown_1y": -11.68,
-      "score": 41.8,
-      "value_score": 93.0,
-      "quality_growth_score": 53.5,
-      "momentum_score": 22.9,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "營收年增率突出",
-        "估值相對合理"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
-      "symbol": "6269.TW",
-      "name": "台郡",
-      "market": "TW",
-      "industry": "電子零組件業",
-      "currency": null,
-      "price": 66.6,
-      "change_percent": 3.26,
-      "pe": null,
-      "dividend_yield": null,
-      "pbr": 1.02,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -99.42,
-      "eps_growth_yoy": null,
-      "ma5": 60.6,
-      "ma20": 56.57,
-      "ma60": 64.21,
-      "is_bullish_alignment": false,
-      "alignment_gap": 3.72,
-      "momentum_60d": 18.93,
-      "momentum_120d": 12.5,
-      "volume_ratio_20d": 3.38,
-      "drawdown_1y": -23.89,
-      "score": 41.7,
-      "value_score": 99.8,
-      "quality_growth_score": 0.0,
-      "momentum_score": 44.3,
-      "data_completeness": 56.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先",
-        "動能強"
       ]
     },
     {
@@ -12070,49 +11930,6 @@
       ]
     },
     {
-      "symbol": "3652.TW",
-      "name": "精聯",
-      "market": "TW",
-      "industry": "電腦及週邊設備業",
-      "currency": null,
-      "price": 33.9,
-      "change_percent": -0.88,
-      "pe": 16.46,
-      "dividend_yield": 3.54,
-      "pbr": 1.32,
-      "roe": 8.74,
-      "gross_margin": 34.58,
-      "debt_to_equity": 41.76,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -120.72,
-      "eps_growth_yoy": null,
-      "ma5": 31.73,
-      "ma20": 31.09,
-      "ma60": 33.76,
-      "is_bullish_alignment": false,
-      "alignment_gap": 0.41,
-      "momentum_60d": 13.0,
-      "momentum_120d": 19.79,
-      "volume_ratio_20d": 2.76,
-      "drawdown_1y": -20.61,
-      "score": 41.6,
-      "value_score": 90.7,
-      "quality_growth_score": 21.6,
-      "momentum_score": 44.3,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "8049.TWO",
       "name": "晶采",
       "market": "TWO",
@@ -12151,51 +11968,6 @@
       "risks": [],
       "tags": [
         "科技優先"
-      ]
-    },
-    {
-      "symbol": "6241.TWO",
-      "name": "鑫永洋",
-      "market": "TWO",
-      "industry": "通信網路業",
-      "currency": null,
-      "price": 15.85,
-      "change_percent": 2.92,
-      "pe": 63.4,
-      "dividend_yield": 0.0,
-      "pbr": 2.04,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -117.94,
-      "eps_growth_yoy": null,
-      "ma5": 16.2,
-      "ma20": 16.57,
-      "ma60": 13.91,
-      "is_bullish_alignment": false,
-      "alignment_gap": 13.94,
-      "momentum_60d": 66.14,
-      "momentum_120d": 23.35,
-      "volume_ratio_20d": 0.39,
-      "drawdown_1y": -15.69,
-      "score": 41.5,
-      "value_score": 34.0,
-      "quality_growth_score": 0.0,
-      "momentum_score": 50.5,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高",
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先",
-        "動能強"
       ]
     },
     {
@@ -12410,49 +12182,6 @@
       "risks": [
         "可用資料偏少，分數不確定性較高"
       ],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
-      "symbol": "5344.TWO",
-      "name": "立衛",
-      "market": "TWO",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 13.8,
-      "change_percent": -3.83,
-      "pe": null,
-      "dividend_yield": 0.0,
-      "pbr": 2.17,
-      "roe": 135.0,
-      "gross_margin": 12.88,
-      "debt_to_equity": 25.27,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 21.52,
-      "eps_growth_yoy": null,
-      "ma5": 14.24,
-      "ma20": 14.76,
-      "ma60": 15.6,
-      "is_bullish_alignment": false,
-      "alignment_gap": -11.57,
-      "momentum_60d": -11.54,
-      "momentum_120d": -3.16,
-      "volume_ratio_20d": 4.74,
-      "drawdown_1y": -26.98,
-      "score": 41.3,
-      "value_score": 87.0,
-      "quality_growth_score": 61.2,
-      "momentum_score": 24.3,
-      "data_completeness": 78.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "營收年增率突出",
-        "估值相對合理"
-      ],
-      "risks": [],
       "tags": [
         "科技優先",
         "營收成長"
@@ -13026,49 +12755,6 @@
       ]
     },
     {
-      "symbol": "6556.TWO",
-      "name": "勝品",
-      "market": "TWO",
-      "industry": "光電業",
-      "currency": null,
-      "price": 68.5,
-      "change_percent": 0.29,
-      "pe": 10.52,
-      "dividend_yield": 5.11,
-      "pbr": 1.28,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 12.98,
-      "eps_growth_yoy": null,
-      "ma5": 66.26,
-      "ma20": 65.67,
-      "ma60": 69.59,
-      "is_bullish_alignment": false,
-      "alignment_gap": -1.57,
-      "momentum_60d": -1.3,
-      "momentum_120d": -0.44,
-      "volume_ratio_20d": 0.89,
-      "drawdown_1y": -13.73,
-      "score": 40.7,
-      "value_score": 98.2,
-      "quality_growth_score": 46.0,
-      "momentum_score": 27.3,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "3490.TWO",
       "name": "單井",
       "market": "TWO",
@@ -13373,49 +13059,6 @@
       ]
     },
     {
-      "symbol": "2484.TW",
-      "name": "希華",
-      "market": "TW",
-      "industry": "電子零組件業",
-      "currency": null,
-      "price": 71.7,
-      "change_percent": 0.7,
-      "pe": 51.58,
-      "dividend_yield": 0.98,
-      "pbr": 2.79,
-      "roe": 6.72,
-      "gross_margin": 24.64,
-      "debt_to_equity": 23.87,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -139.89,
-      "eps_growth_yoy": null,
-      "ma5": 69.38,
-      "ma20": 71.9,
-      "ma60": 66.21,
-      "is_bullish_alignment": false,
-      "alignment_gap": 8.3,
-      "momentum_60d": 89.18,
-      "momentum_120d": 160.73,
-      "volume_ratio_20d": 0.74,
-      "drawdown_1y": -25.62,
-      "score": 40.4,
-      "value_score": 41.2,
-      "quality_growth_score": 15.6,
-      "momentum_score": 56.8,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好"
-      ],
-      "risks": [
-        "營收年增明顯衰退"
-      ],
-      "tags": [
-        "科技優先",
-        "動能強"
-      ]
-    },
-    {
       "symbol": "6146.TWO",
       "name": "耕興",
       "market": "TWO",
@@ -13667,49 +13310,6 @@
       ],
       "risks": [
         "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "3531.TWO",
-      "name": "先益",
-      "market": "TWO",
-      "industry": "光電業",
-      "currency": null,
-      "price": 21.6,
-      "change_percent": -1.37,
-      "pe": 16.36,
-      "dividend_yield": 2.31,
-      "pbr": 0.71,
-      "roe": 108.0,
-      "gross_margin": 17.23,
-      "debt_to_equity": 21.39,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -27.59,
-      "eps_growth_yoy": null,
-      "ma5": 21.94,
-      "ma20": 22.41,
-      "ma60": 22.89,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.64,
-      "momentum_60d": -6.49,
-      "momentum_120d": 2.86,
-      "volume_ratio_20d": 0.61,
-      "drawdown_1y": -9.43,
-      "score": 39.9,
-      "value_score": 92.2,
-      "quality_growth_score": 44.8,
-      "momentum_score": 25.4,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退"
       ],
       "tags": [
         "科技優先"
@@ -14147,49 +13747,6 @@
       "risks": [],
       "tags": [
         "科技優先"
-      ]
-    },
-    {
-      "symbol": "3306.TWO",
-      "name": "鼎天",
-      "market": "TWO",
-      "industry": "通信網路業",
-      "currency": null,
-      "price": 43.65,
-      "change_percent": 0.58,
-      "pe": 99.2,
-      "dividend_yield": 3.89,
-      "pbr": 0.55,
-      "roe": 50.0,
-      "gross_margin": 24.93,
-      "debt_to_equity": 11.08,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 114.79,
-      "eps_growth_yoy": null,
-      "ma5": 43.36,
-      "ma20": 44.31,
-      "ma60": 46.56,
-      "is_bullish_alignment": false,
-      "alignment_gap": -6.25,
-      "momentum_60d": -2.02,
-      "momentum_120d": -6.83,
-      "volume_ratio_20d": 0.67,
-      "drawdown_1y": -36.56,
-      "score": 39.2,
-      "value_score": 38.5,
-      "quality_growth_score": 75.0,
-      "momentum_score": 15.6,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "品質與成長表現強",
-        "營收年增率突出"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
       ]
     },
     {
@@ -14679,48 +14236,6 @@
       ]
     },
     {
-      "symbol": "3527.TWO",
-      "name": "聚積",
-      "market": "TWO",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 50.8,
-      "change_percent": -1.55,
-      "pe": null,
-      "dividend_yield": 1.97,
-      "pbr": 1.01,
-      "roe": 60.0,
-      "gross_margin": 39.94,
-      "debt_to_equity": 20.84,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 19.61,
-      "eps_growth_yoy": null,
-      "ma5": 51.56,
-      "ma20": 54.58,
-      "ma60": 59.59,
-      "is_bullish_alignment": false,
-      "alignment_gap": -14.75,
-      "momentum_60d": -16.03,
-      "momentum_120d": -5.4,
-      "volume_ratio_20d": 0.67,
-      "drawdown_1y": -28.95,
-      "score": 38.6,
-      "value_score": 99.9,
-      "quality_growth_score": 71.2,
-      "momentum_score": 11.7,
-      "data_completeness": 78.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "品質與成長表現強",
-        "估值相對合理"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "7805.TWO",
       "name": "威聯通",
       "market": "TWO",
@@ -14891,48 +14406,6 @@
       "risks": [
         "可用資料偏少，分數不確定性較高"
       ],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
-      "symbol": "3564.TWO",
-      "name": "其陽",
-      "market": "TWO",
-      "industry": "通信網路業",
-      "currency": null,
-      "price": 46.3,
-      "change_percent": 0.54,
-      "pe": 128.61,
-      "dividend_yield": 0.58,
-      "pbr": 1.98,
-      "roe": 37.0,
-      "gross_margin": 24.45,
-      "debt_to_equity": 153.9,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 30.33,
-      "eps_growth_yoy": null,
-      "ma5": 45.35,
-      "ma20": 46.64,
-      "ma60": 47.14,
-      "is_bullish_alignment": false,
-      "alignment_gap": -1.77,
-      "momentum_60d": 11.7,
-      "momentum_120d": -2.42,
-      "volume_ratio_20d": 0.51,
-      "drawdown_1y": -25.68,
-      "score": 38.3,
-      "value_score": 34.3,
-      "quality_growth_score": 57.2,
-      "momentum_score": 26.6,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "營收年增率突出"
-      ],
-      "risks": [],
       "tags": [
         "科技優先",
         "營收成長"
@@ -15202,48 +14675,6 @@
       ]
     },
     {
-      "symbol": "6156.TWO",
-      "name": "松上",
-      "market": "TWO",
-      "industry": "電子零組件業",
-      "currency": null,
-      "price": 20.6,
-      "change_percent": -0.48,
-      "pe": 51.5,
-      "dividend_yield": 0.97,
-      "pbr": 0.96,
-      "roe": 76.0,
-      "gross_margin": 14.4,
-      "debt_to_equity": 178.51,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 55.51,
-      "eps_growth_yoy": null,
-      "ma5": 21.38,
-      "ma20": 23.15,
-      "ma60": 22.74,
-      "is_bullish_alignment": false,
-      "alignment_gap": -9.41,
-      "momentum_60d": 6.74,
-      "momentum_120d": 0.49,
-      "volume_ratio_20d": 0.49,
-      "drawdown_1y": -35.62,
-      "score": 38.0,
-      "value_score": 48.9,
-      "quality_growth_score": 60.0,
-      "momentum_score": 21.0,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "營收年增率突出"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
       "symbol": "7765.TW",
       "name": "中華資安",
       "market": "TW",
@@ -15282,49 +14713,6 @@
       "risks": [],
       "tags": [
         "科技優先"
-      ]
-    },
-    {
-      "symbol": "3679.TW",
-      "name": "新至陞",
-      "market": "TW",
-      "industry": "電子零組件業",
-      "currency": null,
-      "price": 110.5,
-      "change_percent": 0.0,
-      "pe": 9.35,
-      "dividend_yield": 8.14,
-      "pbr": 1.44,
-      "roe": 10.87,
-      "gross_margin": 29.88,
-      "debt_to_equity": 95.85,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 134.64,
-      "eps_growth_yoy": null,
-      "ma5": 109.6,
-      "ma20": 109.9,
-      "ma60": 114.11,
-      "is_bullish_alignment": false,
-      "alignment_gap": -3.16,
-      "momentum_60d": -6.75,
-      "momentum_120d": -2.64,
-      "volume_ratio_20d": 0.29,
-      "drawdown_1y": -15.0,
-      "score": 37.9,
-      "value_score": 98.1,
-      "quality_growth_score": 43.3,
-      "momentum_score": 21.3,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "營收年增率突出",
-        "估值相對合理"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
       ]
     },
     {
@@ -15716,6 +15104,49 @@
       "tags": [
         "科技優先",
         "營收成長"
+      ]
+    },
+    {
+      "symbol": "6556.TWO",
+      "name": "勝品",
+      "market": "TWO",
+      "industry": "光電業",
+      "currency": null,
+      "price": 68.5,
+      "change_percent": 0.29,
+      "pe": 10.52,
+      "dividend_yield": 5.11,
+      "pbr": 1.28,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.13,
+      "eps_growth_yoy": null,
+      "ma5": 66.26,
+      "ma20": 65.67,
+      "ma60": 69.59,
+      "is_bullish_alignment": false,
+      "alignment_gap": -1.57,
+      "momentum_60d": -1.3,
+      "momentum_120d": -0.44,
+      "volume_ratio_20d": 0.89,
+      "drawdown_1y": -13.73,
+      "score": 37.4,
+      "value_score": 98.2,
+      "quality_growth_score": 20.3,
+      "momentum_score": 27.3,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
       ]
     },
     {
@@ -16995,49 +16426,6 @@
       ]
     },
     {
-      "symbol": "6761.TWO",
-      "name": "穩得",
-      "market": "TWO",
-      "industry": "電子零組件業",
-      "currency": null,
-      "price": 153.0,
-      "change_percent": -3.77,
-      "pe": 20.62,
-      "dividend_yield": 3.92,
-      "pbr": 3.12,
-      "roe": 14.78,
-      "gross_margin": 38.17,
-      "debt_to_equity": 83.02,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 86.13,
-      "eps_growth_yoy": null,
-      "ma5": 150.5,
-      "ma20": 152.53,
-      "ma60": 184.03,
-      "is_bullish_alignment": false,
-      "alignment_gap": -16.86,
-      "momentum_60d": -20.31,
-      "momentum_120d": 5.52,
-      "volume_ratio_20d": 1.39,
-      "drawdown_1y": -33.48,
-      "score": 35.7,
-      "value_score": 77.9,
-      "quality_growth_score": 53.2,
-      "momentum_score": 14.9,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "營收年增率突出",
-        "估值相對合理"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
       "symbol": "7747.TWO",
       "name": "昕奇雲端",
       "market": "TWO",
@@ -17330,51 +16718,6 @@
       "quality_growth_score": 97.0,
       "momentum_score": 19.1,
       "data_completeness": 56.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "品質與成長表現強",
-        "營收年增率突出"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
-      "symbol": "3296.TW",
-      "name": "勝德",
-      "market": "TW",
-      "industry": "電子零組件業",
-      "currency": null,
-      "price": 23.0,
-      "change_percent": -1.71,
-      "pe": 176.92,
-      "dividend_yield": null,
-      "pbr": 1.76,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 122.83,
-      "eps_growth_yoy": null,
-      "ma5": 23.03,
-      "ma20": 24.68,
-      "ma60": 24.44,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.89,
-      "momentum_60d": 6.98,
-      "momentum_120d": -4.76,
-      "volume_ratio_20d": 0.21,
-      "drawdown_1y": -25.08,
-      "score": 35.3,
-      "value_score": 35.2,
-      "quality_growth_score": 100.0,
-      "momentum_score": 23.8,
-      "data_completeness": 62.8,
       "ranking_reasons": [
         "符合科技產業偏好",
         "品質與成長表現強",
@@ -17696,6 +17039,50 @@
       ]
     },
     {
+      "symbol": "3611.TWO",
+      "name": "鼎翰",
+      "market": "TWO",
+      "industry": "電腦及週邊設備業",
+      "currency": null,
+      "price": 187.0,
+      "change_percent": 0.27,
+      "pe": 9.2,
+      "dividend_yield": 5.35,
+      "pbr": 1.6,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.1,
+      "eps_growth_yoy": null,
+      "ma5": 185.9,
+      "ma20": 187.8,
+      "ma60": 191.43,
+      "is_bullish_alignment": false,
+      "alignment_gap": -2.31,
+      "momentum_60d": -1.58,
+      "momentum_120d": -3.36,
+      "volume_ratio_20d": 0.44,
+      "drawdown_1y": -13.23,
+      "score": 35.1,
+      "value_score": 97.4,
+      "quality_growth_score": 19.8,
+      "momentum_score": 24.3,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "低 PE 可能反映景氣循環下行",
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "3021.TW",
       "name": "鴻名",
       "market": "TW",
@@ -17737,51 +17124,6 @@
       "tags": [
         "科技優先",
         "動能強"
-      ]
-    },
-    {
-      "symbol": "8088.TWO",
-      "name": "品安",
-      "market": "TWO",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 47.1,
-      "change_percent": -2.69,
-      "pe": 18.12,
-      "dividend_yield": 3.18,
-      "pbr": 2.43,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 101.54,
-      "eps_growth_yoy": null,
-      "ma5": 47.09,
-      "ma20": 46.98,
-      "ma60": 56.12,
-      "is_bullish_alignment": false,
-      "alignment_gap": -16.07,
-      "momentum_60d": -17.66,
-      "momentum_120d": -13.42,
-      "volume_ratio_20d": 1.75,
-      "drawdown_1y": -35.57,
-      "score": 35.0,
-      "value_score": 83.9,
-      "quality_growth_score": 100.0,
-      "momentum_score": 12.9,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "品質與成長表現強",
-        "營收年增率突出"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先",
-        "營收成長"
       ]
     },
     {
@@ -17866,6 +17208,47 @@
       "risks": [
         "可用資料偏少，分數不確定性較高"
       ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "2471.TW",
+      "name": "資通",
+      "market": "TW",
+      "industry": "資訊服務業",
+      "currency": null,
+      "price": 48.4,
+      "change_percent": -0.1,
+      "pe": 10.0,
+      "dividend_yield": 6.84,
+      "pbr": 2.64,
+      "roe": 17.5,
+      "gross_margin": 38.09,
+      "debt_to_equity": 92.25,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.37,
+      "eps_growth_yoy": null,
+      "ma5": 48.59,
+      "ma20": 49.69,
+      "ma60": 51.56,
+      "is_bullish_alignment": false,
+      "alignment_gap": -6.12,
+      "momentum_60d": -4.91,
+      "momentum_120d": -4.91,
+      "volume_ratio_20d": 0.36,
+      "drawdown_1y": -11.68,
+      "score": 35.0,
+      "value_score": 93.0,
+      "quality_growth_score": 34.2,
+      "momentum_score": 22.9,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
       "tags": [
         "科技優先"
       ]
@@ -18042,6 +17425,49 @@
       "tags": [
         "科技優先",
         "營收成長"
+      ]
+    },
+    {
+      "symbol": "8069.TWO",
+      "name": "元太",
+      "market": "TWO",
+      "industry": "光電業",
+      "currency": null,
+      "price": 196.0,
+      "change_percent": 0.0,
+      "pe": 20.35,
+      "dividend_yield": 3.0,
+      "pbr": 3.51,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.62,
+      "eps_growth_yoy": null,
+      "ma5": 194.8,
+      "ma20": 188.55,
+      "ma60": 203.77,
+      "is_bullish_alignment": false,
+      "alignment_gap": -3.81,
+      "momentum_60d": -8.84,
+      "momentum_120d": 14.96,
+      "volume_ratio_20d": 2.03,
+      "drawdown_1y": -27.81,
+      "score": 34.8,
+      "value_score": 76.5,
+      "quality_growth_score": 18.8,
+      "momentum_score": 28.6,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
       ]
     },
     {
@@ -18588,7 +18014,7 @@
       "pe": null,
       "dividend_yield": 0.0,
       "pbr": 1.33,
-      "roe": -124.0,
+      "roe": -1.24,
       "gross_margin": 34.51,
       "debt_to_equity": 9.8,
       "peg": null,
@@ -18661,6 +18087,50 @@
       "tags": [
         "科技優先",
         "營收成長"
+      ]
+    },
+    {
+      "symbol": "4976.TW",
+      "name": "佳凌",
+      "market": "TW",
+      "industry": "光電業",
+      "currency": null,
+      "price": 36.25,
+      "change_percent": -2.42,
+      "pe": null,
+      "dividend_yield": null,
+      "pbr": 2.34,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.62,
+      "eps_growth_yoy": null,
+      "ma5": 37.04,
+      "ma20": 34.89,
+      "ma60": 35.15,
+      "is_bullish_alignment": false,
+      "alignment_gap": 3.13,
+      "momentum_60d": 19.05,
+      "momentum_120d": 21.04,
+      "volume_ratio_20d": 0.63,
+      "drawdown_1y": -36.96,
+      "score": 34.2,
+      "value_score": 85.1,
+      "quality_growth_score": 21.2,
+      "momentum_score": 32.3,
+      "data_completeness": 56.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先",
+        "動能強"
       ]
     },
     {
@@ -19185,6 +18655,50 @@
       ]
     },
     {
+      "symbol": "6680.TWO",
+      "name": "鑫創電子",
+      "market": "TWO",
+      "industry": "電腦及週邊設備業",
+      "currency": null,
+      "price": 56.12,
+      "change_percent": 0.0,
+      "pe": 61.49,
+      "dividend_yield": 0.52,
+      "pbr": 2.53,
+      "roe": 0.72,
+      "gross_margin": 34.32,
+      "debt_to_equity": 178.11,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 6.99,
+      "eps_growth_yoy": null,
+      "ma5": 53.96,
+      "ma20": 53.35,
+      "ma60": 52.32,
+      "is_bullish_alignment": true,
+      "alignment_gap": 7.25,
+      "momentum_60d": 2.3,
+      "momentum_120d": -13.34,
+      "volume_ratio_20d": 0.0,
+      "drawdown_1y": -21.89,
+      "score": 33.8,
+      "value_score": 31.9,
+      "quality_growth_score": 16.7,
+      "momentum_score": 45.7,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "股價維持多頭排列"
+      ],
+      "risks": [
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": [
+        "科技優先",
+        "多頭排列"
+      ]
+    },
+    {
       "symbol": "6792.TW",
       "name": "詠業",
       "market": "TW",
@@ -19542,7 +19056,7 @@
       "pe": 240.38,
       "dividend_yield": 0.32,
       "pbr": 4.99,
-      "roe": -17.0,
+      "roe": -0.17,
       "gross_margin": 4.0,
       "debt_to_equity": 111.09,
       "peg": null,
@@ -20133,43 +19647,42 @@
       ]
     },
     {
-      "symbol": "3611.TWO",
-      "name": "鼎翰",
+      "symbol": "3672.TWO",
+      "name": "康聯訊",
       "market": "TWO",
-      "industry": "電腦及週邊設備業",
+      "industry": "通信網路業",
       "currency": null,
-      "price": 187.0,
-      "change_percent": 0.27,
-      "pe": 9.2,
-      "dividend_yield": 5.35,
-      "pbr": 1.6,
+      "price": 12.5,
+      "change_percent": -3.1,
+      "pe": null,
+      "dividend_yield": 0.0,
+      "pbr": 1.64,
       "roe": null,
       "gross_margin": null,
       "debt_to_equity": null,
       "peg": null,
       "free_cashflow_yield": null,
-      "revenue_growth_yoy": -9.95,
+      "revenue_growth_yoy": 0.67,
       "eps_growth_yoy": null,
-      "ma5": 185.9,
-      "ma20": 187.8,
-      "ma60": 191.43,
+      "ma5": 12.79,
+      "ma20": 13.03,
+      "ma60": 12.22,
       "is_bullish_alignment": false,
-      "alignment_gap": -2.31,
-      "momentum_60d": -1.58,
-      "momentum_120d": -3.36,
-      "volume_ratio_20d": 0.44,
-      "drawdown_1y": -13.23,
+      "alignment_gap": 2.25,
+      "momentum_60d": 10.62,
+      "momentum_120d": 5.93,
+      "volume_ratio_20d": 0.03,
+      "drawdown_1y": -21.38,
       "score": 32.6,
-      "value_score": 97.4,
-      "quality_growth_score": 0.1,
-      "momentum_score": 24.3,
-      "data_completeness": 62.8,
+      "value_score": 92.9,
+      "quality_growth_score": 21.3,
+      "momentum_score": 29.6,
+      "data_completeness": 56.8,
       "ranking_reasons": [
         "符合科技產業偏好",
         "估值相對合理"
       ],
       "risks": [
-        "低 PE 可能反映景氣循環下行",
         "可用資料偏少，分數不確定性較高"
       ],
       "tags": [
@@ -20299,50 +19812,6 @@
         "符合科技產業偏好"
       ],
       "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "8069.TWO",
-      "name": "元太",
-      "market": "TWO",
-      "industry": "光電業",
-      "currency": null,
-      "price": 196.0,
-      "change_percent": 0.0,
-      "pe": 20.35,
-      "dividend_yield": 3.0,
-      "pbr": 3.51,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -62.4,
-      "eps_growth_yoy": null,
-      "ma5": 194.8,
-      "ma20": 188.55,
-      "ma60": 203.77,
-      "is_bullish_alignment": false,
-      "alignment_gap": -3.81,
-      "momentum_60d": -8.84,
-      "momentum_120d": 14.96,
-      "volume_ratio_20d": 2.03,
-      "drawdown_1y": -27.81,
-      "score": 32.4,
-      "value_score": 76.5,
-      "quality_growth_score": 0.0,
-      "momentum_score": 28.6,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
         "可用資料偏少，分數不確定性較高"
       ],
       "tags": [
@@ -20699,6 +20168,49 @@
       ]
     },
     {
+      "symbol": "3150.TW",
+      "name": "鈺寶-創",
+      "market": "TW",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 16.65,
+      "change_percent": 3.1,
+      "pe": null,
+      "dividend_yield": 3.0,
+      "pbr": 1.25,
+      "roe": 0.46,
+      "gross_margin": 44.8,
+      "debt_to_equity": 16.42,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 33.9,
+      "eps_growth_yoy": null,
+      "ma5": 16.26,
+      "ma20": 16.65,
+      "ma60": 18.29,
+      "is_bullish_alignment": false,
+      "alignment_gap": -8.95,
+      "momentum_60d": -11.67,
+      "momentum_120d": -5.67,
+      "volume_ratio_20d": 1.05,
+      "drawdown_1y": -29.89,
+      "score": 32.1,
+      "value_score": 97.2,
+      "quality_growth_score": 48.5,
+      "momentum_score": 15.7,
+      "data_completeness": 78.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "營收年增率突出",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先",
+        "營收成長"
+      ]
+    },
+    {
       "symbol": "6874.TWO",
       "name": "倍力",
       "market": "TWO",
@@ -20871,49 +20383,6 @@
       ],
       "tags": [
         "科技優先"
-      ]
-    },
-    {
-      "symbol": "4919.TW",
-      "name": "新唐",
-      "market": "TW",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 120.0,
-      "change_percent": -4.0,
-      "pe": null,
-      "dividend_yield": null,
-      "pbr": 3.25,
-      "roe": -2.89,
-      "gross_margin": 38.68,
-      "debt_to_equity": 86.92,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 115.8,
-      "eps_growth_yoy": null,
-      "ma5": 125.8,
-      "ma20": 134.95,
-      "ma60": 165.77,
-      "is_bullish_alignment": false,
-      "alignment_gap": -27.61,
-      "momentum_60d": -27.71,
-      "momentum_120d": 101.01,
-      "volume_ratio_20d": 0.74,
-      "drawdown_1y": -45.21,
-      "score": 31.9,
-      "value_score": 75.0,
-      "quality_growth_score": 42.2,
-      "momentum_score": 21.4,
-      "data_completeness": 78.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "營收年增率突出",
-        "估值相對合理"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
       ]
     },
     {
@@ -21929,6 +21398,47 @@
       ]
     },
     {
+      "symbol": "3504.TW",
+      "name": "揚明光",
+      "market": "TW",
+      "industry": "光電業",
+      "currency": null,
+      "price": 73.6,
+      "change_percent": -4.54,
+      "pe": null,
+      "dividend_yield": null,
+      "pbr": 2.95,
+      "roe": 0.78,
+      "gross_margin": 17.3,
+      "debt_to_equity": 56.56,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -2.38,
+      "eps_growth_yoy": null,
+      "ma5": 76.14,
+      "ma20": 68.72,
+      "ma60": 76.55,
+      "is_bullish_alignment": false,
+      "alignment_gap": -3.86,
+      "momentum_60d": 11.18,
+      "momentum_120d": 36.3,
+      "volume_ratio_20d": 0.8,
+      "drawdown_1y": -19.56,
+      "score": 31.0,
+      "value_score": 78.3,
+      "quality_growth_score": 12.4,
+      "momentum_score": 39.4,
+      "data_completeness": 78.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "8155.TWO",
       "name": "博智",
       "market": "TWO",
@@ -22445,6 +21955,47 @@
       "tags": [
         "科技優先",
         "營收成長"
+      ]
+    },
+    {
+      "symbol": "3679.TW",
+      "name": "新至陞",
+      "market": "TW",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 110.5,
+      "change_percent": 0.0,
+      "pe": 9.35,
+      "dividend_yield": 8.14,
+      "pbr": 1.44,
+      "roe": 10.87,
+      "gross_margin": 29.88,
+      "debt_to_equity": 95.85,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 1.35,
+      "eps_growth_yoy": null,
+      "ma5": 109.6,
+      "ma20": 109.9,
+      "ma60": 114.11,
+      "is_bullish_alignment": false,
+      "alignment_gap": -3.16,
+      "momentum_60d": -6.75,
+      "momentum_120d": -2.64,
+      "volume_ratio_20d": 0.29,
+      "drawdown_1y": -15.0,
+      "score": 30.6,
+      "value_score": 98.1,
+      "quality_growth_score": 22.7,
+      "momentum_score": 21.3,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
       ]
     },
     {
@@ -23456,7 +23007,7 @@
       "pe": 59.35,
       "dividend_yield": 2.88,
       "pbr": 0.96,
-      "roe": -34.0,
+      "roe": -0.34,
       "gross_margin": 13.39,
       "debt_to_equity": 17.09,
       "peg": null,
@@ -25056,6 +24607,47 @@
       ]
     },
     {
+      "symbol": "6761.TWO",
+      "name": "穩得",
+      "market": "TWO",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 153.0,
+      "change_percent": -3.77,
+      "pe": 20.62,
+      "dividend_yield": 3.92,
+      "pbr": 3.12,
+      "roe": 14.78,
+      "gross_margin": 38.17,
+      "debt_to_equity": 83.02,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.86,
+      "eps_growth_yoy": null,
+      "ma5": 150.5,
+      "ma20": 152.53,
+      "ma60": 184.03,
+      "is_bullish_alignment": false,
+      "alignment_gap": -16.86,
+      "momentum_60d": -20.31,
+      "momentum_120d": 5.52,
+      "volume_ratio_20d": 1.39,
+      "drawdown_1y": -33.48,
+      "score": 28.3,
+      "value_score": 77.9,
+      "quality_growth_score": 32.3,
+      "momentum_score": 14.9,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "6953.TWO",
       "name": "家碩",
       "market": "TWO",
@@ -25180,6 +24772,49 @@
       "risks": [
         "低 PE 可能反映景氣循環下行",
         "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "3531.TWO",
+      "name": "先益",
+      "market": "TWO",
+      "industry": "光電業",
+      "currency": null,
+      "price": 21.6,
+      "change_percent": -1.37,
+      "pe": 16.36,
+      "dividend_yield": 2.31,
+      "pbr": 0.71,
+      "roe": 1.08,
+      "gross_margin": 17.23,
+      "debt_to_equity": 21.39,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -27.59,
+      "eps_growth_yoy": null,
+      "ma5": 21.94,
+      "ma20": 22.41,
+      "ma60": 22.89,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.64,
+      "momentum_60d": -6.49,
+      "momentum_120d": 2.86,
+      "volume_ratio_20d": 0.61,
+      "drawdown_1y": -9.43,
+      "score": 28.1,
+      "value_score": 92.2,
+      "quality_growth_score": 11.4,
+      "momentum_score": 25.4,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "營收年增明顯衰退"
       ],
       "tags": [
         "科技優先"
@@ -25782,48 +25417,6 @@
       "risks": [],
       "tags": [
         "科技優先"
-      ]
-    },
-    {
-      "symbol": "8163.TW",
-      "name": "達方",
-      "market": "TW",
-      "industry": "電腦及週邊設備業",
-      "currency": null,
-      "price": 31.15,
-      "change_percent": 0.97,
-      "pe": 51.92,
-      "dividend_yield": 1.61,
-      "pbr": 0.8,
-      "roe": 2.66,
-      "gross_margin": 17.2,
-      "debt_to_equity": 201.43,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 108.34,
-      "eps_growth_yoy": null,
-      "ma5": 31.19,
-      "ma20": 32.14,
-      "ma60": 37.24,
-      "is_bullish_alignment": false,
-      "alignment_gap": -16.35,
-      "momentum_60d": 5.95,
-      "momentum_120d": 0.97,
-      "volume_ratio_20d": 0.77,
-      "drawdown_1y": -31.24,
-      "score": 27.7,
-      "value_score": 48.4,
-      "quality_growth_score": 26.7,
-      "momentum_score": 24.0,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "營收年增率突出"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
       ]
     },
     {
@@ -26686,6 +26279,48 @@
       ]
     },
     {
+      "symbol": "3564.TWO",
+      "name": "其陽",
+      "market": "TWO",
+      "industry": "通信網路業",
+      "currency": null,
+      "price": 46.3,
+      "change_percent": 0.54,
+      "pe": 128.61,
+      "dividend_yield": 0.58,
+      "pbr": 1.98,
+      "roe": 0.37,
+      "gross_margin": 24.45,
+      "debt_to_equity": 153.9,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 30.33,
+      "eps_growth_yoy": null,
+      "ma5": 45.35,
+      "ma20": 46.64,
+      "ma60": 47.14,
+      "is_bullish_alignment": false,
+      "alignment_gap": -1.77,
+      "momentum_60d": 11.7,
+      "momentum_120d": -2.42,
+      "volume_ratio_20d": 0.51,
+      "drawdown_1y": -25.68,
+      "score": 26.5,
+      "value_score": 34.3,
+      "quality_growth_score": 23.9,
+      "momentum_score": 26.6,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "營收年增率突出"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先",
+        "營收成長"
+      ]
+    },
+    {
       "symbol": "3615.TWO",
       "name": "安可",
       "market": "TWO",
@@ -26948,6 +26583,48 @@
       ]
     },
     {
+      "symbol": "6156.TWO",
+      "name": "松上",
+      "market": "TWO",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 20.6,
+      "change_percent": -0.48,
+      "pe": 51.5,
+      "dividend_yield": 0.97,
+      "pbr": 0.96,
+      "roe": 0.76,
+      "gross_margin": 14.4,
+      "debt_to_equity": 178.51,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 55.51,
+      "eps_growth_yoy": null,
+      "ma5": 21.38,
+      "ma20": 23.15,
+      "ma60": 22.74,
+      "is_bullish_alignment": false,
+      "alignment_gap": -9.41,
+      "momentum_60d": 6.74,
+      "momentum_120d": 0.49,
+      "volume_ratio_20d": 0.49,
+      "drawdown_1y": -35.62,
+      "score": 26.2,
+      "value_score": 48.9,
+      "quality_growth_score": 26.7,
+      "momentum_score": 21.0,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "營收年增率突出"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先",
+        "營收成長"
+      ]
+    },
+    {
       "symbol": "6791.TWO",
       "name": "虎門科技",
       "market": "TWO",
@@ -27113,6 +26790,132 @@
       ],
       "risks": [
         "營收年增明顯衰退"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "3527.TWO",
+      "name": "聚積",
+      "market": "TWO",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 50.8,
+      "change_percent": -1.55,
+      "pe": null,
+      "dividend_yield": 1.97,
+      "pbr": 1.01,
+      "roe": 0.6,
+      "gross_margin": 39.94,
+      "debt_to_equity": 20.84,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 19.61,
+      "eps_growth_yoy": null,
+      "ma5": 51.56,
+      "ma20": 54.58,
+      "ma60": 59.59,
+      "is_bullish_alignment": false,
+      "alignment_gap": -14.75,
+      "momentum_60d": -16.03,
+      "momentum_120d": -5.4,
+      "volume_ratio_20d": 0.67,
+      "drawdown_1y": -28.95,
+      "score": 25.9,
+      "value_score": 99.9,
+      "quality_growth_score": 37.9,
+      "momentum_score": 11.7,
+      "data_completeness": 78.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "2328.TW",
+      "name": "廣宇",
+      "market": "TW",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 45.15,
+      "change_percent": 0.11,
+      "pe": 46.07,
+      "dividend_yield": 1.99,
+      "pbr": 1.56,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.74,
+      "eps_growth_yoy": null,
+      "ma5": 43.98,
+      "ma20": 45.0,
+      "ma60": 50.14,
+      "is_bullish_alignment": false,
+      "alignment_gap": -9.94,
+      "momentum_60d": -12.33,
+      "momentum_120d": -11.3,
+      "volume_ratio_20d": 2.11,
+      "drawdown_1y": -27.18,
+      "score": 25.9,
+      "value_score": 53.2,
+      "quality_growth_score": 18.5,
+      "momentum_score": 21.3,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "6546.TWO",
+      "name": "正基",
+      "market": "TWO",
+      "industry": "通信網路業",
+      "currency": null,
+      "price": 60.3,
+      "change_percent": 0.5,
+      "pe": 22.67,
+      "dividend_yield": 4.15,
+      "pbr": 2.07,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.77,
+      "eps_growth_yoy": null,
+      "ma5": 58.34,
+      "ma20": 59.54,
+      "ma60": 69.27,
+      "is_bullish_alignment": false,
+      "alignment_gap": -12.95,
+      "momentum_60d": -13.36,
+      "momentum_120d": -1.47,
+      "volume_ratio_20d": 1.19,
+      "drawdown_1y": -33.0,
+      "score": 25.9,
+      "value_score": 79.8,
+      "quality_growth_score": 18.5,
+      "momentum_score": 15.5,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
       ],
       "tags": [
         "科技優先"
@@ -27807,48 +27610,6 @@
       ]
     },
     {
-      "symbol": "6640.TWO",
-      "name": "均華",
-      "market": "TWO",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 918.0,
-      "change_percent": -3.16,
-      "pe": 54.81,
-      "dividend_yield": 1.63,
-      "pbr": 5.12,
-      "roe": 10.5,
-      "gross_margin": 43.14,
-      "debt_to_equity": 77.84,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 33.06,
-      "eps_growth_yoy": null,
-      "ma5": 899.8,
-      "ma20": 909.95,
-      "ma60": 1092.35,
-      "is_bullish_alignment": false,
-      "alignment_gap": -15.96,
-      "momentum_60d": -35.58,
-      "momentum_120d": 14.75,
-      "volume_ratio_20d": 0.63,
-      "drawdown_1y": -47.84,
-      "score": 25.4,
-      "value_score": 27.2,
-      "quality_growth_score": 47.8,
-      "momentum_score": 10.1,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "營收年增率突出"
-      ],
-      "risks": [],
-      "tags": [
-        "科技優先",
-        "營收成長"
-      ]
-    },
-    {
       "symbol": "6126.TWO",
       "name": "信音",
       "market": "TWO",
@@ -27930,6 +27691,49 @@
       "tags": [
         "科技優先",
         "營收成長"
+      ]
+    },
+    {
+      "symbol": "3296.TW",
+      "name": "勝德",
+      "market": "TW",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 23.0,
+      "change_percent": -1.71,
+      "pe": 176.92,
+      "dividend_yield": null,
+      "pbr": 1.76,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 1.23,
+      "eps_growth_yoy": null,
+      "ma5": 23.03,
+      "ma20": 24.68,
+      "ma60": 24.44,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.89,
+      "momentum_60d": 6.98,
+      "momentum_120d": -4.76,
+      "volume_ratio_20d": 0.21,
+      "drawdown_1y": -25.08,
+      "score": 25.4,
+      "value_score": 35.2,
+      "quality_growth_score": 22.5,
+      "momentum_score": 23.8,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高",
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": [
+        "科技優先"
       ]
     },
     {
@@ -28188,6 +27992,49 @@
       "risks": [
         "可用資料偏少，分數不確定性較高",
         "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "8088.TWO",
+      "name": "品安",
+      "market": "TWO",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 47.1,
+      "change_percent": -2.69,
+      "pe": 18.12,
+      "dividend_yield": 3.18,
+      "pbr": 2.43,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 1.02,
+      "eps_growth_yoy": null,
+      "ma5": 47.09,
+      "ma20": 46.98,
+      "ma60": 56.12,
+      "is_bullish_alignment": false,
+      "alignment_gap": -16.07,
+      "momentum_60d": -17.66,
+      "momentum_120d": -13.42,
+      "volume_ratio_20d": 1.75,
+      "drawdown_1y": -35.57,
+      "score": 25.1,
+      "value_score": 83.9,
+      "quality_growth_score": 22.0,
+      "momentum_score": 12.9,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
       ],
       "tags": [
         "科技優先"
@@ -28849,6 +28696,47 @@
       ]
     },
     {
+      "symbol": "5344.TWO",
+      "name": "立衛",
+      "market": "TWO",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 13.8,
+      "change_percent": -3.83,
+      "pe": null,
+      "dividend_yield": 0.0,
+      "pbr": 2.17,
+      "roe": 1.35,
+      "gross_margin": 12.88,
+      "debt_to_equity": 25.27,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.22,
+      "eps_growth_yoy": null,
+      "ma5": 14.24,
+      "ma20": 14.76,
+      "ma60": 15.6,
+      "is_bullish_alignment": false,
+      "alignment_gap": -11.57,
+      "momentum_60d": -11.54,
+      "momentum_120d": -3.16,
+      "volume_ratio_20d": 4.74,
+      "drawdown_1y": -26.98,
+      "score": 24.3,
+      "value_score": 87.0,
+      "quality_growth_score": 16.5,
+      "momentum_score": 24.3,
+      "data_completeness": 78.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "7792.TWO",
       "name": "安葆",
       "market": "TWO",
@@ -28891,48 +28779,6 @@
       "tags": [
         "科技優先",
         "營收成長"
-      ]
-    },
-    {
-      "symbol": "3380.TW",
-      "name": "明泰",
-      "market": "TW",
-      "industry": "通信網路業",
-      "currency": null,
-      "price": 27.95,
-      "change_percent": -2.1,
-      "pe": 199.64,
-      "dividend_yield": 1.79,
-      "pbr": 1.65,
-      "roe": 133.0,
-      "gross_margin": 18.05,
-      "debt_to_equity": 140.48,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 5.46,
-      "eps_growth_yoy": null,
-      "ma5": 28.74,
-      "ma20": 29.71,
-      "ma60": 33.07,
-      "is_bullish_alignment": false,
-      "alignment_gap": -15.47,
-      "momentum_60d": -11.69,
-      "momentum_120d": -19.45,
-      "volume_ratio_20d": 0.74,
-      "drawdown_1y": -32.73,
-      "score": 24.2,
-      "value_score": 35.7,
-      "quality_growth_score": 42.4,
-      "momentum_score": 9.6,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好"
-      ],
-      "risks": [
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先"
       ]
     },
     {
@@ -29203,6 +29049,47 @@
       ]
     },
     {
+      "symbol": "4919.TW",
+      "name": "新唐",
+      "market": "TW",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 120.0,
+      "change_percent": -4.0,
+      "pe": null,
+      "dividend_yield": null,
+      "pbr": 3.25,
+      "roe": -2.89,
+      "gross_margin": 38.68,
+      "debt_to_equity": 86.92,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 1.16,
+      "eps_growth_yoy": null,
+      "ma5": 125.8,
+      "ma20": 134.95,
+      "ma60": 165.77,
+      "is_bullish_alignment": false,
+      "alignment_gap": -27.61,
+      "momentum_60d": -27.71,
+      "momentum_120d": 101.01,
+      "volume_ratio_20d": 0.74,
+      "drawdown_1y": -45.21,
+      "score": 24.0,
+      "value_score": 75.0,
+      "quality_growth_score": 21.5,
+      "momentum_score": 21.4,
+      "data_completeness": 78.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "6695.TW",
       "name": "芯鼎",
       "market": "TW",
@@ -29464,42 +29351,42 @@
       ]
     },
     {
-      "symbol": "2328.TW",
-      "name": "廣宇",
+      "symbol": "4956.TW",
+      "name": "光鋐",
       "market": "TW",
-      "industry": "電子零組件業",
+      "industry": "光電業",
       "currency": null,
-      "price": 45.15,
-      "change_percent": 0.11,
-      "pe": 46.07,
-      "dividend_yield": 1.99,
-      "pbr": 1.56,
+      "price": 31.1,
+      "change_percent": -0.96,
+      "pe": null,
+      "dividend_yield": null,
+      "pbr": 1.89,
       "roe": null,
       "gross_margin": null,
       "debt_to_equity": null,
       "peg": null,
       "free_cashflow_yield": null,
-      "revenue_growth_yoy": -73.59,
+      "revenue_growth_yoy": -0.83,
       "eps_growth_yoy": null,
-      "ma5": 43.98,
-      "ma20": 45.0,
-      "ma60": 50.14,
+      "ma5": 30.31,
+      "ma20": 29.75,
+      "ma60": 37.48,
       "is_bullish_alignment": false,
-      "alignment_gap": -9.94,
-      "momentum_60d": -12.33,
-      "momentum_120d": -11.3,
-      "volume_ratio_20d": 2.11,
-      "drawdown_1y": -27.18,
-      "score": 23.6,
-      "value_score": 53.2,
-      "quality_growth_score": 0.0,
-      "momentum_score": 21.3,
-      "data_completeness": 62.8,
+      "alignment_gap": -17.03,
+      "momentum_60d": -28.09,
+      "momentum_120d": 28.78,
+      "volume_ratio_20d": 1.56,
+      "drawdown_1y": -43.14,
+      "score": 23.5,
+      "value_score": 90.1,
+      "quality_growth_score": 18.3,
+      "momentum_score": 18.9,
+      "data_completeness": 56.8,
       "ranking_reasons": [
-        "符合科技產業偏好"
+        "符合科技產業偏好",
+        "估值相對合理"
       ],
       "risks": [
-        "營收年增明顯衰退",
         "可用資料偏少，分數不確定性較高"
       ],
       "tags": [
@@ -29583,50 +29470,6 @@
       "data_completeness": 56.8,
       "ranking_reasons": [
         "符合科技產業偏好"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "6546.TWO",
-      "name": "正基",
-      "market": "TWO",
-      "industry": "通信網路業",
-      "currency": null,
-      "price": 60.3,
-      "change_percent": 0.5,
-      "pe": 22.67,
-      "dividend_yield": 4.15,
-      "pbr": 2.07,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -76.9,
-      "eps_growth_yoy": null,
-      "ma5": 58.34,
-      "ma20": 59.54,
-      "ma60": 69.27,
-      "is_bullish_alignment": false,
-      "alignment_gap": -12.95,
-      "momentum_60d": -13.36,
-      "momentum_120d": -1.47,
-      "volume_ratio_20d": 1.19,
-      "drawdown_1y": -33.0,
-      "score": 23.5,
-      "value_score": 79.8,
-      "quality_growth_score": 0.0,
-      "momentum_score": 15.5,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
       ],
       "risks": [
         "營收年增明顯衰退",
@@ -29887,47 +29730,6 @@
         "營收年增明顯衰退",
         "估值明顯高於同業，現有成長資料支撐不足"
       ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "2439.TW",
-      "name": "美律",
-      "market": "TW",
-      "industry": "通信網路業",
-      "currency": null,
-      "price": 80.2,
-      "change_percent": 0.0,
-      "pe": 14.64,
-      "dividend_yield": 4.99,
-      "pbr": 1.19,
-      "roe": 4.55,
-      "gross_margin": 10.93,
-      "debt_to_equity": 132.4,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 14.9,
-      "eps_growth_yoy": null,
-      "ma5": 80.74,
-      "ma20": 82.84,
-      "ma60": 87.63,
-      "is_bullish_alignment": false,
-      "alignment_gap": -8.48,
-      "momentum_60d": -4.75,
-      "momentum_120d": -19.56,
-      "volume_ratio_20d": 0.83,
-      "drawdown_1y": -33.17,
-      "score": 23.1,
-      "value_score": 93.5,
-      "quality_growth_score": 14.8,
-      "momentum_score": 13.4,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [],
       "tags": [
         "科技優先"
       ]
@@ -30719,6 +30521,49 @@
       ]
     },
     {
+      "symbol": "6412.TW",
+      "name": "群電",
+      "market": "TW",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 78.2,
+      "change_percent": -0.89,
+      "pe": 12.88,
+      "dividend_yield": 4.73,
+      "pbr": 2.03,
+      "roe": 15.78,
+      "gross_margin": 14.44,
+      "debt_to_equity": 126.8,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.77,
+      "eps_growth_yoy": null,
+      "ma5": 79.24,
+      "ma20": 80.68,
+      "ma60": 90.19,
+      "is_bullish_alignment": false,
+      "alignment_gap": -13.29,
+      "momentum_60d": -18.12,
+      "momentum_120d": -7.02,
+      "volume_ratio_20d": 0.59,
+      "drawdown_1y": -28.58,
+      "score": 22.6,
+      "value_score": 92.1,
+      "quality_growth_score": 19.0,
+      "momentum_score": 10.0,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "低 PE 可能反映景氣循環下行"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "4906.TW",
       "name": "正文",
       "market": "TW",
@@ -31018,6 +30863,48 @@
         "估值相對合理"
       ],
       "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "2352.TW",
+      "name": "佳世達",
+      "market": "TW",
+      "industry": "電腦及週邊設備業",
+      "currency": null,
+      "price": 28.3,
+      "change_percent": -1.74,
+      "pe": 45.65,
+      "dividend_yield": 3.53,
+      "pbr": 1.53,
+      "roe": 4.58,
+      "gross_margin": 16.98,
+      "debt_to_equity": 400.43,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.62,
+      "eps_growth_yoy": null,
+      "ma5": 28.58,
+      "ma20": 29.26,
+      "ma60": 29.96,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.56,
+      "momentum_60d": 7.81,
+      "momentum_120d": 12.3,
+      "volume_ratio_20d": 0.67,
+      "drawdown_1y": -30.42,
+      "score": 22.4,
+      "value_score": 53.9,
+      "quality_growth_score": 5.0,
+      "momentum_score": 27.3,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
       "tags": [
         "科技優先"
       ]
@@ -31840,6 +31727,49 @@
       ]
     },
     {
+      "symbol": "8455.TWO",
+      "name": "大拓-KY",
+      "market": "TWO",
+      "industry": "其他電子業",
+      "currency": null,
+      "price": 24.0,
+      "change_percent": -0.62,
+      "pe": 44.44,
+      "dividend_yield": 0.0,
+      "pbr": 1.14,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.57,
+      "eps_growth_yoy": null,
+      "ma5": 24.21,
+      "ma20": 25.16,
+      "ma60": 30.66,
+      "is_bullish_alignment": false,
+      "alignment_gap": -21.73,
+      "momentum_60d": -11.76,
+      "momentum_120d": 17.65,
+      "volume_ratio_20d": 0.21,
+      "drawdown_1y": -48.22,
+      "score": 21.4,
+      "value_score": 57.0,
+      "quality_growth_score": 18.9,
+      "momentum_score": 14.2,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高",
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "6732.TWO",
       "name": "昇佳電子",
       "market": "TWO",
@@ -31963,6 +31893,49 @@
       ],
       "risks": [
         "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "4729.TWO",
+      "name": "熒茂",
+      "market": "TWO",
+      "industry": "光電業",
+      "currency": null,
+      "price": 19.85,
+      "change_percent": 0.51,
+      "pe": 198.5,
+      "dividend_yield": 0.0,
+      "pbr": 1.37,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.76,
+      "eps_growth_yoy": null,
+      "ma5": 19.48,
+      "ma20": 19.23,
+      "ma60": 21.89,
+      "is_bullish_alignment": false,
+      "alignment_gap": -9.33,
+      "momentum_60d": -1.0,
+      "momentum_120d": -7.46,
+      "volume_ratio_20d": 0.44,
+      "drawdown_1y": -27.02,
+      "score": 21.3,
+      "value_score": 36.9,
+      "quality_growth_score": 18.5,
+      "momentum_score": 18.5,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高",
+        "估值明顯高於同業，現有成長資料支撐不足"
       ],
       "tags": [
         "科技優先"
@@ -32152,7 +32125,7 @@
       "pe": 332.0,
       "dividend_yield": 0.6,
       "pbr": 0.99,
-      "roe": -120.0,
+      "roe": -1.2,
       "gross_margin": 15.45,
       "debt_to_equity": 84.79,
       "peg": null,
@@ -32272,50 +32245,6 @@
       ]
     },
     {
-      "symbol": "6412.TW",
-      "name": "群電",
-      "market": "TW",
-      "industry": "電子零組件業",
-      "currency": null,
-      "price": 78.2,
-      "change_percent": -0.89,
-      "pe": 12.88,
-      "dividend_yield": 4.73,
-      "pbr": 2.03,
-      "roe": 15.78,
-      "gross_margin": 14.44,
-      "debt_to_equity": 126.8,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -76.87,
-      "eps_growth_yoy": null,
-      "ma5": 79.24,
-      "ma20": 80.68,
-      "ma60": 90.19,
-      "is_bullish_alignment": false,
-      "alignment_gap": -13.29,
-      "momentum_60d": -18.12,
-      "momentum_120d": -7.02,
-      "volume_ratio_20d": 0.59,
-      "drawdown_1y": -28.58,
-      "score": 20.9,
-      "value_score": 92.1,
-      "quality_growth_score": 14.0,
-      "momentum_score": 10.0,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "低 PE 可能反映景氣循環下行"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "6477.TW",
       "name": "安集",
       "market": "TW",
@@ -32354,50 +32283,6 @@
         "營收年增明顯衰退",
         "可用資料偏少，分數不確定性較高",
         "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "4956.TW",
-      "name": "光鋐",
-      "market": "TW",
-      "industry": "光電業",
-      "currency": null,
-      "price": 31.1,
-      "change_percent": -0.96,
-      "pe": null,
-      "dividend_yield": null,
-      "pbr": 1.89,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -83.12,
-      "eps_growth_yoy": null,
-      "ma5": 30.31,
-      "ma20": 29.75,
-      "ma60": 37.48,
-      "is_bullish_alignment": false,
-      "alignment_gap": -17.03,
-      "momentum_60d": -28.09,
-      "momentum_120d": 28.78,
-      "volume_ratio_20d": 1.56,
-      "drawdown_1y": -43.14,
-      "score": 20.9,
-      "value_score": 90.1,
-      "quality_growth_score": 0.0,
-      "momentum_score": 18.9,
-      "data_completeness": 56.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
       ],
       "tags": [
         "科技優先"
@@ -32667,49 +32552,6 @@
       ]
     },
     {
-      "symbol": "2352.TW",
-      "name": "佳世達",
-      "market": "TW",
-      "industry": "電腦及週邊設備業",
-      "currency": null,
-      "price": 28.3,
-      "change_percent": -1.74,
-      "pe": 45.65,
-      "dividend_yield": 3.53,
-      "pbr": 1.53,
-      "roe": 4.58,
-      "gross_margin": 16.98,
-      "debt_to_equity": 400.43,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -61.5,
-      "eps_growth_yoy": null,
-      "ma5": 28.58,
-      "ma20": 29.26,
-      "ma60": 29.96,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.56,
-      "momentum_60d": 7.81,
-      "momentum_120d": 12.3,
-      "volume_ratio_20d": 0.67,
-      "drawdown_1y": -30.42,
-      "score": 20.7,
-      "value_score": 53.9,
-      "quality_growth_score": 0.0,
-      "momentum_score": 27.3,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "6216.TW",
       "name": "居易",
       "market": "TW",
@@ -32807,7 +32649,7 @@
       "dividend_yield": null,
       "pbr": 1.64,
       "roe": -9.56,
-      "gross_margin": -47.0,
+      "gross_margin": -0.47,
       "debt_to_equity": 81.69,
       "peg": null,
       "free_cashflow_yield": null,
@@ -32970,6 +32812,89 @@
       ]
     },
     {
+      "symbol": "8163.TW",
+      "name": "達方",
+      "market": "TW",
+      "industry": "電腦及週邊設備業",
+      "currency": null,
+      "price": 31.15,
+      "change_percent": 0.97,
+      "pe": 51.92,
+      "dividend_yield": 1.61,
+      "pbr": 0.8,
+      "roe": 2.66,
+      "gross_margin": 17.2,
+      "debt_to_equity": 201.43,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 1.08,
+      "eps_growth_yoy": null,
+      "ma5": 31.19,
+      "ma20": 32.14,
+      "ma60": 37.24,
+      "is_bullish_alignment": false,
+      "alignment_gap": -16.35,
+      "momentum_60d": 5.95,
+      "momentum_120d": 0.97,
+      "volume_ratio_20d": 0.77,
+      "drawdown_1y": -31.24,
+      "score": 20.4,
+      "value_score": 48.4,
+      "quality_growth_score": 5.9,
+      "momentum_score": 24.0,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "2439.TW",
+      "name": "美律",
+      "market": "TW",
+      "industry": "通信網路業",
+      "currency": null,
+      "price": 80.2,
+      "change_percent": 0.0,
+      "pe": 14.64,
+      "dividend_yield": 4.99,
+      "pbr": 1.19,
+      "roe": 4.55,
+      "gross_margin": 10.93,
+      "debt_to_equity": 132.4,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.15,
+      "eps_growth_yoy": null,
+      "ma5": 80.74,
+      "ma20": 82.84,
+      "ma60": 87.63,
+      "is_bullish_alignment": false,
+      "alignment_gap": -8.48,
+      "momentum_60d": -4.75,
+      "momentum_120d": -19.56,
+      "volume_ratio_20d": 0.83,
+      "drawdown_1y": -33.17,
+      "score": 20.3,
+      "value_score": 93.5,
+      "quality_growth_score": 7.0,
+      "momentum_score": 13.4,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "8074.TWO",
       "name": "鉅橡",
       "market": "TWO",
@@ -33057,6 +32982,48 @@
       "tags": [
         "科技優先",
         "營收成長"
+      ]
+    },
+    {
+      "symbol": "3306.TWO",
+      "name": "鼎天",
+      "market": "TWO",
+      "industry": "通信網路業",
+      "currency": null,
+      "price": 43.65,
+      "change_percent": 0.58,
+      "pe": 99.2,
+      "dividend_yield": 3.89,
+      "pbr": 0.55,
+      "roe": 0.5,
+      "gross_margin": 24.93,
+      "debt_to_equity": 11.08,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 1.15,
+      "eps_growth_yoy": null,
+      "ma5": 43.36,
+      "ma20": 44.31,
+      "ma60": 46.56,
+      "is_bullish_alignment": false,
+      "alignment_gap": -6.25,
+      "momentum_60d": -2.02,
+      "momentum_120d": -6.83,
+      "volume_ratio_20d": 0.67,
+      "drawdown_1y": -36.56,
+      "score": 20.1,
+      "value_score": 38.5,
+      "quality_growth_score": 20.9,
+      "momentum_score": 15.6,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": [
+        "科技優先"
       ]
     },
     {
@@ -33495,6 +33462,49 @@
       ]
     },
     {
+      "symbol": "6862.TW",
+      "name": "三集瑞-KY",
+      "market": "TW",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 146.0,
+      "change_percent": 1.39,
+      "pe": 23.93,
+      "dividend_yield": 3.42,
+      "pbr": 2.33,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.04,
+      "eps_growth_yoy": null,
+      "ma5": 141.9,
+      "ma20": 145.45,
+      "ma60": 176.62,
+      "is_bullish_alignment": false,
+      "alignment_gap": -17.34,
+      "momentum_60d": -9.32,
+      "momentum_120d": -22.96,
+      "volume_ratio_20d": 0.42,
+      "drawdown_1y": -35.96,
+      "score": 19.5,
+      "value_score": 77.2,
+      "quality_growth_score": 17.9,
+      "momentum_score": 7.3,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "3308.TW",
       "name": "聯德",
       "market": "TW",
@@ -33618,6 +33628,48 @@
       ],
       "risks": [
         "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "6640.TWO",
+      "name": "均華",
+      "market": "TWO",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 918.0,
+      "change_percent": -3.16,
+      "pe": 54.81,
+      "dividend_yield": 1.63,
+      "pbr": 5.12,
+      "roe": 10.5,
+      "gross_margin": 43.14,
+      "debt_to_equity": 77.84,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.33,
+      "eps_growth_yoy": null,
+      "ma5": 899.8,
+      "ma20": 909.95,
+      "ma60": 1092.35,
+      "is_bullish_alignment": false,
+      "alignment_gap": -15.96,
+      "momentum_60d": -35.58,
+      "momentum_120d": 14.75,
+      "volume_ratio_20d": 0.63,
+      "drawdown_1y": -47.84,
+      "score": 19.3,
+      "value_score": 27.2,
+      "quality_growth_score": 30.4,
+      "momentum_score": 10.1,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "估值明顯高於同業，現有成長資料支撐不足"
       ],
       "tags": [
         "科技優先"
@@ -33840,6 +33892,47 @@
       ]
     },
     {
+      "symbol": "4968.TW",
+      "name": "立積",
+      "market": "TW",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 95.2,
+      "change_percent": -2.36,
+      "pe": 25.73,
+      "dividend_yield": 1.68,
+      "pbr": 3.25,
+      "roe": 6.85,
+      "gross_margin": 33.68,
+      "debt_to_equity": 33.38,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.09,
+      "eps_growth_yoy": null,
+      "ma5": 97.38,
+      "ma20": 98.44,
+      "ma60": 108.74,
+      "is_bullish_alignment": false,
+      "alignment_gap": -12.45,
+      "momentum_60d": -17.58,
+      "momentum_120d": -19.66,
+      "volume_ratio_20d": 0.8,
+      "drawdown_1y": -42.82,
+      "score": 19.1,
+      "value_score": 71.0,
+      "quality_growth_score": 24.5,
+      "momentum_score": 4.2,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "3686.TW",
       "name": "達能",
       "market": "TW",
@@ -33882,94 +33975,6 @@
       "tags": [
         "科技優先",
         "營收成長"
-      ]
-    },
-    {
-      "symbol": "4729.TWO",
-      "name": "熒茂",
-      "market": "TWO",
-      "industry": "光電業",
-      "currency": null,
-      "price": 19.85,
-      "change_percent": 0.51,
-      "pe": 198.5,
-      "dividend_yield": 0.0,
-      "pbr": 1.37,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -76.39,
-      "eps_growth_yoy": null,
-      "ma5": 19.48,
-      "ma20": 19.23,
-      "ma60": 21.89,
-      "is_bullish_alignment": false,
-      "alignment_gap": -9.33,
-      "momentum_60d": -1.0,
-      "momentum_120d": -7.46,
-      "volume_ratio_20d": 0.44,
-      "drawdown_1y": -27.02,
-      "score": 19.0,
-      "value_score": 36.9,
-      "quality_growth_score": 0.0,
-      "momentum_score": 18.5,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高",
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "8455.TWO",
-      "name": "大拓-KY",
-      "market": "TWO",
-      "industry": "其他電子業",
-      "currency": null,
-      "price": 24.0,
-      "change_percent": -0.62,
-      "pe": 44.44,
-      "dividend_yield": 0.0,
-      "pbr": 1.14,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -57.37,
-      "eps_growth_yoy": null,
-      "ma5": 24.21,
-      "ma20": 25.16,
-      "ma60": 30.66,
-      "is_bullish_alignment": false,
-      "alignment_gap": -21.73,
-      "momentum_60d": -11.76,
-      "momentum_120d": 17.65,
-      "volume_ratio_20d": 0.21,
-      "drawdown_1y": -48.22,
-      "score": 19.0,
-      "value_score": 57.0,
-      "quality_growth_score": 0.0,
-      "momentum_score": 14.2,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高",
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先"
       ]
     },
     {
@@ -34365,36 +34370,36 @@
       ]
     },
     {
-      "symbol": "2338.TW",
-      "name": "光罩",
-      "market": "TW",
-      "industry": "半導體業",
+      "symbol": "6593.TWO",
+      "name": "台灣銘板",
+      "market": "TWO",
+      "industry": "資訊服務業",
       "currency": null,
-      "price": 38.9,
-      "change_percent": -1.89,
+      "price": 32.25,
+      "change_percent": -0.62,
       "pe": null,
-      "dividend_yield": null,
-      "pbr": 2.1,
+      "dividend_yield": 0.0,
+      "pbr": 1.17,
       "roe": null,
       "gross_margin": null,
       "debt_to_equity": null,
       "peg": null,
       "free_cashflow_yield": null,
-      "revenue_growth_yoy": 8.42,
+      "revenue_growth_yoy": -1.28,
       "eps_growth_yoy": null,
-      "ma5": 38.95,
-      "ma20": 41.25,
-      "ma60": 47.99,
+      "ma5": 32.38,
+      "ma20": 33.1,
+      "ma60": 34.09,
       "is_bullish_alignment": false,
-      "alignment_gap": -18.94,
-      "momentum_60d": -19.96,
-      "momentum_120d": 2.44,
-      "volume_ratio_20d": 0.34,
-      "drawdown_1y": -32.82,
+      "alignment_gap": -5.38,
+      "momentum_60d": -8.51,
+      "momentum_120d": -8.77,
+      "volume_ratio_20d": 0.87,
+      "drawdown_1y": -43.22,
       "score": 18.3,
-      "value_score": 87.8,
-      "quality_growth_score": 36.8,
-      "momentum_score": 9.2,
+      "value_score": 98.1,
+      "quality_growth_score": 17.4,
+      "momentum_score": 11.7,
       "data_completeness": 56.8,
       "ranking_reasons": [
         "符合科技產業偏好",
@@ -34714,6 +34719,134 @@
       ]
     },
     {
+      "symbol": "3122.TWO",
+      "name": "笙泉",
+      "market": "TWO",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 25.0,
+      "change_percent": -1.96,
+      "pe": null,
+      "dividend_yield": 0.0,
+      "pbr": 3.15,
+      "roe": -18.33,
+      "gross_margin": 34.75,
+      "debt_to_equity": 27.0,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.91,
+      "eps_growth_yoy": null,
+      "ma5": 25.17,
+      "ma20": 25.74,
+      "ma60": 30.02,
+      "is_bullish_alignment": false,
+      "alignment_gap": -16.72,
+      "momentum_60d": -33.16,
+      "momentum_120d": 2.88,
+      "volume_ratio_20d": 0.84,
+      "drawdown_1y": -37.81,
+      "score": 18.0,
+      "value_score": 76.1,
+      "quality_growth_score": 23.6,
+      "momentum_score": 9.4,
+      "data_completeness": 78.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "6272.TW",
+      "name": "驊陞",
+      "market": "TW",
+      "industry": "電子零組件業",
+      "currency": null,
+      "price": 24.25,
+      "change_percent": -3.58,
+      "pe": 10.02,
+      "dividend_yield": 8.33,
+      "pbr": 1.07,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.02,
+      "eps_growth_yoy": null,
+      "ma5": 24.44,
+      "ma20": 26.11,
+      "ma60": 30.93,
+      "is_bullish_alignment": false,
+      "alignment_gap": -21.59,
+      "momentum_60d": -22.28,
+      "momentum_120d": -41.21,
+      "volume_ratio_20d": 0.36,
+      "drawdown_1y": -60.5,
+      "score": 18.0,
+      "value_score": 99.7,
+      "quality_growth_score": 20.0,
+      "momentum_score": 0.0,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "低 PE 可能反映景氣循環下行",
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "6962.TW",
+      "name": "奕力-KY",
+      "market": "TW",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 31.05,
+      "change_percent": -0.96,
+      "pe": 21.27,
+      "dividend_yield": 3.22,
+      "pbr": 0.75,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.33,
+      "eps_growth_yoy": null,
+      "ma5": 31.2,
+      "ma20": 32.21,
+      "ma60": 35.8,
+      "is_bullish_alignment": false,
+      "alignment_gap": -13.26,
+      "momentum_60d": -18.5,
+      "momentum_120d": -19.77,
+      "volume_ratio_20d": 0.46,
+      "drawdown_1y": -37.21,
+      "score": 18.0,
+      "value_score": 86.1,
+      "quality_growth_score": 19.3,
+      "momentum_score": 3.0,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "6715.TW",
       "name": "嘉基",
       "market": "TW",
@@ -34975,93 +35108,6 @@
       ]
     },
     {
-      "symbol": "4968.TW",
-      "name": "立積",
-      "market": "TW",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 95.2,
-      "change_percent": -2.36,
-      "pe": 25.73,
-      "dividend_yield": 1.68,
-      "pbr": 3.25,
-      "roe": 6.85,
-      "gross_margin": 33.68,
-      "debt_to_equity": 33.38,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -109.43,
-      "eps_growth_yoy": null,
-      "ma5": 97.38,
-      "ma20": 98.44,
-      "ma60": 108.74,
-      "is_bullish_alignment": false,
-      "alignment_gap": -12.45,
-      "momentum_60d": -17.58,
-      "momentum_120d": -19.66,
-      "volume_ratio_20d": 0.8,
-      "drawdown_1y": -42.82,
-      "score": 17.4,
-      "value_score": 71.0,
-      "quality_growth_score": 19.7,
-      "momentum_score": 4.2,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "6272.TW",
-      "name": "驊陞",
-      "market": "TW",
-      "industry": "電子零組件業",
-      "currency": null,
-      "price": 24.25,
-      "change_percent": -3.58,
-      "pe": 10.02,
-      "dividend_yield": 8.33,
-      "pbr": 1.07,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -2.48,
-      "eps_growth_yoy": null,
-      "ma5": 24.44,
-      "ma20": 26.11,
-      "ma60": 30.93,
-      "is_bullish_alignment": false,
-      "alignment_gap": -21.59,
-      "momentum_60d": -22.28,
-      "momentum_120d": -41.21,
-      "volume_ratio_20d": 0.36,
-      "drawdown_1y": -60.5,
-      "score": 17.4,
-      "value_score": 99.7,
-      "quality_growth_score": 15.0,
-      "momentum_score": 0.0,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "低 PE 可能反映景氣循環下行",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "6859.TWO",
       "name": "伯特光",
       "market": "TWO",
@@ -35186,50 +35232,6 @@
         "估值相對合理"
       ],
       "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "6862.TW",
-      "name": "三集瑞-KY",
-      "market": "TW",
-      "industry": "電子零組件業",
-      "currency": null,
-      "price": 146.0,
-      "change_percent": 1.39,
-      "pe": 23.93,
-      "dividend_yield": 3.42,
-      "pbr": 2.33,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -103.94,
-      "eps_growth_yoy": null,
-      "ma5": 141.9,
-      "ma20": 145.45,
-      "ma60": 176.62,
-      "is_bullish_alignment": false,
-      "alignment_gap": -17.34,
-      "momentum_60d": -9.32,
-      "momentum_120d": -22.96,
-      "volume_ratio_20d": 0.42,
-      "drawdown_1y": -35.96,
-      "score": 17.3,
-      "value_score": 77.2,
-      "quality_growth_score": 0.0,
-      "momentum_score": 7.3,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
         "可用資料偏少，分數不確定性較高"
       ],
       "tags": [
@@ -35671,6 +35673,49 @@
       ]
     },
     {
+      "symbol": "7839.TWO",
+      "name": "達人網",
+      "market": "TWO",
+      "industry": "數位雲端",
+      "currency": null,
+      "price": 45.0,
+      "change_percent": -1.64,
+      "pe": 16.85,
+      "dividend_yield": 4.52,
+      "pbr": 3.29,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.34,
+      "eps_growth_yoy": null,
+      "ma5": 45.54,
+      "ma20": 44.97,
+      "ma60": 51.31,
+      "is_bullish_alignment": false,
+      "alignment_gap": -12.3,
+      "momentum_60d": -28.12,
+      "momentum_120d": -30.77,
+      "volume_ratio_20d": 0.27,
+      "drawdown_1y": -34.78,
+      "score": 16.6,
+      "value_score": 81.8,
+      "quality_growth_score": 19.3,
+      "momentum_score": 2.0,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "6167.TWO",
       "name": "久正",
       "market": "TWO",
@@ -35976,49 +36021,6 @@
       ]
     },
     {
-      "symbol": "3122.TWO",
-      "name": "笙泉",
-      "market": "TWO",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 25.0,
-      "change_percent": -1.96,
-      "pe": null,
-      "dividend_yield": 0.0,
-      "pbr": 3.15,
-      "roe": -18.33,
-      "gross_margin": 34.75,
-      "debt_to_equity": 27.0,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -91.33,
-      "eps_growth_yoy": null,
-      "ma5": 25.17,
-      "ma20": 25.74,
-      "ma60": 30.02,
-      "is_bullish_alignment": false,
-      "alignment_gap": -16.72,
-      "momentum_60d": -33.16,
-      "momentum_120d": 2.88,
-      "volume_ratio_20d": 0.84,
-      "drawdown_1y": -37.81,
-      "score": 16.1,
-      "value_score": 76.1,
-      "quality_growth_score": 18.8,
-      "momentum_score": 9.4,
-      "data_completeness": 78.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "3447.TW",
       "name": "展達",
       "market": "TW",
@@ -36103,6 +36105,49 @@
       ]
     },
     {
+      "symbol": "2338.TW",
+      "name": "光罩",
+      "market": "TW",
+      "industry": "半導體業",
+      "currency": null,
+      "price": 38.9,
+      "change_percent": -1.89,
+      "pe": null,
+      "dividend_yield": null,
+      "pbr": 2.1,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.08,
+      "eps_growth_yoy": null,
+      "ma5": 38.95,
+      "ma20": 41.25,
+      "ma60": 47.99,
+      "is_bullish_alignment": false,
+      "alignment_gap": -18.94,
+      "momentum_60d": -19.96,
+      "momentum_120d": 2.44,
+      "volume_ratio_20d": 0.34,
+      "drawdown_1y": -32.82,
+      "score": 15.9,
+      "value_score": 87.8,
+      "quality_growth_score": 20.2,
+      "momentum_score": 9.2,
+      "data_completeness": 56.8,
+      "ranking_reasons": [
+        "符合科技產業偏好",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "4971.TWO",
       "name": "IET-KY",
       "market": "TWO",
@@ -36111,7 +36156,7 @@
       "price": 460.5,
       "change_percent": -4.06,
       "pe": 90.47,
-      "dividend_yield": 18.0,
+      "dividend_yield": 0.18,
       "pbr": 8.8,
       "roe": null,
       "gross_margin": null,
@@ -36140,50 +36185,6 @@
       "risks": [
         "可用資料偏少，分數不確定性較高",
         "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "6593.TWO",
-      "name": "台灣銘板",
-      "market": "TWO",
-      "industry": "資訊服務業",
-      "currency": null,
-      "price": 32.25,
-      "change_percent": -0.62,
-      "pe": null,
-      "dividend_yield": 0.0,
-      "pbr": 1.17,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -128.09,
-      "eps_growth_yoy": null,
-      "ma5": 32.38,
-      "ma20": 33.1,
-      "ma60": 34.09,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.38,
-      "momentum_60d": -8.51,
-      "momentum_120d": -8.77,
-      "volume_ratio_20d": 0.87,
-      "drawdown_1y": -43.22,
-      "score": 15.8,
-      "value_score": 98.1,
-      "quality_growth_score": 0.0,
-      "momentum_score": 11.7,
-      "data_completeness": 56.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
       ],
       "tags": [
         "科技優先"
@@ -36272,50 +36273,6 @@
       "risks": [
         "營收年增明顯衰退",
         "低 PE 可能反映景氣循環下行"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "6962.TW",
-      "name": "奕力-KY",
-      "market": "TW",
-      "industry": "半導體業",
-      "currency": null,
-      "price": 31.05,
-      "change_percent": -0.96,
-      "pe": 21.27,
-      "dividend_yield": 3.22,
-      "pbr": 0.75,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -32.9,
-      "eps_growth_yoy": null,
-      "ma5": 31.2,
-      "ma20": 32.21,
-      "ma60": 35.8,
-      "is_bullish_alignment": false,
-      "alignment_gap": -13.26,
-      "momentum_60d": -18.5,
-      "momentum_120d": -19.77,
-      "volume_ratio_20d": 0.46,
-      "drawdown_1y": -37.21,
-      "score": 15.6,
-      "value_score": 86.1,
-      "quality_growth_score": 0.0,
-      "momentum_score": 3.0,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
       ],
       "tags": [
         "科技優先"
@@ -37284,50 +37241,6 @@
       ]
     },
     {
-      "symbol": "7839.TWO",
-      "name": "達人網",
-      "market": "TWO",
-      "industry": "數位雲端",
-      "currency": null,
-      "price": 45.0,
-      "change_percent": -1.64,
-      "pe": 16.85,
-      "dividend_yield": 4.52,
-      "pbr": 3.29,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -34.29,
-      "eps_growth_yoy": null,
-      "ma5": 45.54,
-      "ma20": 44.97,
-      "ma60": 51.31,
-      "is_bullish_alignment": false,
-      "alignment_gap": -12.3,
-      "momentum_60d": -28.12,
-      "momentum_120d": -30.77,
-      "volume_ratio_20d": 0.27,
-      "drawdown_1y": -34.78,
-      "score": 14.1,
-      "value_score": 81.8,
-      "quality_growth_score": 0.0,
-      "momentum_score": 2.0,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好",
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "2457.TW",
       "name": "飛宏",
       "market": "TW",
@@ -37794,6 +37707,48 @@
       ],
       "risks": [
         "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "3380.TW",
+      "name": "明泰",
+      "market": "TW",
+      "industry": "通信網路業",
+      "currency": null,
+      "price": 27.95,
+      "change_percent": -2.1,
+      "pe": 199.64,
+      "dividend_yield": 1.79,
+      "pbr": 1.65,
+      "roe": 1.33,
+      "gross_margin": 18.05,
+      "debt_to_equity": 140.48,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 5.46,
+      "eps_growth_yoy": null,
+      "ma5": 28.74,
+      "ma20": 29.71,
+      "ma60": 33.07,
+      "is_bullish_alignment": false,
+      "alignment_gap": -15.47,
+      "momentum_60d": -11.69,
+      "momentum_120d": -19.45,
+      "volume_ratio_20d": 0.74,
+      "drawdown_1y": -32.73,
+      "score": 12.4,
+      "value_score": 35.7,
+      "quality_growth_score": 9.1,
+      "momentum_score": 9.6,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "估值明顯高於同業，現有成長資料支撐不足"
       ],
       "tags": [
         "科技優先"
@@ -38977,6 +38932,48 @@
       ]
     },
     {
+      "symbol": "2419.TW",
+      "name": "仲琦",
+      "market": "TW",
+      "industry": "通信網路業",
+      "currency": null,
+      "price": 24.2,
+      "change_percent": -1.43,
+      "pe": 605.0,
+      "dividend_yield": null,
+      "pbr": 1.61,
+      "roe": 1.89,
+      "gross_margin": 18.67,
+      "debt_to_equity": 120.18,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.67,
+      "eps_growth_yoy": null,
+      "ma5": 24.4,
+      "ma20": 25.0,
+      "ma60": 28.08,
+      "is_bullish_alignment": false,
+      "alignment_gap": -13.81,
+      "momentum_60d": -17.69,
+      "momentum_120d": -24.49,
+      "volume_ratio_20d": 0.39,
+      "drawdown_1y": -35.89,
+      "score": 8.3,
+      "value_score": 35.9,
+      "quality_growth_score": 7.6,
+      "momentum_score": 2.8,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
       "symbol": "6276.TWO",
       "name": "安鈦克",
       "market": "TWO",
@@ -39146,6 +39143,49 @@
       ],
       "risks": [
         "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "科技優先"
+      ]
+    },
+    {
+      "symbol": "3138.TW",
+      "name": "耀登",
+      "market": "TW",
+      "industry": "通信網路業",
+      "currency": null,
+      "price": 95.6,
+      "change_percent": -1.44,
+      "pe": 62.08,
+      "dividend_yield": 1.62,
+      "pbr": 2.0,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.44,
+      "eps_growth_yoy": null,
+      "ma5": 94.92,
+      "ma20": 97.93,
+      "ma60": 128.68,
+      "is_bullish_alignment": false,
+      "alignment_gap": -25.71,
+      "momentum_60d": -38.32,
+      "momentum_120d": -46.89,
+      "volume_ratio_20d": 0.45,
+      "drawdown_1y": -56.05,
+      "score": 7.5,
+      "value_score": 34.2,
+      "quality_growth_score": 17.1,
+      "momentum_score": 0.0,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "符合科技產業偏好"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高",
+        "估值明顯高於同業，現有成長資料支撐不足"
       ],
       "tags": [
         "科技優先"
@@ -39412,49 +39452,6 @@
       ]
     },
     {
-      "symbol": "2419.TW",
-      "name": "仲琦",
-      "market": "TW",
-      "industry": "通信網路業",
-      "currency": null,
-      "price": 24.2,
-      "change_percent": -1.43,
-      "pe": 605.0,
-      "dividend_yield": null,
-      "pbr": 1.61,
-      "roe": 1.89,
-      "gross_margin": 18.67,
-      "debt_to_equity": 120.18,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -67.39,
-      "eps_growth_yoy": null,
-      "ma5": 24.4,
-      "ma20": 25.0,
-      "ma60": 28.08,
-      "is_bullish_alignment": false,
-      "alignment_gap": -13.81,
-      "momentum_60d": -17.69,
-      "momentum_120d": -24.49,
-      "volume_ratio_20d": 0.39,
-      "drawdown_1y": -35.89,
-      "score": 6.6,
-      "value_score": 35.9,
-      "quality_growth_score": 2.7,
-      "momentum_score": 2.8,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "符合科技產業偏好"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
       "symbol": "3207.TWO",
       "name": "耀勝",
       "market": "TWO",
@@ -39703,50 +39700,6 @@
       "drawdown_1y": -61.65,
       "score": 5.9,
       "value_score": 38.0,
-      "quality_growth_score": 0.0,
-      "momentum_score": 0.0,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "符合科技產業偏好"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高",
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": [
-        "科技優先"
-      ]
-    },
-    {
-      "symbol": "3138.TW",
-      "name": "耀登",
-      "market": "TW",
-      "industry": "通信網路業",
-      "currency": null,
-      "price": 95.6,
-      "change_percent": -1.44,
-      "pe": 62.08,
-      "dividend_yield": 1.62,
-      "pbr": 2.0,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -144.49,
-      "eps_growth_yoy": null,
-      "ma5": 94.92,
-      "ma20": 97.93,
-      "ma60": 128.68,
-      "is_bullish_alignment": false,
-      "alignment_gap": -25.71,
-      "momentum_60d": -38.32,
-      "momentum_120d": -46.89,
-      "volume_ratio_20d": 0.45,
-      "drawdown_1y": -56.05,
-      "score": 5.3,
-      "value_score": 34.2,
       "quality_growth_score": 0.0,
       "momentum_score": 0.0,
       "data_completeness": 62.8,
@@ -40880,51 +40833,6 @@
       ]
     },
     {
-      "symbol": "4535.TWO",
-      "name": "至興",
-      "market": "TWO",
-      "industry": "電機機械",
-      "currency": null,
-      "price": 28.3,
-      "change_percent": 0.71,
-      "pe": 28.02,
-      "dividend_yield": 2.83,
-      "pbr": 0.85,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 38.69,
-      "eps_growth_yoy": null,
-      "ma5": 28.23,
-      "ma20": 27.85,
-      "ma60": 27.56,
-      "is_bullish_alignment": true,
-      "alignment_gap": 2.68,
-      "momentum_60d": 2.91,
-      "momentum_120d": -2.41,
-      "volume_ratio_20d": 0.85,
-      "drawdown_1y": -6.45,
-      "score": 65.0,
-      "value_score": 77.8,
-      "quality_growth_score": 97.4,
-      "momentum_score": 56.4,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "品質與成長表現強",
-        "股價維持多頭排列",
-        "營收年增率突出"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "多頭排列",
-        "營收成長"
-      ]
-    },
-    {
       "symbol": "2605.TW",
       "name": "新興",
       "market": "TW",
@@ -41985,6 +41893,49 @@
       ]
     },
     {
+      "symbol": "4535.TWO",
+      "name": "至興",
+      "market": "TWO",
+      "industry": "電機機械",
+      "currency": null,
+      "price": 28.3,
+      "change_percent": 0.71,
+      "pe": 28.02,
+      "dividend_yield": 2.83,
+      "pbr": 0.85,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.39,
+      "eps_growth_yoy": null,
+      "ma5": 28.23,
+      "ma20": 27.85,
+      "ma60": 27.56,
+      "is_bullish_alignment": true,
+      "alignment_gap": 2.68,
+      "momentum_60d": 2.91,
+      "momentum_120d": -2.41,
+      "volume_ratio_20d": 0.85,
+      "drawdown_1y": -6.45,
+      "score": 55.2,
+      "value_score": 77.8,
+      "quality_growth_score": 20.8,
+      "momentum_score": 56.4,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "股價維持多頭排列",
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": [
+        "多頭排列"
+      ]
+    },
+    {
       "symbol": "2049.TW",
       "name": "上銀",
       "market": "TW",
@@ -43034,7 +42985,7 @@
       "pe": 46.73,
       "dividend_yield": 4.08,
       "pbr": 1.01,
-      "roe": -39.0,
+      "roe": -0.39,
       "gross_margin": 15.18,
       "debt_to_equity": 18.83,
       "peg": null,
@@ -44354,46 +44305,6 @@
       ]
     },
     {
-      "symbol": "1515.TW",
-      "name": "力山",
-      "market": "TW",
-      "industry": "電機機械",
-      "currency": null,
-      "price": 30.4,
-      "change_percent": -4.85,
-      "pe": 20.4,
-      "dividend_yield": 1.97,
-      "pbr": 1.41,
-      "roe": 110.0,
-      "gross_margin": 13.84,
-      "debt_to_equity": 108.05,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 6.37,
-      "eps_growth_yoy": null,
-      "ma5": 30.17,
-      "ma20": 35.01,
-      "ma60": 29.77,
-      "is_bullish_alignment": false,
-      "alignment_gap": 2.11,
-      "momentum_60d": 34.51,
-      "momentum_120d": 16.48,
-      "volume_ratio_20d": 0.15,
-      "drawdown_1y": -32.22,
-      "score": 47.2,
-      "value_score": 85.4,
-      "quality_growth_score": 45.8,
-      "momentum_score": 39.9,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [],
-      "tags": [
-        "動能強"
-      ]
-    },
-    {
       "symbol": "2030.TW",
       "name": "彰源",
       "market": "TW",
@@ -44772,50 +44683,6 @@
       "ranking_reasons": [
         "品質與成長表現強",
         "營收年增率突出"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "營收成長"
-      ]
-    },
-    {
-      "symbol": "2706.TW",
-      "name": "第一店",
-      "market": "TW",
-      "industry": "觀光餐旅",
-      "currency": null,
-      "price": 12.45,
-      "change_percent": 0.0,
-      "pe": 18.58,
-      "dividend_yield": 2.81,
-      "pbr": 0.61,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 42.43,
-      "eps_growth_yoy": null,
-      "ma5": 12.46,
-      "ma20": 12.65,
-      "ma60": 12.4,
-      "is_bullish_alignment": false,
-      "alignment_gap": 0.44,
-      "momentum_60d": 1.63,
-      "momentum_120d": -2.73,
-      "volume_ratio_20d": 0.39,
-      "drawdown_1y": -10.11,
-      "score": 46.2,
-      "value_score": 89.4,
-      "quality_growth_score": 100.0,
-      "momentum_score": 27.3,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "品質與成長表現強",
-        "營收年增率突出",
-        "估值相對合理"
       ],
       "risks": [
         "可用資料偏少，分數不確定性較高"
@@ -46229,6 +46096,46 @@
       ]
     },
     {
+      "symbol": "1203.TW",
+      "name": "味王",
+      "market": "TW",
+      "industry": "食品工業",
+      "currency": null,
+      "price": 47.65,
+      "change_percent": 0.32,
+      "pe": 27.7,
+      "dividend_yield": 2.1,
+      "pbr": 1.74,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.13,
+      "eps_growth_yoy": null,
+      "ma5": 47.95,
+      "ma20": 47.04,
+      "ma60": 44.25,
+      "is_bullish_alignment": false,
+      "alignment_gap": 7.67,
+      "momentum_60d": 11.2,
+      "momentum_120d": 20.33,
+      "volume_ratio_20d": 0.35,
+      "drawdown_1y": -4.6,
+      "score": 42.3,
+      "value_score": 75.1,
+      "quality_growth_score": 17.7,
+      "momentum_score": 39.5,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "2705.TW",
       "name": "六福",
       "market": "TW",
@@ -46758,6 +46665,46 @@
       ]
     },
     {
+      "symbol": "6464.TW",
+      "name": "台數科",
+      "market": "TW",
+      "industry": "其他",
+      "currency": null,
+      "price": 78.0,
+      "change_percent": 0.91,
+      "pe": 19.16,
+      "dividend_yield": 2.22,
+      "pbr": 1.21,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.29,
+      "eps_growth_yoy": null,
+      "ma5": 78.34,
+      "ma20": 78.12,
+      "ma60": 75.93,
+      "is_bullish_alignment": false,
+      "alignment_gap": 2.73,
+      "momentum_60d": 6.04,
+      "momentum_120d": 10.07,
+      "volume_ratio_20d": 0.42,
+      "drawdown_1y": -2.01,
+      "score": 41.3,
+      "value_score": 87.8,
+      "quality_growth_score": 17.4,
+      "momentum_score": 35.5,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "8446.TWO",
       "name": "華研",
       "market": "TWO",
@@ -47128,46 +47075,6 @@
       ]
     },
     {
-      "symbol": "4430.TWO",
-      "name": "耀億",
-      "market": "TWO",
-      "industry": "其他",
-      "currency": null,
-      "price": 17.4,
-      "change_percent": 0.29,
-      "pe": 44.62,
-      "dividend_yield": 2.87,
-      "pbr": 0.56,
-      "roe": 79.0,
-      "gross_margin": 21.72,
-      "debt_to_equity": 103.75,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 14.8,
-      "eps_growth_yoy": null,
-      "ma5": 17.6,
-      "ma20": 17.09,
-      "ma60": 17.21,
-      "is_bullish_alignment": false,
-      "alignment_gap": 1.09,
-      "momentum_60d": 2.05,
-      "momentum_120d": -5.18,
-      "volume_ratio_20d": 1.05,
-      "drawdown_1y": -12.56,
-      "score": 40.4,
-      "value_score": 57.4,
-      "quality_growth_score": 51.6,
-      "momentum_score": 29.2,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "依現有資料計算後綜合表現相對穩定"
-      ],
-      "risks": [
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "5007.TW",
       "name": "三星",
       "market": "TW",
@@ -47262,7 +47169,7 @@
       "pe": null,
       "dividend_yield": 0.79,
       "pbr": 0.97,
-      "roe": -25.0,
+      "roe": -0.25,
       "gross_margin": 5.78,
       "debt_to_equity": 117.99,
       "peg": null,
@@ -47420,47 +47327,6 @@
       "tags": [
         "營收成長"
       ]
-    },
-    {
-      "symbol": "1203.TW",
-      "name": "味王",
-      "market": "TW",
-      "industry": "食品工業",
-      "currency": null,
-      "price": 47.65,
-      "change_percent": 0.32,
-      "pe": 27.7,
-      "dividend_yield": 2.1,
-      "pbr": 1.74,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -112.73,
-      "eps_growth_yoy": null,
-      "ma5": 47.95,
-      "ma20": 47.04,
-      "ma60": 44.25,
-      "is_bullish_alignment": false,
-      "alignment_gap": 7.67,
-      "momentum_60d": 11.2,
-      "momentum_120d": 20.33,
-      "volume_ratio_20d": 0.35,
-      "drawdown_1y": -4.6,
-      "score": 40.0,
-      "value_score": 75.1,
-      "quality_growth_score": 0.0,
-      "momentum_score": 39.5,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
     },
     {
       "symbol": "4711.TWO",
@@ -47634,6 +47500,47 @@
       ]
     },
     {
+      "symbol": "5871.TW",
+      "name": "中租-KY",
+      "market": "TW",
+      "industry": "其他",
+      "currency": null,
+      "price": 109.0,
+      "change_percent": 0.0,
+      "pe": 10.21,
+      "dividend_yield": 5.5,
+      "pbr": 1.07,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.82,
+      "eps_growth_yoy": null,
+      "ma5": 110.9,
+      "ma20": 115.19,
+      "ma60": 112.9,
+      "is_bullish_alignment": false,
+      "alignment_gap": -3.46,
+      "momentum_60d": 3.42,
+      "momentum_120d": 6.39,
+      "volume_ratio_20d": 0.26,
+      "drawdown_1y": -9.98,
+      "score": 39.6,
+      "value_score": 99.4,
+      "quality_growth_score": 18.4,
+      "momentum_score": 30.4,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "低 PE 可能反映景氣循環下行",
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "9933.TW",
       "name": "中鼎",
       "market": "TW",
@@ -47756,49 +47663,6 @@
       ],
       "tags": [
         "動能強"
-      ]
-    },
-    {
-      "symbol": "1527.TW",
-      "name": "鑽全",
-      "market": "TW",
-      "industry": "電機機械",
-      "currency": null,
-      "price": 32.6,
-      "change_percent": 0.62,
-      "pe": 35.82,
-      "dividend_yield": 4.6,
-      "pbr": 0.92,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 30.22,
-      "eps_growth_yoy": null,
-      "ma5": 32.45,
-      "ma20": 33.44,
-      "ma60": 33.25,
-      "is_bullish_alignment": false,
-      "alignment_gap": -1.97,
-      "momentum_60d": 0.15,
-      "momentum_120d": -4.54,
-      "volume_ratio_20d": 0.6,
-      "drawdown_1y": -12.25,
-      "score": 39.4,
-      "value_score": 68.2,
-      "quality_growth_score": 80.4,
-      "momentum_score": 25.9,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "品質與成長表現強",
-        "營收年增率突出"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "營收成長"
       ]
     },
     {
@@ -48047,47 +47911,6 @@
       "tags": [
         "動能強"
       ]
-    },
-    {
-      "symbol": "6464.TW",
-      "name": "台數科",
-      "market": "TW",
-      "industry": "其他",
-      "currency": null,
-      "price": 78.0,
-      "change_percent": 0.91,
-      "pe": 19.16,
-      "dividend_yield": 2.22,
-      "pbr": 1.21,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -128.69,
-      "eps_growth_yoy": null,
-      "ma5": 78.34,
-      "ma20": 78.12,
-      "ma60": 75.93,
-      "is_bullish_alignment": false,
-      "alignment_gap": 2.73,
-      "momentum_60d": 6.04,
-      "momentum_120d": 10.07,
-      "volume_ratio_20d": 0.42,
-      "drawdown_1y": -2.01,
-      "score": 39.1,
-      "value_score": 87.8,
-      "quality_growth_score": 0.0,
-      "momentum_score": 35.5,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
     },
     {
       "symbol": "8032.TWO",
@@ -48423,50 +48246,6 @@
       "tags": []
     },
     {
-      "symbol": "9918.TW",
-      "name": "欣天然",
-      "market": "TW",
-      "industry": "油電燃氣業",
-      "currency": null,
-      "price": 42.45,
-      "change_percent": -0.35,
-      "pe": 25.12,
-      "dividend_yield": 3.53,
-      "pbr": 2.4,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 119.29,
-      "eps_growth_yoy": null,
-      "ma5": 42.68,
-      "ma20": 43.3,
-      "ma60": 43.38,
-      "is_bullish_alignment": false,
-      "alignment_gap": -2.16,
-      "momentum_60d": -1.96,
-      "momentum_120d": 7.06,
-      "volume_ratio_20d": 0.25,
-      "drawdown_1y": -30.75,
-      "score": 38.8,
-      "value_score": 75.4,
-      "quality_growth_score": 100.0,
-      "momentum_score": 20.0,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "品質與成長表現強",
-        "營收年增率突出",
-        "估值相對合理"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "營收成長"
-      ]
-    },
-    {
       "symbol": "7716.TWO",
       "name": "昱臺國際",
       "market": "TWO",
@@ -48585,6 +48364,46 @@
         "營收年增明顯衰退",
         "低 PE 可能反映景氣循環下行",
         "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
+      "symbol": "2010.TW",
+      "name": "春源",
+      "market": "TW",
+      "industry": "鋼鐵工業",
+      "currency": null,
+      "price": 22.95,
+      "change_percent": 6.99,
+      "pe": 9.14,
+      "dividend_yield": 8.71,
+      "pbr": 1.19,
+      "roe": 13.98,
+      "gross_margin": 11.68,
+      "debt_to_equity": 85.58,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.43,
+      "eps_growth_yoy": null,
+      "ma5": 21.5,
+      "ma20": 21.2,
+      "ma60": 22.62,
+      "is_bullish_alignment": false,
+      "alignment_gap": 1.46,
+      "momentum_60d": -0.43,
+      "momentum_120d": 3.61,
+      "volume_ratio_20d": 4.69,
+      "drawdown_1y": -11.05,
+      "score": 38.6,
+      "value_score": 99.2,
+      "quality_growth_score": 20.8,
+      "momentum_score": 37.4,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "低 PE 可能反映景氣循環下行"
       ],
       "tags": []
     },
@@ -49381,6 +49200,46 @@
       ]
     },
     {
+      "symbol": "6154.TWO",
+      "name": "順發",
+      "market": "TWO",
+      "industry": "電子通路業",
+      "currency": null,
+      "price": 13.65,
+      "change_percent": -0.73,
+      "pe": 16.45,
+      "dividend_yield": 3.74,
+      "pbr": 0.84,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.32,
+      "eps_growth_yoy": null,
+      "ma5": 13.56,
+      "ma20": 13.61,
+      "ma60": 13.66,
+      "is_bullish_alignment": false,
+      "alignment_gap": -0.05,
+      "momentum_60d": 5.0,
+      "momentum_120d": -1.44,
+      "volume_ratio_20d": 0.13,
+      "drawdown_1y": -9.6,
+      "score": 37.6,
+      "value_score": 92.1,
+      "quality_growth_score": 17.4,
+      "momentum_score": 29.4,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "3010.TW",
       "name": "華立",
       "market": "TW",
@@ -49587,48 +49446,6 @@
         "估值相對合理"
       ],
       "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
-    },
-    {
-      "symbol": "5871.TW",
-      "name": "中租-KY",
-      "market": "TW",
-      "industry": "其他",
-      "currency": null,
-      "price": 109.0,
-      "change_percent": 0.0,
-      "pe": 10.21,
-      "dividend_yield": 5.5,
-      "pbr": 1.07,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -81.59,
-      "eps_growth_yoy": null,
-      "ma5": 110.9,
-      "ma20": 115.19,
-      "ma60": 112.9,
-      "is_bullish_alignment": false,
-      "alignment_gap": -3.46,
-      "momentum_60d": 3.42,
-      "momentum_120d": 6.39,
-      "volume_ratio_20d": 0.26,
-      "drawdown_1y": -9.98,
-      "score": 37.2,
-      "value_score": 99.4,
-      "quality_growth_score": 0.0,
-      "momentum_score": 30.4,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "低 PE 可能反映景氣循環下行",
         "可用資料偏少，分數不確定性較高"
       ],
       "tags": []
@@ -49876,47 +49693,6 @@
       ]
     },
     {
-      "symbol": "2010.TW",
-      "name": "春源",
-      "market": "TW",
-      "industry": "鋼鐵工業",
-      "currency": null,
-      "price": 22.95,
-      "change_percent": 6.99,
-      "pe": 9.14,
-      "dividend_yield": 8.71,
-      "pbr": 1.19,
-      "roe": 13.98,
-      "gross_margin": 11.68,
-      "debt_to_equity": 85.58,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -42.91,
-      "eps_growth_yoy": null,
-      "ma5": 21.5,
-      "ma20": 21.2,
-      "ma60": 22.62,
-      "is_bullish_alignment": false,
-      "alignment_gap": 1.46,
-      "momentum_60d": -0.43,
-      "momentum_120d": 3.61,
-      "volume_ratio_20d": 4.69,
-      "drawdown_1y": -11.05,
-      "score": 36.8,
-      "value_score": 99.2,
-      "quality_growth_score": 15.7,
-      "momentum_score": 37.4,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "低 PE 可能反映景氣循環下行"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "6542.TWO",
       "name": "隆中",
       "market": "TWO",
@@ -49925,7 +49701,7 @@
       "price": 47.3,
       "change_percent": -2.97,
       "pe": 107.5,
-      "dividend_yield": 4.0,
+      "dividend_yield": 0.04,
       "pbr": 2.75,
       "roe": 3.33,
       "gross_margin": 79.84,
@@ -50200,6 +49976,46 @@
       "tags": [
         "動能強"
       ]
+    },
+    {
+      "symbol": "2706.TW",
+      "name": "第一店",
+      "market": "TW",
+      "industry": "觀光餐旅",
+      "currency": null,
+      "price": 12.45,
+      "change_percent": 0.0,
+      "pe": 18.58,
+      "dividend_yield": 2.81,
+      "pbr": 0.61,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.42,
+      "eps_growth_yoy": null,
+      "ma5": 12.46,
+      "ma20": 12.65,
+      "ma60": 12.4,
+      "is_bullish_alignment": false,
+      "alignment_gap": 0.44,
+      "momentum_60d": 1.63,
+      "momentum_120d": -2.73,
+      "volume_ratio_20d": 0.39,
+      "drawdown_1y": -10.11,
+      "score": 36.1,
+      "value_score": 89.4,
+      "quality_growth_score": 20.8,
+      "momentum_score": 27.3,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
     },
     {
       "symbol": "2701.TW",
@@ -50615,44 +50431,6 @@
       ]
     },
     {
-      "symbol": "1599.TWO",
-      "name": "宏佳騰",
-      "market": "TWO",
-      "industry": "電機機械",
-      "currency": null,
-      "price": 23.8,
-      "change_percent": 0.0,
-      "pe": null,
-      "dividend_yield": 2.1,
-      "pbr": 0.93,
-      "roe": 67.0,
-      "gross_margin": 21.59,
-      "debt_to_equity": 42.15,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 11.52,
-      "eps_growth_yoy": null,
-      "ma5": 23.82,
-      "ma20": 23.53,
-      "ma60": 23.54,
-      "is_bullish_alignment": false,
-      "alignment_gap": 1.1,
-      "momentum_60d": -1.65,
-      "momentum_120d": -10.69,
-      "volume_ratio_20d": 0.23,
-      "drawdown_1y": -28.1,
-      "score": 35.5,
-      "value_score": 100.0,
-      "quality_growth_score": 55.2,
-      "momentum_score": 17.0,
-      "data_completeness": 78.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [],
-      "tags": []
-    },
-    {
       "symbol": "8908.TWO",
       "name": "欣雄",
       "market": "TWO",
@@ -50816,45 +50594,44 @@
       "tags": []
     },
     {
-      "symbol": "6154.TWO",
-      "name": "順發",
-      "market": "TWO",
-      "industry": "電子通路業",
+      "symbol": "1515.TW",
+      "name": "力山",
+      "market": "TW",
+      "industry": "電機機械",
       "currency": null,
-      "price": 13.65,
-      "change_percent": -0.73,
-      "pe": 16.45,
-      "dividend_yield": 3.74,
-      "pbr": 0.84,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
+      "price": 30.4,
+      "change_percent": -4.85,
+      "pe": 20.4,
+      "dividend_yield": 1.97,
+      "pbr": 1.41,
+      "roe": 1.1,
+      "gross_margin": 13.84,
+      "debt_to_equity": 108.05,
       "peg": null,
       "free_cashflow_yield": null,
-      "revenue_growth_yoy": -132.31,
+      "revenue_growth_yoy": 6.37,
       "eps_growth_yoy": null,
-      "ma5": 13.56,
-      "ma20": 13.61,
-      "ma60": 13.66,
+      "ma5": 30.17,
+      "ma20": 35.01,
+      "ma60": 29.77,
       "is_bullish_alignment": false,
-      "alignment_gap": -0.05,
-      "momentum_60d": 5.0,
-      "momentum_120d": -1.44,
-      "volume_ratio_20d": 0.13,
-      "drawdown_1y": -9.6,
+      "alignment_gap": 2.11,
+      "momentum_60d": 34.51,
+      "momentum_120d": 16.48,
+      "volume_ratio_20d": 0.15,
+      "drawdown_1y": -32.22,
       "score": 35.4,
-      "value_score": 92.1,
-      "quality_growth_score": 0.0,
-      "momentum_score": 29.4,
-      "data_completeness": 62.8,
+      "value_score": 85.4,
+      "quality_growth_score": 12.5,
+      "momentum_score": 39.9,
+      "data_completeness": 84.8,
       "ranking_reasons": [
         "估值相對合理"
       ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
+      "risks": [],
+      "tags": [
+        "動能強"
+      ]
     },
     {
       "symbol": "2732.TWO",
@@ -52097,47 +51874,6 @@
       ]
     },
     {
-      "symbol": "2643.TWO",
-      "name": "捷迅",
-      "market": "TWO",
-      "industry": "航運業",
-      "currency": null,
-      "price": 63.8,
-      "change_percent": 0.47,
-      "pe": 8.89,
-      "dividend_yield": 7.05,
-      "pbr": 1.14,
-      "roe": 9.99,
-      "gross_margin": 8.47,
-      "debt_to_equity": 62.79,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 22.99,
-      "eps_growth_yoy": null,
-      "ma5": 62.54,
-      "ma20": 60.1,
-      "ma60": 63.61,
-      "is_bullish_alignment": false,
-      "alignment_gap": 0.3,
-      "momentum_60d": -4.35,
-      "momentum_120d": -11.63,
-      "volume_ratio_20d": 0.6,
-      "drawdown_1y": -15.94,
-      "score": 33.3,
-      "value_score": 99.4,
-      "quality_growth_score": 30.9,
-      "momentum_score": 20.6,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "營收年增率突出",
-        "估值相對合理"
-      ],
-      "risks": [],
-      "tags": [
-        "營收成長"
-      ]
-    },
-    {
       "symbol": "1710.TW",
       "name": "東聯",
       "market": "TW",
@@ -52220,47 +51956,6 @@
         "可用資料偏少，分數不確定性較高"
       ],
       "tags": []
-    },
-    {
-      "symbol": "8940.TW",
-      "name": "新天地",
-      "market": "TW",
-      "industry": "觀光餐旅",
-      "currency": null,
-      "price": 15.35,
-      "change_percent": 0.0,
-      "pe": 24.37,
-      "dividend_yield": null,
-      "pbr": 1.22,
-      "roe": 15.52,
-      "gross_margin": 49.15,
-      "debt_to_equity": 143.29,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 148.37,
-      "eps_growth_yoy": null,
-      "ma5": 15.36,
-      "ma20": 15.86,
-      "ma60": 16.41,
-      "is_bullish_alignment": false,
-      "alignment_gap": -6.45,
-      "momentum_60d": -11.78,
-      "momentum_120d": -23.63,
-      "volume_ratio_20d": 0.31,
-      "drawdown_1y": -31.01,
-      "score": 32.8,
-      "value_score": 81.4,
-      "quality_growth_score": 54.5,
-      "momentum_score": 7.8,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "營收年增率突出",
-        "估值相對合理"
-      ],
-      "risks": [],
-      "tags": [
-        "營收成長"
-      ]
     },
     {
       "symbol": "5604.TWO",
@@ -52989,6 +52684,46 @@
       "tags": []
     },
     {
+      "symbol": "1527.TW",
+      "name": "鑽全",
+      "market": "TW",
+      "industry": "電機機械",
+      "currency": null,
+      "price": 32.6,
+      "change_percent": 0.62,
+      "pe": 35.82,
+      "dividend_yield": 4.6,
+      "pbr": 0.92,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.3,
+      "eps_growth_yoy": null,
+      "ma5": 32.45,
+      "ma20": 33.44,
+      "ma60": 33.25,
+      "is_bullish_alignment": false,
+      "alignment_gap": -1.97,
+      "momentum_60d": 0.15,
+      "momentum_120d": -4.54,
+      "volume_ratio_20d": 0.6,
+      "drawdown_1y": -12.25,
+      "score": 31.8,
+      "value_score": 68.2,
+      "quality_growth_score": 20.6,
+      "momentum_score": 25.9,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "依現有資料計算後綜合表現相對穩定"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "1315.TW",
       "name": "達新",
       "market": "TW",
@@ -53397,46 +53132,6 @@
       "tags": []
     },
     {
-      "symbol": "5603.TWO",
-      "name": "陸海",
-      "market": "TWO",
-      "industry": "航運業",
-      "currency": null,
-      "price": 14.15,
-      "change_percent": 0.0,
-      "pe": 44.22,
-      "dividend_yield": 3.53,
-      "pbr": 0.78,
-      "roe": 68.0,
-      "gross_margin": 12.47,
-      "debt_to_equity": 42.6,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 13.72,
-      "eps_growth_yoy": null,
-      "ma5": 14.1,
-      "ma20": 14.3,
-      "ma60": 14.89,
-      "is_bullish_alignment": false,
-      "alignment_gap": -4.94,
-      "momentum_60d": -10.44,
-      "momentum_120d": -19.37,
-      "volume_ratio_20d": 0.18,
-      "drawdown_1y": -30.98,
-      "score": 31.4,
-      "value_score": 57.9,
-      "quality_growth_score": 55.5,
-      "momentum_score": 9.5,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "依現有資料計算後綜合表現相對穩定"
-      ],
-      "risks": [
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "1229.TW",
       "name": "聯華",
       "market": "TW",
@@ -53597,6 +53292,87 @@
       "tags": []
     },
     {
+      "symbol": "1905.TW",
+      "name": "華紙",
+      "market": "TW",
+      "industry": "造紙工業",
+      "currency": null,
+      "price": 13.25,
+      "change_percent": -1.85,
+      "pe": null,
+      "dividend_yield": null,
+      "pbr": 0.9,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.43,
+      "eps_growth_yoy": null,
+      "ma5": 13.18,
+      "ma20": 13.72,
+      "ma60": 14.0,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.37,
+      "momentum_60d": 9.05,
+      "momentum_120d": 9.5,
+      "volume_ratio_20d": 0.64,
+      "drawdown_1y": -28.57,
+      "score": 31.3,
+      "value_score": 100.0,
+      "quality_growth_score": 19.1,
+      "momentum_score": 27.8,
+      "data_completeness": 56.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
+      "symbol": "2731.TW",
+      "name": "雄獅",
+      "market": "TW",
+      "industry": "觀光餐旅",
+      "currency": null,
+      "price": 145.0,
+      "change_percent": -0.68,
+      "pe": 8.48,
+      "dividend_yield": 8.83,
+      "pbr": 2.53,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.46,
+      "eps_growth_yoy": null,
+      "ma5": 145.9,
+      "ma20": 145.18,
+      "ma60": 153.26,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.39,
+      "momentum_60d": -9.38,
+      "momentum_120d": -13.69,
+      "volume_ratio_20d": 1.34,
+      "drawdown_1y": -21.2,
+      "score": 31.3,
+      "value_score": 93.5,
+      "quality_growth_score": 19.1,
+      "momentum_score": 20.0,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "低 PE 可能反映景氣循環下行",
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "2033.TW",
       "name": "佳大",
       "market": "TW",
@@ -53719,50 +53495,6 @@
         "可用資料偏少，分數不確定性較高"
       ],
       "tags": []
-    },
-    {
-      "symbol": "1219.TW",
-      "name": "福壽",
-      "market": "TW",
-      "industry": "食品工業",
-      "currency": null,
-      "price": 10.75,
-      "change_percent": 0.94,
-      "pe": 22.87,
-      "dividend_yield": 4.65,
-      "pbr": 0.79,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 40.47,
-      "eps_growth_yoy": null,
-      "ma5": 10.75,
-      "ma20": 11.54,
-      "ma60": 12.2,
-      "is_bullish_alignment": false,
-      "alignment_gap": -11.91,
-      "momentum_60d": -17.94,
-      "momentum_120d": -20.37,
-      "volume_ratio_20d": 0.44,
-      "drawdown_1y": -26.37,
-      "score": 31.0,
-      "value_score": 84.2,
-      "quality_growth_score": 100.0,
-      "momentum_score": 7.2,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "品質與成長表現強",
-        "營收年增率突出",
-        "估值相對合理"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "營收成長"
-      ]
     },
     {
       "symbol": "8401.TWO",
@@ -54259,6 +53991,46 @@
       ]
     },
     {
+      "symbol": "1312.TW",
+      "name": "國喬",
+      "market": "TW",
+      "industry": "塑膠工業",
+      "currency": null,
+      "price": 11.95,
+      "change_percent": -2.45,
+      "pe": null,
+      "dividend_yield": null,
+      "pbr": 0.47,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.22,
+      "eps_growth_yoy": null,
+      "ma5": 11.87,
+      "ma20": 12.46,
+      "ma60": 12.66,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.62,
+      "momentum_60d": 9.63,
+      "momentum_120d": -5.53,
+      "volume_ratio_20d": 0.34,
+      "drawdown_1y": -20.86,
+      "score": 30.4,
+      "value_score": 100.0,
+      "quality_growth_score": 19.6,
+      "momentum_score": 26.6,
+      "data_completeness": 56.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "2608.TW",
       "name": "嘉里大榮",
       "market": "TW",
@@ -54663,47 +54435,6 @@
       "tags": []
     },
     {
-      "symbol": "2630.TW",
-      "name": "亞航",
-      "market": "TW",
-      "industry": "航運業",
-      "currency": null,
-      "price": 48.2,
-      "change_percent": -1.63,
-      "pe": 84.56,
-      "dividend_yield": 1.87,
-      "pbr": 2.98,
-      "roe": 143.0,
-      "gross_margin": 8.49,
-      "debt_to_equity": 69.95,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -30.49,
-      "eps_growth_yoy": null,
-      "ma5": 48.79,
-      "ma20": 52.49,
-      "ma60": 46.87,
-      "is_bullish_alignment": false,
-      "alignment_gap": 2.84,
-      "momentum_60d": 9.42,
-      "momentum_120d": -1.83,
-      "volume_ratio_20d": 0.14,
-      "drawdown_1y": -33.7,
-      "score": 29.7,
-      "value_score": 30.0,
-      "quality_growth_score": 40.4,
-      "momentum_score": 22.5,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "依現有資料計算後綜合表現相對穩定"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "2009.TW",
       "name": "第一銅",
       "market": "TW",
@@ -55079,6 +54810,44 @@
       "tags": []
     },
     {
+      "symbol": "2643.TWO",
+      "name": "捷迅",
+      "market": "TWO",
+      "industry": "航運業",
+      "currency": null,
+      "price": 63.8,
+      "change_percent": 0.47,
+      "pe": 8.89,
+      "dividend_yield": 7.05,
+      "pbr": 1.14,
+      "roe": 9.99,
+      "gross_margin": 8.47,
+      "debt_to_equity": 62.79,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.23,
+      "eps_growth_yoy": null,
+      "ma5": 62.54,
+      "ma20": 60.1,
+      "ma60": 63.61,
+      "is_bullish_alignment": false,
+      "alignment_gap": 0.3,
+      "momentum_60d": -4.35,
+      "momentum_120d": -11.63,
+      "volume_ratio_20d": 0.6,
+      "drawdown_1y": -15.94,
+      "score": 29.0,
+      "value_score": 99.4,
+      "quality_growth_score": 18.8,
+      "momentum_score": 20.6,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": []
+    },
+    {
       "symbol": "1104.TW",
       "name": "環泥",
       "market": "TW",
@@ -55163,6 +54932,46 @@
       "tags": [
         "營收成長"
       ]
+    },
+    {
+      "symbol": "9918.TW",
+      "name": "欣天然",
+      "market": "TW",
+      "industry": "油電燃氣業",
+      "currency": null,
+      "price": 42.45,
+      "change_percent": -0.35,
+      "pe": 25.12,
+      "dividend_yield": 3.53,
+      "pbr": 2.4,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 1.19,
+      "eps_growth_yoy": null,
+      "ma5": 42.68,
+      "ma20": 43.3,
+      "ma60": 43.38,
+      "is_bullish_alignment": false,
+      "alignment_gap": -2.16,
+      "momentum_60d": -1.96,
+      "momentum_120d": 7.06,
+      "volume_ratio_20d": 0.25,
+      "drawdown_1y": -30.75,
+      "score": 28.9,
+      "value_score": 75.4,
+      "quality_growth_score": 22.4,
+      "momentum_score": 20.0,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
     },
     {
       "symbol": "2064.TWO",
@@ -55286,48 +55095,6 @@
       "tags": []
     },
     {
-      "symbol": "2731.TW",
-      "name": "雄獅",
-      "market": "TW",
-      "industry": "觀光餐旅",
-      "currency": null,
-      "price": 145.0,
-      "change_percent": -0.68,
-      "pe": 8.48,
-      "dividend_yield": 8.83,
-      "pbr": 2.53,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -46.22,
-      "eps_growth_yoy": null,
-      "ma5": 145.9,
-      "ma20": 145.18,
-      "ma60": 153.26,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.39,
-      "momentum_60d": -9.38,
-      "momentum_120d": -13.69,
-      "volume_ratio_20d": 1.34,
-      "drawdown_1y": -21.2,
-      "score": 28.8,
-      "value_score": 93.5,
-      "quality_growth_score": 0.0,
-      "momentum_score": 20.0,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "低 PE 可能反映景氣循環下行",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "2028.TW",
       "name": "威致",
       "market": "TW",
@@ -55409,89 +55176,44 @@
       "tags": []
     },
     {
-      "symbol": "1905.TW",
-      "name": "華紙",
-      "market": "TW",
-      "industry": "造紙工業",
-      "currency": null,
-      "price": 13.25,
-      "change_percent": -1.85,
-      "pe": null,
-      "dividend_yield": null,
-      "pbr": 0.9,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -42.93,
-      "eps_growth_yoy": null,
-      "ma5": 13.18,
-      "ma20": 13.72,
-      "ma60": 14.0,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.37,
-      "momentum_60d": 9.05,
-      "momentum_120d": 9.5,
-      "volume_ratio_20d": 0.64,
-      "drawdown_1y": -28.57,
-      "score": 28.6,
-      "value_score": 100.0,
-      "quality_growth_score": 0.0,
-      "momentum_score": 27.8,
-      "data_completeness": 56.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
-    },
-    {
-      "symbol": "8929.TWO",
-      "name": "富堡",
+      "symbol": "4430.TWO",
+      "name": "耀億",
       "market": "TWO",
       "industry": "其他",
       "currency": null,
-      "price": 13.3,
-      "change_percent": 0.76,
-      "pe": null,
-      "dividend_yield": 0.0,
-      "pbr": 0.82,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
+      "price": 17.4,
+      "change_percent": 0.29,
+      "pe": 44.62,
+      "dividend_yield": 2.87,
+      "pbr": 0.56,
+      "roe": 0.79,
+      "gross_margin": 21.72,
+      "debt_to_equity": 103.75,
       "peg": null,
       "free_cashflow_yield": null,
-      "revenue_growth_yoy": 122.86,
+      "revenue_growth_yoy": 14.8,
       "eps_growth_yoy": null,
-      "ma5": 13.19,
-      "ma20": 13.67,
-      "ma60": 14.01,
+      "ma5": 17.6,
+      "ma20": 17.09,
+      "ma60": 17.21,
       "is_bullish_alignment": false,
-      "alignment_gap": -5.07,
-      "momentum_60d": -9.83,
-      "momentum_120d": -19.39,
-      "volume_ratio_20d": 0.55,
-      "drawdown_1y": -31.79,
-      "score": 28.5,
-      "value_score": 100.0,
-      "quality_growth_score": 100.0,
-      "momentum_score": 9.8,
-      "data_completeness": 56.8,
+      "alignment_gap": 1.09,
+      "momentum_60d": 2.05,
+      "momentum_120d": -5.18,
+      "volume_ratio_20d": 1.05,
+      "drawdown_1y": -12.56,
+      "score": 28.6,
+      "value_score": 57.4,
+      "quality_growth_score": 18.3,
+      "momentum_score": 29.2,
+      "data_completeness": 84.8,
       "ranking_reasons": [
-        "品質與成長表現強",
-        "營收年增率突出",
-        "估值相對合理"
+        "依現有資料計算後綜合表現相對穩定"
       ],
       "risks": [
-        "可用資料偏少，分數不確定性較高"
+        "估值明顯高於同業，現有成長資料支撐不足"
       ],
-      "tags": [
-        "營收成長"
-      ]
+      "tags": []
     },
     {
       "symbol": "1711.TW",
@@ -56269,47 +55991,6 @@
       "tags": []
     },
     {
-      "symbol": "1312.TW",
-      "name": "國喬",
-      "market": "TW",
-      "industry": "塑膠工業",
-      "currency": null,
-      "price": 11.95,
-      "change_percent": -2.45,
-      "pe": null,
-      "dividend_yield": null,
-      "pbr": 0.47,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -21.8,
-      "eps_growth_yoy": null,
-      "ma5": 11.87,
-      "ma20": 12.46,
-      "ma60": 12.66,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.62,
-      "momentum_60d": 9.63,
-      "momentum_120d": -5.53,
-      "volume_ratio_20d": 0.34,
-      "drawdown_1y": -20.86,
-      "score": 27.7,
-      "value_score": 100.0,
-      "quality_growth_score": 0.0,
-      "momentum_score": 26.6,
-      "data_completeness": 56.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "4950.TWO",
       "name": "金耘國際",
       "market": "TWO",
@@ -56512,6 +56193,46 @@
       ],
       "risks": [
         "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
+      "symbol": "6281.TW",
+      "name": "全國電",
+      "market": "TW",
+      "industry": "電子通路業",
+      "currency": null,
+      "price": 51.3,
+      "change_percent": -0.77,
+      "pe": 13.75,
+      "dividend_yield": 6.43,
+      "pbr": 1.83,
+      "roe": 16.07,
+      "gross_margin": 20.12,
+      "debt_to_equity": 257.97,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.86,
+      "eps_growth_yoy": null,
+      "ma5": 51.52,
+      "ma20": 51.59,
+      "ma60": 51.35,
+      "is_bullish_alignment": false,
+      "alignment_gap": -0.09,
+      "momentum_60d": 1.79,
+      "momentum_120d": -15.21,
+      "volume_ratio_20d": 0.93,
+      "drawdown_1y": -27.75,
+      "score": 27.5,
+      "value_score": 91.8,
+      "quality_growth_score": 17.2,
+      "momentum_score": 20.3,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "低 PE 可能反映景氣循環下行"
       ],
       "tags": []
     },
@@ -56925,6 +56646,44 @@
       ]
     },
     {
+      "symbol": "4716.TWO",
+      "name": "大立",
+      "market": "TWO",
+      "industry": "化學工業",
+      "currency": null,
+      "price": 16.65,
+      "change_percent": -3.2,
+      "pe": 28.71,
+      "dividend_yield": 0.0,
+      "pbr": 1.38,
+      "roe": 2.39,
+      "gross_margin": 16.19,
+      "debt_to_equity": 52.14,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.84,
+      "eps_growth_yoy": null,
+      "ma5": 16.98,
+      "ma20": 18.19,
+      "ma60": 18.3,
+      "is_bullish_alignment": false,
+      "alignment_gap": -9.02,
+      "momentum_60d": 8.12,
+      "momentum_120d": 8.82,
+      "volume_ratio_20d": 0.36,
+      "drawdown_1y": -31.2,
+      "score": 26.9,
+      "value_score": 75.3,
+      "quality_growth_score": 13.6,
+      "momentum_score": 25.3,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": []
+    },
+    {
       "symbol": "6721.TWO",
       "name": "信實",
       "market": "TWO",
@@ -57174,46 +56933,6 @@
       "tags": []
     },
     {
-      "symbol": "6856.TWO",
-      "name": "鑫傳",
-      "market": "TWO",
-      "industry": "文化創意業",
-      "currency": null,
-      "price": 45.15,
-      "change_percent": 0.0,
-      "pe": 16.6,
-      "dividend_yield": 6.64,
-      "pbr": 1.62,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 4.95,
-      "eps_growth_yoy": null,
-      "ma5": 44.6,
-      "ma20": 44.25,
-      "ma60": 46.64,
-      "is_bullish_alignment": false,
-      "alignment_gap": -3.19,
-      "momentum_60d": -7.95,
-      "momentum_120d": -19.23,
-      "volume_ratio_20d": 0.0,
-      "drawdown_1y": -25.98,
-      "score": 26.7,
-      "value_score": 89.2,
-      "quality_growth_score": 29.9,
-      "momentum_score": 12.6,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "1735.TW",
       "name": "日勝化",
       "market": "TW",
@@ -57374,44 +57093,6 @@
         "營收年增明顯衰退",
         "可用資料偏少，分數不確定性較高"
       ],
-      "tags": []
-    },
-    {
-      "symbol": "2430.TW",
-      "name": "燦坤",
-      "market": "TW",
-      "industry": "電子通路業",
-      "currency": null,
-      "price": 17.1,
-      "change_percent": 2.09,
-      "pe": 34.9,
-      "dividend_yield": 4.68,
-      "pbr": 0.46,
-      "roe": 48.0,
-      "gross_margin": 14.59,
-      "debt_to_equity": 212.31,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -3.36,
-      "eps_growth_yoy": null,
-      "ma5": 16.78,
-      "ma20": 17.43,
-      "ma60": 18.07,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.37,
-      "momentum_60d": -11.4,
-      "momentum_120d": -24.34,
-      "volume_ratio_20d": 0.98,
-      "drawdown_1y": -32.41,
-      "score": 26.4,
-      "value_score": 69.4,
-      "quality_growth_score": 36.9,
-      "momentum_score": 10.1,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "依現有資料計算後綜合表現相對穩定"
-      ],
-      "risks": [],
       "tags": []
     },
     {
@@ -57621,46 +57302,6 @@
       ]
     },
     {
-      "symbol": "1570.TWO",
-      "name": "力肯",
-      "market": "TWO",
-      "industry": "電機機械",
-      "currency": null,
-      "price": 33.95,
-      "change_percent": 0.59,
-      "pe": 49.2,
-      "dividend_yield": 2.95,
-      "pbr": 1.69,
-      "roe": 5.37,
-      "gross_margin": 22.11,
-      "debt_to_equity": 15.21,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 99.08,
-      "eps_growth_yoy": null,
-      "ma5": 33.79,
-      "ma20": 36.02,
-      "ma60": 41.02,
-      "is_bullish_alignment": false,
-      "alignment_gap": -17.23,
-      "momentum_60d": -15.12,
-      "momentum_120d": 10.77,
-      "volume_ratio_20d": 0.29,
-      "drawdown_1y": -38.05,
-      "score": 26.0,
-      "value_score": 48.8,
-      "quality_growth_score": 40.2,
-      "momentum_score": 11.6,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "營收年增率突出"
-      ],
-      "risks": [],
-      "tags": [
-        "營收成長"
-      ]
-    },
-    {
       "symbol": "1623.TW",
       "name": "大東電",
       "market": "TW",
@@ -57784,47 +57425,6 @@
       "tags": []
     },
     {
-      "symbol": "6281.TW",
-      "name": "全國電",
-      "market": "TW",
-      "industry": "電子通路業",
-      "currency": null,
-      "price": 51.3,
-      "change_percent": -0.77,
-      "pe": 13.75,
-      "dividend_yield": 6.43,
-      "pbr": 1.83,
-      "roe": 16.07,
-      "gross_margin": 20.12,
-      "debt_to_equity": 257.97,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -86.21,
-      "eps_growth_yoy": null,
-      "ma5": 51.52,
-      "ma20": 51.59,
-      "ma60": 51.35,
-      "is_bullish_alignment": false,
-      "alignment_gap": -0.09,
-      "momentum_60d": 1.79,
-      "momentum_120d": -15.21,
-      "volume_ratio_20d": 0.93,
-      "drawdown_1y": -27.75,
-      "score": 25.7,
-      "value_score": 91.8,
-      "quality_growth_score": 12.4,
-      "momentum_score": 20.3,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "低 PE 可能反映景氣循環下行"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "6504.TW",
       "name": "南六",
       "market": "TW",
@@ -57906,6 +57506,44 @@
       "tags": []
     },
     {
+      "symbol": "8940.TW",
+      "name": "新天地",
+      "market": "TW",
+      "industry": "觀光餐旅",
+      "currency": null,
+      "price": 15.35,
+      "change_percent": 0.0,
+      "pe": 24.37,
+      "dividend_yield": null,
+      "pbr": 1.22,
+      "roe": 15.52,
+      "gross_margin": 49.15,
+      "debt_to_equity": 143.29,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 1.48,
+      "eps_growth_yoy": null,
+      "ma5": 15.36,
+      "ma20": 15.86,
+      "ma60": 16.41,
+      "is_bullish_alignment": false,
+      "alignment_gap": -6.45,
+      "momentum_60d": -11.78,
+      "momentum_120d": -23.63,
+      "volume_ratio_20d": 0.31,
+      "drawdown_1y": -31.01,
+      "score": 25.5,
+      "value_score": 81.4,
+      "quality_growth_score": 34.0,
+      "momentum_score": 7.8,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": []
+    },
+    {
       "symbol": "2228.TW",
       "name": "劍麟",
       "market": "TW",
@@ -57936,6 +57574,46 @@
       "value_score": 89.6,
       "quality_growth_score": 24.5,
       "momentum_score": 11.8,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
+      "symbol": "6856.TWO",
+      "name": "鑫傳",
+      "market": "TWO",
+      "industry": "文化創意業",
+      "currency": null,
+      "price": 45.15,
+      "change_percent": 0.0,
+      "pe": 16.6,
+      "dividend_yield": 6.64,
+      "pbr": 1.62,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.05,
+      "eps_growth_yoy": null,
+      "ma5": 44.6,
+      "ma20": 44.25,
+      "ma60": 46.64,
+      "is_bullish_alignment": false,
+      "alignment_gap": -3.19,
+      "momentum_60d": -7.95,
+      "momentum_120d": -19.23,
+      "volume_ratio_20d": 0.0,
+      "drawdown_1y": -25.98,
+      "score": 25.5,
+      "value_score": 89.2,
+      "quality_growth_score": 20.1,
+      "momentum_score": 12.6,
       "data_completeness": 62.8,
       "ranking_reasons": [
         "估值相對合理"
@@ -58068,46 +57746,6 @@
       ],
       "risks": [
         "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
-    },
-    {
-      "symbol": "4716.TWO",
-      "name": "大立",
-      "market": "TWO",
-      "industry": "化學工業",
-      "currency": null,
-      "price": 16.65,
-      "change_percent": -3.2,
-      "pe": 28.71,
-      "dividend_yield": 0.0,
-      "pbr": 1.38,
-      "roe": 2.39,
-      "gross_margin": 16.19,
-      "debt_to_equity": 52.14,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -83.97,
-      "eps_growth_yoy": null,
-      "ma5": 16.98,
-      "ma20": 18.19,
-      "ma60": 18.3,
-      "is_bullish_alignment": false,
-      "alignment_gap": -9.02,
-      "momentum_60d": 8.12,
-      "momentum_120d": 8.82,
-      "volume_ratio_20d": 0.36,
-      "drawdown_1y": -31.2,
-      "score": 25.2,
-      "value_score": 75.3,
-      "quality_growth_score": 8.7,
-      "momentum_score": 25.3,
-      "data_completeness": 84.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退"
       ],
       "tags": []
     },
@@ -59625,6 +59263,44 @@
       "tags": []
     },
     {
+      "symbol": "1599.TWO",
+      "name": "宏佳騰",
+      "market": "TWO",
+      "industry": "電機機械",
+      "currency": null,
+      "price": 23.8,
+      "change_percent": 0.0,
+      "pe": null,
+      "dividend_yield": 2.1,
+      "pbr": 0.93,
+      "roe": 0.67,
+      "gross_margin": 21.59,
+      "debt_to_equity": 42.15,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 11.52,
+      "eps_growth_yoy": null,
+      "ma5": 23.82,
+      "ma20": 23.53,
+      "ma60": 23.54,
+      "is_bullish_alignment": false,
+      "alignment_gap": 1.1,
+      "momentum_60d": -1.65,
+      "momentum_120d": -10.69,
+      "volume_ratio_20d": 0.23,
+      "drawdown_1y": -28.1,
+      "score": 22.8,
+      "value_score": 100.0,
+      "quality_growth_score": 21.9,
+      "momentum_score": 17.0,
+      "data_completeness": 78.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [],
+      "tags": []
+    },
+    {
       "symbol": "2227.TW",
       "name": "裕日車",
       "market": "TW",
@@ -59945,46 +59621,6 @@
       "risks": [
         "營收年增明顯衰退",
         "低 PE 可能反映景氣循環下行",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
-    },
-    {
-      "symbol": "1504.TW",
-      "name": "東元",
-      "market": "TW",
-      "industry": "電機機械",
-      "currency": null,
-      "price": 66.0,
-      "change_percent": -1.05,
-      "pe": 29.33,
-      "dividend_yield": 3.03,
-      "pbr": 1.84,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 14.73,
-      "eps_growth_yoy": null,
-      "ma5": 65.98,
-      "ma20": 65.93,
-      "ma60": 69.87,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.54,
-      "momentum_60d": -9.84,
-      "momentum_120d": -19.22,
-      "volume_ratio_20d": 0.49,
-      "drawdown_1y": -44.77,
-      "score": 22.2,
-      "value_score": 72.6,
-      "quality_growth_score": 49.5,
-      "momentum_score": 6.4,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
         "可用資料偏少，分數不確定性較高"
       ],
       "tags": []
@@ -60480,6 +60116,46 @@
       "tags": []
     },
     {
+      "symbol": "1219.TW",
+      "name": "福壽",
+      "market": "TW",
+      "industry": "食品工業",
+      "currency": null,
+      "price": 10.75,
+      "change_percent": 0.94,
+      "pe": 22.87,
+      "dividend_yield": 4.65,
+      "pbr": 0.79,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.4,
+      "eps_growth_yoy": null,
+      "ma5": 10.75,
+      "ma20": 11.54,
+      "ma60": 12.2,
+      "is_bullish_alignment": false,
+      "alignment_gap": -11.91,
+      "momentum_60d": -17.94,
+      "momentum_120d": -20.37,
+      "volume_ratio_20d": 0.44,
+      "drawdown_1y": -26.37,
+      "score": 20.9,
+      "value_score": 84.2,
+      "quality_growth_score": 20.8,
+      "momentum_score": 7.2,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "4530.TWO",
       "name": "天意能創",
       "market": "TWO",
@@ -60763,49 +60439,6 @@
       "tags": []
     },
     {
-      "symbol": "4533.TWO",
-      "name": "協易機",
-      "market": "TWO",
-      "industry": "電機機械",
-      "currency": null,
-      "price": 24.6,
-      "change_percent": -1.2,
-      "pe": 1230.0,
-      "dividend_yield": 0.81,
-      "pbr": 1.5,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": 48.53,
-      "eps_growth_yoy": null,
-      "ma5": 24.53,
-      "ma20": 25.65,
-      "ma60": 29.05,
-      "is_bullish_alignment": false,
-      "alignment_gap": -15.32,
-      "momentum_60d": -21.28,
-      "momentum_120d": -31.48,
-      "volume_ratio_20d": 0.89,
-      "drawdown_1y": -40.36,
-      "score": 20.0,
-      "value_score": 36.3,
-      "quality_growth_score": 100.0,
-      "momentum_score": 2.3,
-      "data_completeness": 62.8,
-      "ranking_reasons": [
-        "品質與成長表現強",
-        "營收年增率突出"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": [
-        "營收成長"
-      ]
-    },
-    {
       "symbol": "1215.TW",
       "name": "卜蜂",
       "market": "TW",
@@ -61041,6 +60674,46 @@
       "risks": [
         "低 PE 可能反映景氣循環下行",
         "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
+      "symbol": "5603.TWO",
+      "name": "陸海",
+      "market": "TWO",
+      "industry": "航運業",
+      "currency": null,
+      "price": 14.15,
+      "change_percent": 0.0,
+      "pe": 44.22,
+      "dividend_yield": 3.53,
+      "pbr": 0.78,
+      "roe": 0.68,
+      "gross_margin": 12.47,
+      "debt_to_equity": 42.6,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 13.72,
+      "eps_growth_yoy": null,
+      "ma5": 14.1,
+      "ma20": 14.3,
+      "ma60": 14.89,
+      "is_bullish_alignment": false,
+      "alignment_gap": -4.94,
+      "momentum_60d": -10.44,
+      "momentum_120d": -19.37,
+      "volume_ratio_20d": 0.18,
+      "drawdown_1y": -30.98,
+      "score": 19.6,
+      "value_score": 57.9,
+      "quality_growth_score": 22.2,
+      "momentum_score": 9.5,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "依現有資料計算後綜合表現相對穩定"
+      ],
+      "risks": [
+        "估值明顯高於同業，現有成長資料支撐不足"
       ],
       "tags": []
     },
@@ -61583,6 +61256,86 @@
       "tags": []
     },
     {
+      "symbol": "1570.TWO",
+      "name": "力肯",
+      "market": "TWO",
+      "industry": "電機機械",
+      "currency": null,
+      "price": 33.95,
+      "change_percent": 0.59,
+      "pe": 49.2,
+      "dividend_yield": 2.95,
+      "pbr": 1.69,
+      "roe": 5.37,
+      "gross_margin": 22.11,
+      "debt_to_equity": 15.21,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.99,
+      "eps_growth_yoy": null,
+      "ma5": 33.79,
+      "ma20": 36.02,
+      "ma60": 41.02,
+      "is_bullish_alignment": false,
+      "alignment_gap": -17.23,
+      "momentum_60d": -15.12,
+      "momentum_120d": 10.77,
+      "volume_ratio_20d": 0.29,
+      "drawdown_1y": -38.05,
+      "score": 18.6,
+      "value_score": 48.8,
+      "quality_growth_score": 19.4,
+      "momentum_score": 11.6,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "依現有資料計算後綜合表現相對穩定"
+      ],
+      "risks": [
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": []
+    },
+    {
+      "symbol": "1504.TW",
+      "name": "東元",
+      "market": "TW",
+      "industry": "電機機械",
+      "currency": null,
+      "price": 66.0,
+      "change_percent": -1.05,
+      "pe": 29.33,
+      "dividend_yield": 3.03,
+      "pbr": 1.84,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 0.15,
+      "eps_growth_yoy": null,
+      "ma5": 65.98,
+      "ma20": 65.93,
+      "ma60": 69.87,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.54,
+      "momentum_60d": -9.84,
+      "momentum_120d": -19.22,
+      "volume_ratio_20d": 0.49,
+      "drawdown_1y": -44.77,
+      "score": 18.5,
+      "value_score": 72.6,
+      "quality_growth_score": 20.3,
+      "momentum_score": 6.4,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "1337.TW",
       "name": "再生-KY",
       "market": "TW",
@@ -61992,6 +61745,47 @@
       "tags": []
     },
     {
+      "symbol": "2630.TW",
+      "name": "亞航",
+      "market": "TW",
+      "industry": "航運業",
+      "currency": null,
+      "price": 48.2,
+      "change_percent": -1.63,
+      "pe": 84.56,
+      "dividend_yield": 1.87,
+      "pbr": 2.98,
+      "roe": 1.43,
+      "gross_margin": 8.49,
+      "debt_to_equity": 69.95,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -30.49,
+      "eps_growth_yoy": null,
+      "ma5": 48.79,
+      "ma20": 52.49,
+      "ma60": 46.87,
+      "is_bullish_alignment": false,
+      "alignment_gap": 2.84,
+      "momentum_60d": 9.42,
+      "momentum_120d": -1.83,
+      "volume_ratio_20d": 0.14,
+      "drawdown_1y": -33.7,
+      "score": 17.9,
+      "value_score": 30.0,
+      "quality_growth_score": 7.1,
+      "momentum_score": 22.5,
+      "data_completeness": 84.8,
+      "ranking_reasons": [
+        "依現有資料計算後綜合表現相對穩定"
+      ],
+      "risks": [
+        "營收年增明顯衰退",
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "2012.TW",
       "name": "春雨",
       "market": "TW",
@@ -62068,6 +61862,46 @@
       ],
       "risks": [
         "營收年增明顯衰退",
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
+      "symbol": "8929.TWO",
+      "name": "富堡",
+      "market": "TWO",
+      "industry": "其他",
+      "currency": null,
+      "price": 13.3,
+      "change_percent": 0.76,
+      "pe": null,
+      "dividend_yield": 0.0,
+      "pbr": 0.82,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": 1.23,
+      "eps_growth_yoy": null,
+      "ma5": 13.19,
+      "ma20": 13.67,
+      "ma60": 14.01,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.07,
+      "momentum_60d": -9.83,
+      "momentum_120d": -19.39,
+      "volume_ratio_20d": 0.55,
+      "drawdown_1y": -31.79,
+      "score": 17.5,
+      "value_score": 100.0,
+      "quality_growth_score": 22.5,
+      "momentum_score": 9.8,
+      "data_completeness": 56.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
         "可用資料偏少，分數不確定性較高"
       ],
       "tags": []
@@ -62272,6 +62106,47 @@
       ],
       "risks": [
         "營收年增明顯衰退",
+        "可用資料偏少，分數不確定性較高",
+        "估值明顯高於同業，現有成長資料支撐不足"
+      ],
+      "tags": []
+    },
+    {
+      "symbol": "3252.TWO",
+      "name": "海灣",
+      "market": "TWO",
+      "industry": "觀光餐旅",
+      "currency": null,
+      "price": 15.85,
+      "change_percent": 0.32,
+      "pe": 105.67,
+      "dividend_yield": 0.0,
+      "pbr": 0.4,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.18,
+      "eps_growth_yoy": null,
+      "ma5": 15.9,
+      "ma20": 16.63,
+      "ma60": 17.44,
+      "is_bullish_alignment": false,
+      "alignment_gap": -9.13,
+      "momentum_60d": -14.56,
+      "momentum_120d": -13.86,
+      "volume_ratio_20d": 0.2,
+      "drawdown_1y": -22.3,
+      "score": 17.1,
+      "value_score": 38.5,
+      "quality_growth_score": 19.6,
+      "momentum_score": 12.0,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "依現有資料計算後綜合表現相對穩定"
+      ],
+      "risks": [
         "可用資料偏少，分數不確定性較高",
         "估值明顯高於同業，現有成長資料支撐不足"
       ],
@@ -62694,6 +62569,46 @@
       "tags": []
     },
     {
+      "symbol": "4930.TW",
+      "name": "燦星網",
+      "market": "TW",
+      "industry": "電器電纜",
+      "currency": null,
+      "price": 16.05,
+      "change_percent": -0.93,
+      "pe": null,
+      "dividend_yield": 3.74,
+      "pbr": 0.4,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -1.3,
+      "eps_growth_yoy": null,
+      "ma5": 16.13,
+      "ma20": 16.38,
+      "ma60": 16.98,
+      "is_bullish_alignment": false,
+      "alignment_gap": -5.49,
+      "momentum_60d": -8.55,
+      "momentum_120d": -26.04,
+      "volume_ratio_20d": 0.21,
+      "drawdown_1y": -33.26,
+      "score": 15.6,
+      "value_score": 100.0,
+      "quality_growth_score": 17.4,
+      "momentum_score": 8.3,
+      "data_completeness": 56.8,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
       "symbol": "2642.TW",
       "name": "宅配通",
       "market": "TW",
@@ -62830,7 +62745,7 @@
       "pe": 75.0,
       "dividend_yield": 2.28,
       "pbr": 1.63,
-      "roe": -113.0,
+      "roe": -1.13,
       "gross_margin": 21.83,
       "debt_to_equity": 61.53,
       "peg": null,
@@ -62944,45 +62859,41 @@
       ]
     },
     {
-      "symbol": "3252.TWO",
-      "name": "海灣",
-      "market": "TWO",
-      "industry": "觀光餐旅",
+      "symbol": "2430.TW",
+      "name": "燦坤",
+      "market": "TW",
+      "industry": "電子通路業",
       "currency": null,
-      "price": 15.85,
-      "change_percent": 0.32,
-      "pe": 105.67,
-      "dividend_yield": 0.0,
-      "pbr": 0.4,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
+      "price": 17.1,
+      "change_percent": 2.09,
+      "pe": 34.9,
+      "dividend_yield": 4.68,
+      "pbr": 0.46,
+      "roe": 0.48,
+      "gross_margin": 14.59,
+      "debt_to_equity": 212.31,
       "peg": null,
       "free_cashflow_yield": null,
-      "revenue_growth_yoy": -17.52,
+      "revenue_growth_yoy": -3.36,
       "eps_growth_yoy": null,
-      "ma5": 15.9,
-      "ma20": 16.63,
-      "ma60": 17.44,
+      "ma5": 16.78,
+      "ma20": 17.43,
+      "ma60": 18.07,
       "is_bullish_alignment": false,
-      "alignment_gap": -9.13,
-      "momentum_60d": -14.56,
-      "momentum_120d": -13.86,
-      "volume_ratio_20d": 0.2,
-      "drawdown_1y": -22.3,
+      "alignment_gap": -5.37,
+      "momentum_60d": -11.4,
+      "momentum_120d": -24.34,
+      "volume_ratio_20d": 0.98,
+      "drawdown_1y": -32.41,
       "score": 14.6,
-      "value_score": 38.5,
-      "quality_growth_score": 0.0,
-      "momentum_score": 12.0,
-      "data_completeness": 62.8,
+      "value_score": 69.4,
+      "quality_growth_score": 3.5,
+      "momentum_score": 10.1,
+      "data_completeness": 84.8,
       "ranking_reasons": [
         "依現有資料計算後綜合表現相對穩定"
       ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高",
-        "估值明顯高於同業，現有成長資料支撐不足"
-      ],
+      "risks": [],
       "tags": []
     },
     {
@@ -63269,47 +63180,6 @@
       "tags": []
     },
     {
-      "symbol": "4930.TW",
-      "name": "燦星網",
-      "market": "TW",
-      "industry": "電器電纜",
-      "currency": null,
-      "price": 16.05,
-      "change_percent": -0.93,
-      "pe": null,
-      "dividend_yield": 3.74,
-      "pbr": 0.4,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": -129.56,
-      "eps_growth_yoy": null,
-      "ma5": 16.13,
-      "ma20": 16.38,
-      "ma60": 16.98,
-      "is_bullish_alignment": false,
-      "alignment_gap": -5.49,
-      "momentum_60d": -8.55,
-      "momentum_120d": -26.04,
-      "volume_ratio_20d": 0.21,
-      "drawdown_1y": -33.26,
-      "score": 13.2,
-      "value_score": 100.0,
-      "quality_growth_score": 0.0,
-      "momentum_score": 8.3,
-      "data_completeness": 56.8,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "營收年增明顯衰退",
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "1340.TW",
       "name": "勝悅-KY",
       "market": "TW",
@@ -63469,6 +63339,47 @@
       ],
       "risks": [
         "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
+    },
+    {
+      "symbol": "2926.TWO",
+      "name": "誠品生活",
+      "market": "TWO",
+      "industry": "文化創意業",
+      "currency": null,
+      "price": 30.4,
+      "change_percent": -0.33,
+      "pe": 55.27,
+      "dividend_yield": 1.51,
+      "pbr": 2.37,
+      "roe": null,
+      "gross_margin": null,
+      "debt_to_equity": null,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": -0.74,
+      "eps_growth_yoy": null,
+      "ma5": 30.6,
+      "ma20": 31.25,
+      "ma60": 33.63,
+      "is_bullish_alignment": false,
+      "alignment_gap": -9.6,
+      "momentum_60d": -16.6,
+      "momentum_120d": -19.58,
+      "volume_ratio_20d": 0.31,
+      "drawdown_1y": -32.52,
+      "score": 12.5,
+      "value_score": 38.4,
+      "quality_growth_score": 18.5,
+      "momentum_score": 5.8,
+      "data_completeness": 62.8,
+      "ranking_reasons": [
+        "依現有資料計算後綜合表現相對穩定"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高",
+        "估值明顯高於同業，現有成長資料支撐不足"
       ],
       "tags": []
     },
@@ -63836,42 +63747,41 @@
       "tags": []
     },
     {
-      "symbol": "2926.TWO",
-      "name": "誠品生活",
+      "symbol": "4533.TWO",
+      "name": "協易機",
       "market": "TWO",
-      "industry": "文化創意業",
+      "industry": "電機機械",
       "currency": null,
-      "price": 30.4,
-      "change_percent": -0.33,
-      "pe": 55.27,
-      "dividend_yield": 1.51,
-      "pbr": 2.37,
+      "price": 24.6,
+      "change_percent": -1.2,
+      "pe": 1230.0,
+      "dividend_yield": 0.81,
+      "pbr": 1.5,
       "roe": null,
       "gross_margin": null,
       "debt_to_equity": null,
       "peg": null,
       "free_cashflow_yield": null,
-      "revenue_growth_yoy": -73.84,
+      "revenue_growth_yoy": 0.49,
       "eps_growth_yoy": null,
-      "ma5": 30.6,
-      "ma20": 31.25,
-      "ma60": 33.63,
+      "ma5": 24.53,
+      "ma20": 25.65,
+      "ma60": 29.05,
       "is_bullish_alignment": false,
-      "alignment_gap": -9.6,
-      "momentum_60d": -16.6,
-      "momentum_120d": -19.58,
-      "volume_ratio_20d": 0.31,
-      "drawdown_1y": -32.52,
-      "score": 10.1,
-      "value_score": 38.4,
-      "quality_growth_score": 0.0,
-      "momentum_score": 5.8,
+      "alignment_gap": -15.32,
+      "momentum_60d": -21.28,
+      "momentum_120d": -31.48,
+      "volume_ratio_20d": 0.89,
+      "drawdown_1y": -40.36,
+      "score": 10.0,
+      "value_score": 36.3,
+      "quality_growth_score": 21.0,
+      "momentum_score": 2.3,
       "data_completeness": 62.8,
       "ranking_reasons": [
         "依現有資料計算後綜合表現相對穩定"
       ],
       "risks": [
-        "營收年增明顯衰退",
         "可用資料偏少，分數不確定性較高",
         "估值明顯高於同業，現有成長資料支撐不足"
       ],

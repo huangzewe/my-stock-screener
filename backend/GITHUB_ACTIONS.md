@@ -10,7 +10,7 @@
 - 排除紡織纖維、建材營造、貿易百貨、居家生活、生技醫療業、綠能環保、橡膠工業、金融保險、運動休閒。
 - 從證交所與櫃買中心整批取得官方收盤行情，更新滾動歷史後計算均線、動能、量比、回撤與綜合分數。
 - 更新 `public/data/screener-data.json`，網站重新整理後會讀取最新資料。
-- 將符合多頭排列的股票寄到設定的 Email。
+- 將科技產業優先的前 50 名股票與風險說明寄到設定的 Email。
 
 排程檔案：`.github/workflows/taiwan-screener-email.yml`
 
@@ -52,7 +52,7 @@ SMTP_FROM_NAME=台股全市場篩選器
 產生完整網站資料：
 
 ```powershell
-.\.venv\Scripts\python -m backend.app.export_static --full-taiwan-market --min-score 0 --max-pe 999 --include-non-bullish
+.\.venv\Scripts\python -m backend.app.export_static --full-taiwan-market --official-daily --min-score 0 --max-pe 999 --include-non-bullish
 ```
 
 使用 `--universe path/to/file.csv` 可以改回自訂股票清單。

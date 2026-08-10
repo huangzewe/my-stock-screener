@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "我的股票篩選系統",
-  description: "以 yfinance 資料與多頭排列邏輯打造的個人量化選股工具"
+  title: "台股成長科技選股工作台",
+  description: "以臺灣證交所與櫃買中心資料，評估價值、品質成長、動能與資料完整度的台股全市場量化篩選工具"
 };
 
 export default function RootLayout({

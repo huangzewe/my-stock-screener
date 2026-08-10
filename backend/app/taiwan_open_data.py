@@ -131,7 +131,7 @@ def fetch_taiwan_valuations() -> dict[str, dict[str, float | None]]:
         if code:
             valuations[f"{code}.TW"] = {
                 "trailingPE": clean_number(row.get("PEratio")),
-                "dividendYield": clean_number(row.get("DividendYield")),
+                "dividendYieldPercent": clean_number(row.get("DividendYield")),
                 "priceToBook": clean_number(row.get("PBratio")),
             }
 
@@ -140,7 +140,7 @@ def fetch_taiwan_valuations() -> dict[str, dict[str, float | None]]:
         if code:
             valuations[f"{code}.TWO"] = {
                 "trailingPE": clean_number(row.get("PriceEarningRatio")),
-                "dividendYield": clean_number(row.get("YieldRatio")),
+                "dividendYieldPercent": clean_number(row.get("YieldRatio")),
                 "priceToBook": clean_number(row.get("PriceBookRatio")),
             }
 
@@ -242,10 +242,13 @@ def fetch_taiwan_fundamentals() -> dict[str, dict[str, float | None]]:
             gross_margin = (gross_profit / revenue) * 100
 
         results[symbol] = {
-            "returnOnEquity": round(roe, 2) if roe is not None else None,
-            "grossMargins": round(gross_margin, 2) if gross_margin is not None else None,
+            # Official disclosures already express these values in percentage
+            # points. Keep them separate from Yahoo-style decimal ratios so a
+            # legitimate 1.2% value is never mistaken for 120%.
+            "returnOnEquityPercent": round(roe, 2) if roe is not None else None,
+            "grossMarginsPercent": round(gross_margin, 2) if gross_margin is not None else None,
             "debtToEquity": round(debt_to_equity, 2) if debt_to_equity is not None else None,
-            "revenueGrowth": item.get("revenueGrowth"),
+            "revenueGrowthPercent": item.get("revenueGrowth"),
             "earningsGrowth": item.get("earningsGrowth"),
             "pegRatio": item.get("pegRatio"),
             "freeCashflowYield": item.get("freeCashflowYield"),

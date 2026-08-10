@@ -51,6 +51,14 @@ def _dividend_yield_percent(value: object) -> float | None:
     return round(number, 2)
 
 
+def _percent_metric(info: dict, ratio_key: str, percent_key: str) -> float | None:
+    """Read an explicit percent-point value before a decimal ratio fallback."""
+    if percent_key in info:
+        number = _clean_number(info.get(percent_key))
+        return round(number, 2) if number is not None else None
+    return _percent(info.get(ratio_key))
+
+
 def _score_component(
     value: float | None,
     low: float,
@@ -134,13 +142,13 @@ def build_stock(snapshot: MarketSnapshot) -> ScreenerStock | None:
 
     info = snapshot.info
     pe = _clean_number(info.get("trailingPE") or info.get("forwardPE"))
-    dividend_yield = _dividend_yield_percent(info.get("dividendYield"))
+    dividend_yield = _percent_metric(info, "dividendYield", "dividendYieldPercent")
     pbr = _clean_number(info.get("priceToBook"))
     peg = _clean_number(info.get("pegRatio"))
     fcf_yield = _percent(info.get("freeCashflowYield"))
-    roe = _percent(info.get("returnOnEquity"))
-    gross_margin = _percent(info.get("grossMargins"))
-    revenue_growth = _percent(info.get("revenueGrowth"))
+    roe = _percent_metric(info, "returnOnEquity", "returnOnEquityPercent")
+    gross_margin = _percent_metric(info, "grossMargins", "grossMarginsPercent")
+    revenue_growth = _percent_metric(info, "revenueGrowth", "revenueGrowthPercent")
     eps_growth = _percent(info.get("earningsGrowth"))
     debt_to_equity = _clean_number(info.get("debtToEquity"))
 

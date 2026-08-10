@@ -70,6 +70,37 @@ class FactorCoverageTests(unittest.TestCase):
         self.assertEqual(stock.data_completeness, 39.0)
         self.assertIn("可用資料偏少，分數不確定性較高", stock.risks)
 
+    def test_official_small_percentages_are_not_multiplied_by_one_hundred(self):
+        history = pd.DataFrame(
+            {
+                "Close": [100 + index for index in range(121)],
+                "Volume": [1000] * 121,
+            }
+        )
+        snapshot = MarketSnapshot(
+            stock=UniverseStock(
+                symbol="2330.TW",
+                name="台積電",
+                market="TW",
+                industry="半導體業",
+            ),
+            history=history,
+            info={
+                "dividendYieldPercent": 0.8,
+                "returnOnEquityPercent": 1.2,
+                "grossMarginsPercent": 1.1,
+                "revenueGrowthPercent": 1.0,
+            },
+        )
+
+        stock = build_stock(snapshot)
+
+        self.assertIsNotNone(stock)
+        self.assertEqual(stock.dividend_yield, 0.8)
+        self.assertEqual(stock.roe, 1.2)
+        self.assertEqual(stock.gross_margin, 1.1)
+        self.assertEqual(stock.revenue_growth_yoy, 1.0)
+
 
 class TradingCalendarTests(unittest.TestCase):
     def test_phantom_holiday_quote_is_removed_before_moving_average(self) -> None:

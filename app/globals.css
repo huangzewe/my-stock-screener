@@ -439,7 +439,7 @@ input[type="range"] {
 }
 
 .table-shell {
-  overflow: hidden;
+  overflow-x: auto;
 }
 
 .table-toolbar {
@@ -487,6 +487,31 @@ input[type="range"] {
 .stock-cell {
   display: grid;
   gap: 4px;
+}
+
+.stock-symbol-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.watch-toggle {
+  display: inline-grid;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.watch-toggle:hover,
+.watch-toggle.active {
+  border-color: var(--amber);
+  color: var(--amber);
 }
 
 .stock-cell small {
