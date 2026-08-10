@@ -5,7 +5,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .factors import build_stock
+from .factors import build_stock, postprocess_rankings
 from .models import ScreenerFilters, ScreenerPayload
 from .official_daily import snapshots_from_history, update_history_store
 from .screener import run_screener
@@ -53,6 +53,8 @@ def generate_payload(
             continue
         if screener_stock:
             stocks.append(screener_stock)
+
+    stocks = postprocess_rankings(stocks)
 
     results = run_screener(stocks, filters)
     return ScreenerPayload(

@@ -40,15 +40,26 @@ class ScreenerStock(BaseModel):
     roe: float | None = None
     gross_margin: float | None = None
     debt_to_equity: float | None = None
+    peg: float | None = None
+    free_cashflow_yield: float | None = None
+    revenue_growth_yoy: float | None = None
+    eps_growth_yoy: float | None = None
     ma5: float | None = None
     ma20: float | None = None
     ma60: float | None = None
     is_bullish_alignment: bool = False
     alignment_gap: float | None = None
     momentum_60d: float | None = None
+    momentum_120d: float | None = None
     volume_ratio_20d: float | None = None
     drawdown_1y: float | None = None
     score: float
+    value_score: float | None = None
+    quality_growth_score: float | None = None
+    momentum_score: float | None = None
+    data_completeness: float = 0
+    ranking_reasons: list[str] = Field(default_factory=list)
+    risks: list[str] = Field(default_factory=list)
     tags: list[str] = Field(default_factory=list)
 
 

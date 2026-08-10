@@ -65,6 +65,10 @@ class FactorCoverageTests(unittest.TestCase):
         self.assertIsNone(stock.roe)
         self.assertGreater(stock.score, 50)
         self.assertLessEqual(stock.score, 100)
+        self.assertIsNotNone(stock.value_score)
+        self.assertIsNone(stock.quality_growth_score)
+        self.assertEqual(stock.data_completeness, 39.0)
+        self.assertIn("可用資料偏少，分數不確定性較高", stock.risks)
 
 
 class TradingCalendarTests(unittest.TestCase):

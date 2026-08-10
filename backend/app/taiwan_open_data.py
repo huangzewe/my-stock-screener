@@ -13,6 +13,26 @@ TPEX_COMPANIES_URL = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap03_O"
 TWSE_VALUATIONS_URL = "https://openapi.twse.com.tw/v1/exchangeReport/BWIBBU_ALL"
 TPEX_VALUATIONS_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_peratio_analysis"
 TWSE_STOCK_DAY_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY"
+TWSE_REVENUE_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap05_L"
+TPEX_REVENUE_URL = "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap05_O"
+TWSE_INCOME_URLS = (
+    "https://openapi.twse.com.tw/v1/opendata/t187ap06_L_ci",
+    "https://openapi.twse.com.tw/v1/opendata/t187ap06_L_mim",
+)
+TPEX_INCOME_URLS = (
+    "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap06_O_ci",
+    "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap06_O_mim",
+)
+TWSE_BALANCE_URLS = (
+    "https://openapi.twse.com.tw/v1/opendata/t187ap07_L_ci",
+    "https://openapi.twse.com.tw/v1/opendata/t187ap07_L_mim",
+)
+TPEX_BALANCE_URLS = (
+    "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap07_O_ci",
+    "https://www.tpex.org.tw/openapi/v1/mopsfin_t187ap07_O_mim",
+)
+TWSE_MARGIN_URL = "https://openapi.twse.com.tw/v1/opendata/t187ap17_L"
+TPEX_MARGIN_URL = "https://www.tpex.org.tw/openapi/v1/mopsfin_187ap17_O"
 
 
 # Official industry codes shared by the TWSE and TPEx company datasets.
@@ -125,6 +145,113 @@ def fetch_taiwan_valuations() -> dict[str, dict[str, float | None]]:
             }
 
     return valuations
+
+
+def _company_code(row: dict[str, Any]) -> str:
+    return str(row.get("公司代號") or row.get("SecuritiesCompanyCode") or "").strip()
+
+
+def _safe_fetch(url: str) -> list[dict[str, Any]]:
+    try:
+        return fetch_json(url)
+    except Exception as error:
+        print(f"[warn] official fundamental endpoint unavailable: {url}: {error}")
+        return []
+
+
+def _update_income_metrics(metrics: dict[str, dict], urls: tuple[str, ...], suffix: str) -> None:
+    for url in urls:
+        for row in _safe_fetch(url):
+            code = _company_code(row)
+            if not code:
+                continue
+            symbol = f"{code}.{suffix}"
+            item = metrics.setdefault(symbol, {})
+            item["netIncome"] = clean_number(
+                row.get("淨利（淨損）歸屬於母公司業主")
+                or row.get("本期淨利（淨損）")
+                or row.get("本期稅後淨利（淨損）")
+            )
+            item["financialRevenue"] = clean_number(row.get("營業收入") or row.get("收益"))
+            item["grossProfit"] = clean_number(
+                row.get("營業毛利（毛損）淨額") or row.get("營業毛利（毛損）")
+            )
+            item["eps"] = clean_number(row.get("基本每股盈餘（元）") or row.get("基本每股盈餘"))
+            item["financialSeason"] = clean_number(row.get("季別") or row.get("Season"))
+
+
+def _update_balance_metrics(metrics: dict[str, dict], urls: tuple[str, ...], suffix: str) -> None:
+    for url in urls:
+        for row in _safe_fetch(url):
+            code = _company_code(row)
+            if not code:
+                continue
+            symbol = f"{code}.{suffix}"
+            item = metrics.setdefault(symbol, {})
+            item["totalLiabilities"] = clean_number(row.get("負債總計"))
+            item["totalEquity"] = clean_number(
+                row.get("歸屬於母公司業主之權益合計") or row.get("權益總計")
+            )
+
+
+def fetch_taiwan_fundamentals() -> dict[str, dict[str, float | None]]:
+    """Build scalable quality and growth metrics from official bulk disclosures."""
+    metrics: dict[str, dict] = {}
+
+    for url, suffix in ((TWSE_REVENUE_URL, "TW"), (TPEX_REVENUE_URL, "TWO")):
+        for row in _safe_fetch(url):
+            code = _company_code(row)
+            if code:
+                metrics.setdefault(f"{code}.{suffix}", {})["revenueGrowth"] = clean_number(
+                    row.get("營業收入-去年同月增減(%)")
+                )
+
+    _update_income_metrics(metrics, TWSE_INCOME_URLS, "TW")
+    _update_income_metrics(metrics, TPEX_INCOME_URLS, "TWO")
+    _update_balance_metrics(metrics, TWSE_BALANCE_URLS, "TW")
+    _update_balance_metrics(metrics, TPEX_BALANCE_URLS, "TWO")
+
+    for url, suffix in ((TWSE_MARGIN_URL, "TW"), (TPEX_MARGIN_URL, "TWO")):
+        for row in _safe_fetch(url):
+            code = _company_code(row)
+            if not code:
+                continue
+            metrics.setdefault(f"{code}.{suffix}", {})["grossMargins"] = clean_number(
+                row.get("毛利率(%)(營業毛利)/(營業收入)") or row.get("毛利率")
+            )
+
+    results: dict[str, dict[str, float | None]] = {}
+    for symbol, item in metrics.items():
+        equity = item.get("totalEquity")
+        liabilities = item.get("totalLiabilities")
+        net_income = item.get("netIncome")
+        season = item.get("financialSeason")
+        revenue = item.get("financialRevenue")
+        gross_profit = item.get("grossProfit")
+
+        roe = None
+        if equity and net_income is not None and season:
+            roe = (net_income / equity) * (4 / season) * 100
+
+        debt_to_equity = None
+        if equity and liabilities is not None:
+            debt_to_equity = (liabilities / equity) * 100
+
+        gross_margin = item.get("grossMargins")
+        if gross_margin is None and revenue and gross_profit is not None:
+            gross_margin = (gross_profit / revenue) * 100
+
+        results[symbol] = {
+            "returnOnEquity": round(roe, 2) if roe is not None else None,
+            "grossMargins": round(gross_margin, 2) if gross_margin is not None else None,
+            "debtToEquity": round(debt_to_equity, 2) if debt_to_equity is not None else None,
+            "revenueGrowth": item.get("revenueGrowth"),
+            "earningsGrowth": item.get("earningsGrowth"),
+            "pegRatio": item.get("pegRatio"),
+            "freeCashflowYield": item.get("freeCashflowYield"),
+        }
+
+    return results
 
 
 def _month_starts(end: date, count: int) -> list[date]:

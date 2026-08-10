@@ -32,8 +32,12 @@ type Stock = {
   pe: number | null;
   dividend_yield: number | null;
   pbr: number | null;
+  peg: number | null;
+  free_cashflow_yield: number | null;
   roe: number | null;
   gross_margin: number | null;
+  revenue_growth_yoy: number | null;
+  eps_growth_yoy: number | null;
   debt_to_equity: number | null;
   ma5: number | null;
   ma20: number | null;
@@ -41,9 +45,16 @@ type Stock = {
   is_bullish_alignment: boolean;
   alignment_gap: number | null;
   momentum_60d: number | null;
+  momentum_120d: number | null;
   volume_ratio_20d: number | null;
   drawdown_1y: number | null;
   score: number;
+  value_score: number | null;
+  quality_growth_score: number | null;
+  momentum_score: number | null;
+  data_completeness: number;
+  ranking_reasons: string[];
+  risks: string[];
   tags: string[];
 };
 
@@ -56,6 +67,10 @@ type ScreenerPayload = {
 
 type SortKey =
   | "score"
+  | "value_score"
+  | "quality_growth_score"
+  | "momentum_score"
+  | "data_completeness"
   | "change_percent"
   | "momentum_60d"
   | "volume_ratio_20d"
@@ -92,9 +107,9 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [market, setMarket] = useState<"ALL" | Market>("ALL");
   const [industry, setIndustry] = useState("ALL");
-  const [bullishOnly, setBullishOnly] = useState(true);
+  const [bullishOnly, setBullishOnly] = useState(false);
   const [minScore, setMinScore] = useState(45);
-  const [maxPe, setMaxPe] = useState(80);
+  const [maxPe, setMaxPe] = useState(999);
   const [minRoe, setMinRoe] = useState(-100);
   const [minMomentum, setMinMomentum] = useState(-100);
   const [minVolumeRatio, setMinVolumeRatio] = useState(0);
@@ -205,13 +220,19 @@ export default function Home() {
               (industry === "ALL" || stock.industry === industry) &&
               (!bullishOnly || stock.is_bullish_alignment) &&
               stock.score >= minScore &&
-              (stock.pe === null || stock.pe <= maxPe) &&
-              (stock.roe === null ? minRoe <= -100 : stock.roe >= minRoe) &&
-              (stock.momentum_60d ?? -999) >= minMomentum &&
-              (stock.volume_ratio_20d ?? 0) >= minVolumeRatio))
+              (maxPe >= 999 || stock.pe === null || stock.pe <= maxPe) &&
+              (minRoe <= -100 || (stock.roe !== null && stock.roe >= minRoe)) &&
+              (minMomentum <= -100 || (stock.momentum_60d !== null && stock.momentum_60d >= minMomentum)) &&
+              (minVolumeRatio <= 0 || (stock.volume_ratio_20d !== null && stock.volume_ratio_20d >= minVolumeRatio))))
         );
       })
-      .sort((a, b) => numericValue(b, sortKey) - numericValue(a, sortKey));
+      .sort((a, b) => {
+        if (sortKey === "score") {
+          const preferenceDifference = Number(isPreferredTech(b)) - Number(isPreferredTech(a));
+          if (preferenceDifference !== 0) return preferenceDifference;
+        }
+        return numericValue(b, sortKey) - numericValue(a, sortKey);
+      });
   }, [
     bullishOnly,
     industry,
@@ -248,15 +269,37 @@ export default function Home() {
   };
 
   const exportCsv = () => {
-    const header = ["symbol", "name", "market", "industry", "price", "ma5", "ma20", "ma60", "momentum_60d", "score"];
+    const header = [
+      "股票代號",
+      "公司名稱",
+      "產業",
+      "總分",
+      "價值分數",
+      "品質成長分數",
+      "動能分數",
+      "資料完整度",
+      "排名理由",
+      "主要風險"
+    ];
     const rows = filtered.map((stock) =>
-      header.map((key) => JSON.stringify(String(stock[key as keyof Stock] ?? ""))).join(",")
+      [
+        stock.symbol,
+        stock.name,
+        stock.industry,
+        stock.score,
+        stock.value_score,
+        stock.quality_growth_score,
+        stock.momentum_score,
+        `${stock.data_completeness}%`,
+        stock.ranking_reasons.join("；"),
+        stock.risks.join("；")
+      ].map((value) => JSON.stringify(String(value ?? ""))).join(",")
     );
     const blob = new Blob([[header.join(","), ...rows].join("\n")], { type: "text/csv;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = "bullish-screener.csv";
+    link.download = "taiwan-growth-tech-screener.csv";
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -401,7 +444,7 @@ export default function Home() {
               </label>
 
               <Slider label="最低分數" value={minScore} min={0} max={100} suffix="" onChange={setMinScore} />
-              <Slider label="最高本益比" value={maxPe} min={5} max={120} suffix="x" onChange={setMaxPe} />
+              <Slider label="最高本益比" value={maxPe} min={5} max={999} suffix="x" onChange={setMaxPe} />
               <Slider label="最低 ROE" value={minRoe} min={-100} max={80} suffix="%" onChange={setMinRoe} />
               <Slider label="最低 60 日動能" value={minMomentum} min={-80} max={120} suffix="%" onChange={setMinMomentum} />
               <Slider label="最低量比" value={minVolumeRatio} min={0} max={3} step={0.1} suffix="x" onChange={setMinVolumeRatio} />
@@ -411,6 +454,10 @@ export default function Home() {
                 <span className="select-wrap">
                   <select value={sortKey} onChange={(event) => setSortKey(event.target.value as SortKey)}>
                     <option value="score">綜合分數</option>
+                    <option value="quality_growth_score">品質成長分數</option>
+                    <option value="momentum_score">動能分數</option>
+                    <option value="value_score">價值分數</option>
+                    <option value="data_completeness">資料完整度</option>
                     <option value="momentum_60d">60 日動能</option>
                     <option value="alignment_gap">股價離 MA60</option>
                     <option value="volume_ratio_20d">20 日量比</option>
@@ -474,23 +521,21 @@ export default function Home() {
           <div className="stock-table" role="table">
             <div className="table-row table-head" role="row">
               <span>股票</span>
-              <span>價格</span>
-              <span>漲跌</span>
-              <span>均線排列</span>
+              <span>產業</span>
+              <span>總分</span>
+              <span>價值</span>
+              <span>品質成長</span>
               <span>動能</span>
-              <span>量比</span>
-              <span>PE / ROE</span>
-              <span>分數</span>
-              <span>追蹤</span>
+              <span>完整度</span>
+              <span>排名理由</span>
+              <span>主要風險</span>
             </div>
 
             {filtered.map((stock) => (
               <div className="table-row" role="row" key={stock.symbol}>
                 <div className="stock-cell">
                   <strong>{stock.symbol}</strong>
-                  <small>
-                    {stock.name} · {stock.industry}
-                  </small>
+                  <small>{stock.name}</small>
                   <div className="tag-row">
                     {stock.tags.map((tag) => (
                       <span className="tag" key={`${stock.symbol}-${tag}`}>
@@ -499,30 +544,16 @@ export default function Home() {
                     ))}
                   </div>
                 </div>
-                <span>{formatPrice(stock)}</span>
-                <span className={(stock.change_percent ?? 0) >= 0 ? "up" : "down"}>{formatPercent(stock.change_percent)}</span>
-                <div className="ma-stack">
-                  <strong className={stock.is_bullish_alignment ? "up" : "down"}>
-                    {stock.is_bullish_alignment ? "多頭" : "未成立"}
-                  </strong>
-                  <small>
-                    {formatNumber(stock.ma5)} / {formatNumber(stock.ma20)} / {formatNumber(stock.ma60)}
-                  </small>
-                </div>
-                <span>{formatPercent(stock.momentum_60d)}</span>
-                <span>{formatRatio(stock.volume_ratio_20d)}</span>
-                <span>
-                  {formatNumber(stock.pe)}x / {formatPercent(stock.roe)}
-                </span>
+                <span>{stock.industry}</span>
                 <strong>{stock.score.toFixed(1)}</strong>
-                <button
-                  className={`star-button ${watchlist.includes(stock.symbol) ? "selected" : ""}`}
-                  type="button"
-                  onClick={() => toggleWatch(stock.symbol)}
-                  aria-label={watchlist.includes(stock.symbol) ? `移除 ${stock.symbol}` : `追蹤 ${stock.symbol}`}
-                >
-                  {watchlist.includes(stock.symbol) ? <Check size={16} /> : <Star size={16} />}
-                </button>
+                <span>{formatNumber(stock.value_score)}</span>
+                <span>{formatNumber(stock.quality_growth_score)}</span>
+                <span>{formatNumber(stock.momentum_score)}</span>
+                <span>{formatPercent(stock.data_completeness)}</span>
+                <small className="reason-cell">{stock.ranking_reasons.join("、")}</small>
+                <small className={stock.risks.length ? "risk-cell" : "reason-cell"}>
+                  {stock.risks.length ? stock.risks.join("、") : "—"}
+                </small>
               </div>
             ))}
           </div>
@@ -534,6 +565,19 @@ export default function Home() {
 
 function numericValue(stock: Stock, key: SortKey) {
   return stock[key] ?? -999;
+}
+
+function isPreferredTech(stock: Stock) {
+  return [
+    "半導體業",
+    "電腦及週邊設備業",
+    "電子零組件業",
+    "其他電子業",
+    "通信網路業",
+    "資訊服務業",
+    "數位雲端",
+    "光電業"
+  ].includes(stock.industry);
 }
 
 function formatDate(value: string) {

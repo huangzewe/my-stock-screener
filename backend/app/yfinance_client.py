@@ -8,7 +8,11 @@ import pandas as pd
 import yfinance as yf
 
 from .models import UniverseStock
-from .taiwan_open_data import fetch_taiwan_trading_dates, fetch_taiwan_valuations
+from .taiwan_open_data import (
+    fetch_taiwan_fundamentals,
+    fetch_taiwan_trading_dates,
+    fetch_taiwan_valuations,
+)
 
 
 @dataclass(frozen=True)
@@ -62,12 +66,17 @@ def fetch_snapshots(
 ) -> tuple[list[MarketSnapshot], list[str]]:
     """Fetch price histories in batches and enrich Taiwan stocks with official valuations."""
     valuations: dict[str, dict] = {}
+    fundamentals: dict[str, dict] = {}
     trading_dates: set = set()
     if any(stock.market in {"TW", "TWO"} for stock in stocks):
         try:
             valuations = fetch_taiwan_valuations()
         except Exception as error:
             print(f"[warn] valuation data unavailable: {error}")
+        try:
+            fundamentals = fetch_taiwan_fundamentals()
+        except Exception as error:
+            print(f"[warn] fundamental data unavailable: {error}")
         try:
             trading_dates = fetch_taiwan_trading_dates()
         except Exception as error:
@@ -125,7 +134,10 @@ def fetch_snapshots(
                 MarketSnapshot(
                     stock=stock,
                     history=history,
-                    info=valuations.get(stock.symbol, {}),
+                    info={
+                        **valuations.get(stock.symbol, {}),
+                        **fundamentals.get(stock.symbol, {}),
+                    },
                 )
             )
 

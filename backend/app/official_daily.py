@@ -7,7 +7,12 @@ from pathlib import Path
 import pandas as pd
 
 from .models import UniverseStock
-from .taiwan_open_data import clean_number, fetch_json, fetch_taiwan_valuations
+from .taiwan_open_data import (
+    clean_number,
+    fetch_json,
+    fetch_taiwan_fundamentals,
+    fetch_taiwan_valuations,
+)
 from .yfinance_client import MarketSnapshot
 
 
@@ -104,6 +109,7 @@ def snapshots_from_history(
     payload: dict,
 ) -> tuple[list[MarketSnapshot], list[str]]:
     valuations = fetch_taiwan_valuations()
+    fundamentals = fetch_taiwan_fundamentals()
     records = payload.get("stocks", {})
     snapshots: list[MarketSnapshot] = []
     failed: list[str] = []
@@ -124,7 +130,10 @@ def snapshots_from_history(
             MarketSnapshot(
                 stock=stock,
                 history=history,
-                info=valuations.get(stock.symbol, {}),
+                info={
+                    **valuations.get(stock.symbol, {}),
+                    **fundamentals.get(stock.symbol, {}),
+                },
             )
         )
 

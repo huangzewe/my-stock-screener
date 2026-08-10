@@ -3,9 +3,23 @@ from __future__ import annotations
 from .models import ScreenerFilters, ScreenerStock
 
 
+PREFERRED_TECH_INDUSTRIES = {
+    "半導體業",
+    "電腦及週邊設備業",
+    "電子零組件業",
+    "其他電子業",
+    "通信網路業",
+    "資訊服務業",
+    "數位雲端",
+    "光電業",
+}
+
+
 def _passes_min(value: float | None, minimum: float, *, disabled_at: float) -> bool:
+    if minimum <= disabled_at:
+        return True
     if value is None:
-        return minimum <= disabled_at
+        return False
     return value >= minimum
 
 
@@ -27,10 +41,11 @@ def run_screener(stocks: list[ScreenerStock], filters: ScreenerFilters) -> list[
     return sorted(
         results,
         key=lambda stock: (
-            stock.is_bullish_alignment,
+            stock.industry in PREFERRED_TECH_INDUSTRIES,
             stock.score,
-            stock.momentum_60d or -999,
-            stock.alignment_gap or -999,
+            stock.quality_growth_score or -999,
+            stock.momentum_score or -999,
+            stock.data_completeness,
         ),
         reverse=True,
     )

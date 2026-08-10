@@ -148,17 +148,19 @@ async function buildStock(candidate) {
   const ma20 = average(closes.slice(-20));
   const ma60 = average(closes.slice(-60));
   const start60 = closes.length >= 60 ? closes[closes.length - 60] : null;
+  const start120 = closes.length >= 121 ? closes[closes.length - 121] : null;
   const avgVolume20 = average(volumes.slice(-20));
   const lastVolume = last(volumes);
   const high = Math.max(...closes);
 
   const changePercent = previous ? ((price - previous) / previous) * 100 : null;
   const momentum60d = start60 ? ((price - start60) / start60) * 100 : null;
+  const momentum120d = start120 ? ((price - start120) / start120) * 100 : null;
   const volumeRatio = avgVolume20 && lastVolume ? lastVolume / avgVolume20 : null;
   const drawdown = high ? ((price - high) / high) * 100 : null;
   const bullish = Boolean(price && ma5 && ma20 && ma60 && price > ma5 && ma5 > ma20 && ma20 > ma60);
   const alignmentGap = ma60 ? ((price - ma60) / ma60) * 100 : null;
-  const score = scoreLookup({ bullish, momentum60d, volumeRatio, drawdown, alignmentGap });
+  const scoring = scoreLookup({ bullish, momentum60d, momentum120d, volumeRatio });
   const tags = ["即時查詢"];
 
   if (bullish) tags.unshift("多頭排列");
@@ -175,8 +177,12 @@ async function buildStock(candidate) {
     pe: null,
     dividend_yield: null,
     pbr: null,
+    peg: null,
+    free_cashflow_yield: null,
     roe: null,
     gross_margin: null,
+    revenue_growth_yoy: null,
+    eps_growth_yoy: null,
     debt_to_equity: null,
     ma5: round(ma5),
     ma20: round(ma20),
@@ -184,19 +190,37 @@ async function buildStock(candidate) {
     is_bullish_alignment: bullish,
     alignment_gap: round(alignmentGap),
     momentum_60d: round(momentum60d),
+    momentum_120d: round(momentum120d),
     volume_ratio_20d: round(volumeRatio),
     drawdown_1y: round(drawdown),
-    score,
+    score: scoring.score,
+    value_score: null,
+    quality_growth_score: null,
+    momentum_score: scoring.momentumScore,
+    data_completeness: scoring.completeness,
+    ranking_reasons: ["即時查詢僅使用股價動能"],
+    risks: ["基本面資料未併入即時查詢"],
     tags
   };
 }
 
 function scoreLookup(values) {
-  let score = values.bullish ? 55 : 25;
-  score += clamp(((values.momentum60d || 0) + 20) / 60, 0, 1) * 25;
-  score += clamp(((values.volumeRatio || 0) - 0.5) / 1.7, 0, 1) * 10;
-  score += clamp(((values.alignmentGap || 0) + 10) / 35, 0, 1) * 10;
-  return round(Math.min(score, 100));
+  const parts = [
+    [values.momentum60d == null ? null : clamp((values.momentum60d + 20) / 60, 0, 1) * 100, 0.30],
+    [values.momentum120d == null ? null : clamp((values.momentum120d + 25) / 85, 0, 1) * 100, 0.20],
+    [values.volumeRatio == null ? null : clamp((values.volumeRatio - 0.5) / 1.7, 0, 1) * 100, 0.10],
+    [values.bullish ? 100 : 0, 0.25]
+  ];
+  const available = parts.filter(([value]) => value !== null);
+  const weight = available.reduce((sum, [, partWeight]) => sum + partWeight, 0);
+  const momentumScore = weight
+    ? available.reduce((sum, [value, partWeight]) => sum + value * partWeight, 0) / weight
+    : 0;
+  return {
+    score: round(momentumScore),
+    momentumScore: round(momentumScore),
+    completeness: round(weight * 0.45 * 100)
+  };
 }
 
 function compactNumbers(values) {

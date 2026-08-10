@@ -86,24 +86,24 @@ def build_text(stocks: list[ScreenerStock], generated_at: str, universe_size: in
         "",
         f"資料時間：{generated_at}",
         f"股票池：{universe_size} 檔",
-        f"符合多頭排列：{len(stocks)} 檔",
+        f"本期成長科技候選：{len(stocks)} 檔",
         "",
-        "條件：股價 > MA5 > MA20 > MA60",
+        "排序：科技產業偏好、總分、品質成長、動能、資料完整度",
         "",
     ]
 
     if not stocks:
-        lines.append("今天沒有股票符合多頭排列條件。")
+        lines.append("今天沒有股票符合篩選條件。")
         return "\n".join(lines)
 
     for index, stock in enumerate(stocks, start=1):
         lines.extend(
             [
                 f"{index}. {stock.symbol} {stock.name}（{market_label(stock.market)} / {stock.industry}）",
-                f"   價格：{format_number(stock.price)}",
-                f"   MA5 / MA20 / MA60：{format_number(stock.ma5)} / {format_number(stock.ma20)} / {format_number(stock.ma60)}",
-                f"   60日動能：{format_number(stock.momentum_60d, '%')}，量比：{format_number(stock.volume_ratio_20d, 'x')}，分數：{format_number(stock.score)}",
-                f"   標籤：{', '.join(stock.tags) if stock.tags else '-'}",
+                f"   總分：{format_number(stock.score)}；價值：{format_number(stock.value_score)}；品質成長：{format_number(stock.quality_growth_score)}；動能：{format_number(stock.momentum_score)}",
+                f"   資料完整度：{format_number(stock.data_completeness, '%')}",
+                f"   排名理由：{'；'.join(stock.ranking_reasons) if stock.ranking_reasons else '-'}",
+                f"   主要風險：{'；'.join(stock.risks) if stock.risks else '-'}",
                 "",
             ]
         )
@@ -118,36 +118,38 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
         rows.append(
             "<tr>"
             f"<td><strong>{escape(stock.symbol)}</strong><br><span>{escape(stock.name)}</span></td>"
-            f"<td>{escape(market_label(stock.market))}</td>"
             f"<td>{escape(stock.industry)}</td>"
-            f"<td>{format_number(stock.price)}</td>"
-            f"<td>{format_number(stock.ma5)} / {format_number(stock.ma20)} / {format_number(stock.ma60)}</td>"
-            f"<td>{format_number(stock.momentum_60d, '%')}</td>"
-            f"<td>{format_number(stock.volume_ratio_20d, 'x')}</td>"
             f"<td>{format_number(stock.score)}</td>"
+            f"<td>{format_number(stock.value_score)}</td>"
+            f"<td>{format_number(stock.quality_growth_score)}</td>"
+            f"<td>{format_number(stock.momentum_score)}</td>"
+            f"<td>{format_number(stock.data_completeness, '%')}</td>"
+            f"<td>{escape('；'.join(stock.ranking_reasons) or '-')}</td>"
+            f"<td>{escape('；'.join(stock.risks) or '-')}</td>"
             "</tr>"
         )
 
     if not rows:
-        rows.append('<tr><td colspan="8">今天沒有股票符合多頭排列條件。</td></tr>')
+        rows.append('<tr><td colspan="9">今天沒有股票符合篩選條件。</td></tr>')
 
     return f"""<!doctype html>
 <html lang="zh-Hant">
 <body style="font-family: Arial, 'Noto Sans TC', sans-serif; color: #1e293b;">
-  <h2>台股多頭排列篩選結果</h2>
-  <p>條件：<strong>股價 &gt; MA5 &gt; MA20 &gt; MA60</strong></p>
-  <p>資料時間：{escape(generated_at)}<br>股票池：{universe_size} 檔<br>符合多頭排列：{len(stocks)} 檔</p>
+  <h2>台股成長科技選股排名</h2>
+  <p>排序：<strong>科技產業偏好、總分、品質成長、動能、資料完整度</strong></p>
+  <p>資料時間：{escape(generated_at)}<br>股票池：{universe_size} 檔<br>本期候選：{len(stocks)} 檔</p>
   <table cellpadding="8" cellspacing="0" border="1" style="border-collapse: collapse; border-color: #dbe3ea; font-size: 14px;">
     <thead style="background: #eefaf7;">
       <tr>
         <th>股票</th>
-        <th>市場</th>
         <th>產業</th>
-        <th>價格</th>
-        <th>MA5 / MA20 / MA60</th>
-        <th>60日動能</th>
-        <th>量比</th>
-        <th>分數</th>
+        <th>總分</th>
+        <th>價值</th>
+        <th>品質成長</th>
+        <th>動能</th>
+        <th>完整度</th>
+        <th>排名理由</th>
+        <th>主要風險</th>
       </tr>
     </thead>
     <tbody>
@@ -203,11 +205,12 @@ def main() -> None:
     parser.add_argument("--min-roe", type=float, default=-100)
     parser.add_argument("--min-momentum-60d", type=float, default=-100)
     parser.add_argument("--min-volume-ratio", type=float, default=0)
+    parser.add_argument("--limit", type=int, default=50)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
     filters = ScreenerFilters(
-        require_bullish_alignment=True,
+        require_bullish_alignment=False,
         min_score=args.min_score,
         max_pe=args.max_pe,
         min_roe=args.min_roe,
@@ -224,8 +227,9 @@ def main() -> None:
             full_taiwan_market=args.universe is None,
         )
         stocks = payload.stocks
+    stocks = stocks[: max(args.limit, 1)]
     generated_at = payload.generated_at.astimezone().strftime("%Y-%m-%d %H:%M")
-    subject = f"台股多頭排列清單：{len(stocks)} 檔符合條件"
+    subject = f"台股成長科技選股：前 {len(stocks)} 名"
     text = build_text(stocks, generated_at, payload.universe_size)
     html = build_html(stocks, generated_at, payload.universe_size)
 
