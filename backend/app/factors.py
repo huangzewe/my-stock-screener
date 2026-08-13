@@ -104,6 +104,12 @@ def build_stock(snapshot: MarketSnapshot) -> ScreenerStock | None:
     if last_close is not None and previous_close:
         change_percent = round(((last_close - previous_close) / previous_close) * 100, 2)
 
+    change_3d_percent = None
+    if last_close is not None and len(close) >= 4:
+        start_3d = _clean_number(close.iloc[-4])
+        if start_3d:
+            change_3d_percent = round(((last_close - start_3d) / start_3d) * 100, 2)
+
     ma5 = _clean_number(close.tail(5).mean()) if len(close) >= 5 else None
     ma20 = _clean_number(close.tail(20).mean()) if len(close) >= 20 else None
     ma60 = _clean_number(close.tail(60).mean()) if len(close) >= 60 else None
@@ -253,6 +259,7 @@ def build_stock(snapshot: MarketSnapshot) -> ScreenerStock | None:
         currency=info.get("currency"),
         price=round(last_close, 2) if last_close is not None else None,
         change_percent=change_percent,
+        change_3d_percent=change_3d_percent,
         pe=round(pe, 2) if pe is not None else None,
         dividend_yield=dividend_yield,
         pbr=round(pbr, 2) if pbr is not None else None,

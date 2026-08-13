@@ -154,6 +154,8 @@ async function buildStock(candidate) {
   const high = Math.max(...closes);
 
   const changePercent = previous ? ((price - previous) / previous) * 100 : null;
+  const start3d = closes.length >= 4 ? closes[closes.length - 4] : null;
+  const change3dPercent = start3d ? ((price - start3d) / start3d) * 100 : null;
   const momentum60d = start60 ? ((price - start60) / start60) * 100 : null;
   const momentum120d = start120 ? ((price - start120) / start120) * 100 : null;
   const volumeRatio = avgVolume20 && lastVolume ? lastVolume / avgVolume20 : null;
@@ -174,6 +176,7 @@ async function buildStock(candidate) {
     currency: meta.currency || null,
     price: round(price),
     change_percent: round(changePercent),
+    change_3d_percent: round(change3dPercent),
     pe: null,
     dividend_yield: null,
     pbr: null,
@@ -198,6 +201,7 @@ async function buildStock(candidate) {
     quality_growth_score: null,
     momentum_score: scoring.momentumScore,
     data_completeness: scoring.completeness,
+    notification_streak: 0,
     ranking_reasons: ["即時查詢僅使用股價動能"],
     risks: ["基本面資料未併入即時查詢"],
     tags

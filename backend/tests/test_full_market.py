@@ -101,6 +101,27 @@ class FactorCoverageTests(unittest.TestCase):
         self.assertEqual(stock.gross_margin, 1.1)
         self.assertEqual(stock.revenue_growth_yoy, 1.0)
 
+    def test_three_day_change_uses_three_trading_sessions(self):
+        history = pd.DataFrame(
+            {"Close": [100, 105, 110, 121], "Volume": [1000] * 4}
+        )
+        snapshot = MarketSnapshot(
+            stock=UniverseStock(
+                symbol="2330.TW",
+                name="台積電",
+                market="TW",
+                industry="半導體業",
+            ),
+            history=history,
+            info={},
+        )
+
+        stock = build_stock(snapshot)
+
+        self.assertIsNotNone(stock)
+        self.assertEqual(stock.change_percent, 10.0)
+        self.assertEqual(stock.change_3d_percent, 21.0)
+
 
 class TradingCalendarTests(unittest.TestCase):
     def test_phantom_holiday_quote_is_removed_before_moving_average(self) -> None:

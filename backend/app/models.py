@@ -34,6 +34,7 @@ class ScreenerStock(BaseModel):
     currency: str | None = None
     price: float | None = None
     change_percent: float | None = None
+    change_3d_percent: float | None = None
     pe: float | None = None
     dividend_yield: float | None = None
     pbr: float | None = None
@@ -58,6 +59,7 @@ class ScreenerStock(BaseModel):
     quality_growth_score: float | None = None
     momentum_score: float | None = None
     data_completeness: float = 0
+    notification_streak: int = 0
     ranking_reasons: list[str] = Field(default_factory=list)
     risks: list[str] = Field(default_factory=list)
     tags: list[str] = Field(default_factory=list)

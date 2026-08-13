@@ -29,6 +29,7 @@ type Stock = {
   currency: string | null;
   price: number | null;
   change_percent: number | null;
+  change_3d_percent: number | null;
   pe: number | null;
   dividend_yield: number | null;
   pbr: number | null;
@@ -53,6 +54,7 @@ type Stock = {
   quality_growth_score: number | null;
   momentum_score: number | null;
   data_completeness: number;
+  notification_streak: number;
   ranking_reasons: string[];
   risks: string[];
   tags: string[];
@@ -71,6 +73,8 @@ type SortKey =
   | "quality_growth_score"
   | "momentum_score"
   | "data_completeness"
+  | "notification_streak"
+  | "change_3d_percent"
   | "change_percent"
   | "momentum_60d"
   | "volume_ratio_20d"
@@ -273,6 +277,9 @@ export default function Home() {
       "股票代號",
       "公司名稱",
       "產業",
+      "單日漲跌幅",
+      "近三日漲跌幅",
+      "連續入選次數",
       "總分",
       "價值分數",
       "品質成長分數",
@@ -286,6 +293,9 @@ export default function Home() {
         stock.symbol,
         stock.name,
         stock.industry,
+        `${stock.change_percent ?? ""}%`,
+        `${stock.change_3d_percent ?? ""}%`,
+        stock.notification_streak,
         stock.score,
         stock.value_score,
         stock.quality_growth_score,
@@ -458,6 +468,8 @@ export default function Home() {
                     <option value="momentum_score">動能分數</option>
                     <option value="value_score">價值分數</option>
                     <option value="data_completeness">資料完整度</option>
+                    <option value="notification_streak">連續入選次數</option>
+                    <option value="change_3d_percent">近三日漲跌</option>
                     <option value="momentum_60d">60 日動能</option>
                     <option value="alignment_gap">股價離 MA60</option>
                     <option value="volume_ratio_20d">20 日量比</option>
@@ -499,7 +511,7 @@ export default function Home() {
             <div className="alert-box" id="alerts">
               <Bell size={18} />
               <p>
-                目前是盤後資料篩選。下一步可以加入排程，讓 Python 每天收盤後更新 JSON，網站自動顯示最新多頭排列名單。
+                每天台灣時間 22:00 更新並寄出前 50 名。連續三次以上都在寄信名單中的股票會顯示紅字，方便觀察策略訊號是否持續。
               </p>
             </div>
           </section>
@@ -522,6 +534,9 @@ export default function Home() {
             <div className="table-row table-head" role="row">
               <span>股票</span>
               <span>產業</span>
+              <span>單日漲跌</span>
+              <span>近三日漲跌</span>
+              <span>連續入選</span>
               <span>總分</span>
               <span>價值</span>
               <span>品質成長</span>
@@ -532,7 +547,11 @@ export default function Home() {
             </div>
 
             {filtered.map((stock) => (
-              <div className="table-row" role="row" key={stock.symbol}>
+              <div
+                className={`table-row ${stock.notification_streak >= 3 ? "streak-alert-row" : ""}`}
+                role="row"
+                key={stock.symbol}
+              >
                 <div className="stock-cell">
                   <div className="stock-symbol-line">
                     <strong>{stock.symbol}</strong>
@@ -556,6 +575,15 @@ export default function Home() {
                   </div>
                 </div>
                 <span>{stock.industry}</span>
+                <span className={(stock.change_percent ?? 0) >= 0 ? "up" : "down"}>
+                  {formatPercent(stock.change_percent)}
+                </span>
+                <span className={(stock.change_3d_percent ?? 0) >= 0 ? "up" : "down"}>
+                  {formatPercent(stock.change_3d_percent)}
+                </span>
+                <strong className={stock.notification_streak >= 3 ? "streak-alert" : ""}>
+                  {stock.notification_streak > 0 ? `${stock.notification_streak} 次` : "—"}
+                </strong>
                 <strong>{stock.score.toFixed(1)}</strong>
                 <span>{formatNumber(stock.value_score)}</span>
                 <span>{formatNumber(stock.quality_growth_score)}</span>

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import smtplib
 from dataclasses import dataclass
@@ -8,16 +9,24 @@ from email.headerregistry import Address
 from email.message import EmailMessage
 from html import escape
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 
 from .export_static import generate_payload
 from .models import ScreenerFilters, ScreenerPayload, ScreenerStock
+from .report_history import (
+    calculate_notification_streaks,
+    load_report_history,
+    save_report_history,
+)
 from .screener import run_screener
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_ENV = PROJECT_ROOT / ".env"
+DEFAULT_REPORT_HISTORY = PROJECT_ROOT / "backend" / "data" / "email_report_history.json"
+TAIPEI = ZoneInfo("Asia/Taipei")
 
 
 @dataclass(frozen=True)
@@ -36,8 +45,18 @@ class EmailConfig:
 def load_email_config(to_override: str | None = None) -> EmailConfig:
     load_dotenv(DEFAULT_ENV)
 
-    recipients = to_override or os.getenv("SCREENER_EMAIL_TO", "")
-    recipient_list = [email.strip() for email in recipients.split(",") if email.strip()]
+    if to_override:
+        recipients = to_override
+    else:
+        recipients = ",".join(
+            [
+                os.getenv("SCREENER_EMAIL_TO", ""),
+                os.getenv("SCREENER_EMAIL_ADDITIONAL_TO", ""),
+            ]
+        )
+    recipient_list = list(
+        dict.fromkeys(email.strip() for email in recipients.split(",") if email.strip())
+    )
 
     return EmailConfig(
         host=os.getenv("SMTP_HOST", ""),
@@ -97,9 +116,15 @@ def build_text(stocks: list[ScreenerStock], generated_at: str, universe_size: in
         return "\n".join(lines)
 
     for index, stock in enumerate(stocks, start=1):
+        streak_note = (
+            f"【連續 {stock.notification_streak} 次入選，紅字提醒】"
+            if stock.notification_streak >= 3
+            else f"連續 {stock.notification_streak} 次入選"
+        )
         lines.extend(
             [
-                f"{index}. {stock.symbol} {stock.name}（{market_label(stock.market)} / {stock.industry}）",
+                f"{index}. {stock.symbol} {stock.name}（{market_label(stock.market)} / {stock.industry}） {streak_note}",
+                f"   單日漲跌：{format_number(stock.change_percent, '%')}；近三日漲跌：{format_number(stock.change_3d_percent, '%')}",
                 f"   總分：{format_number(stock.score)}；價值：{format_number(stock.value_score)}；品質成長：{format_number(stock.quality_growth_score)}；動能：{format_number(stock.momentum_score)}",
                 f"   資料完整度：{format_number(stock.data_completeness, '%')}",
                 f"   排名理由：{'；'.join(stock.ranking_reasons) if stock.ranking_reasons else '-'}",
@@ -115,10 +140,20 @@ def build_text(stocks: list[ScreenerStock], generated_at: str, universe_size: in
 def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: int) -> str:
     rows = []
     for stock in stocks:
+        is_persistent = stock.notification_streak >= 3
+        row_style = ' style="color:#b91c1c;font-weight:700;background:#fff1f2;"' if is_persistent else ""
+        streak_label = (
+            f"連續 {stock.notification_streak} 次（持續訊號）"
+            if is_persistent
+            else f"連續 {stock.notification_streak} 次"
+        )
         rows.append(
-            "<tr>"
+            f"<tr{row_style}>"
             f"<td><strong>{escape(stock.symbol)}</strong><br><span>{escape(stock.name)}</span></td>"
             f"<td>{escape(stock.industry)}</td>"
+            f"<td>{format_number(stock.change_percent, '%')}</td>"
+            f"<td>{format_number(stock.change_3d_percent, '%')}</td>"
+            f"<td>{escape(streak_label)}</td>"
             f"<td>{format_number(stock.score)}</td>"
             f"<td>{format_number(stock.value_score)}</td>"
             f"<td>{format_number(stock.quality_growth_score)}</td>"
@@ -130,7 +165,7 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
         )
 
     if not rows:
-        rows.append('<tr><td colspan="9">今天沒有股票符合篩選條件。</td></tr>')
+        rows.append('<tr><td colspan="12">今天沒有股票符合篩選條件。</td></tr>')
 
     return f"""<!doctype html>
 <html lang="zh-Hant">
@@ -138,11 +173,15 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
   <h2>台股成長科技選股排名</h2>
   <p>排序：<strong>科技產業偏好、總分、品質成長、動能、資料完整度</strong></p>
   <p>資料時間：{escape(generated_at)}<br>股票池：{universe_size} 檔<br>本期候選：{len(stocks)} 檔</p>
+  <p style="color:#b91c1c;font-weight:700;">紅字代表該股票連續三次以上都出現在寄信名單中。</p>
   <table cellpadding="8" cellspacing="0" border="1" style="border-collapse: collapse; border-color: #dbe3ea; font-size: 14px;">
     <thead style="background: #eefaf7;">
       <tr>
         <th>股票</th>
         <th>產業</th>
+        <th>單日漲跌</th>
+        <th>近三日漲跌</th>
+        <th>連續入選</th>
         <th>總分</th>
         <th>價值</th>
         <th>品質成長</th>
@@ -200,6 +239,7 @@ def main() -> None:
         help="Use an existing screener JSON file instead of downloading the market again.",
     )
     parser.add_argument("--to", help="Recipient email. Overrides SCREENER_EMAIL_TO.")
+    parser.add_argument("--history", type=Path, default=DEFAULT_REPORT_HISTORY)
     parser.add_argument("--min-score", type=float, default=0)
     parser.add_argument("--max-pe", type=float, default=999)
     parser.add_argument("--min-roe", type=float, default=-100)
@@ -228,7 +268,19 @@ def main() -> None:
         )
         stocks = payload.stocks
     stocks = stocks[: max(args.limit, 1)]
-    generated_at = payload.generated_at.astimezone().strftime("%Y-%m-%d %H:%M")
+    report_date = payload.generated_at.astimezone(TAIPEI).strftime("%Y-%m-%d")
+    previous_reports = [
+        report
+        for report in load_report_history(args.history)
+        if report.get("report_date") != report_date
+    ]
+    selected_symbols = [stock.symbol for stock in stocks]
+    streaks = calculate_notification_streaks(selected_symbols, previous_reports)
+    selected_set = set(selected_symbols)
+    for stock in payload.stocks:
+        stock.notification_streak = streaks.get(stock.symbol, 0) if stock.symbol in selected_set else 0
+
+    generated_at = payload.generated_at.astimezone(TAIPEI).strftime("%Y-%m-%d %H:%M")
     subject = f"台股成長科技選股：前 {len(stocks)} 名"
     text = build_text(stocks, generated_at, payload.universe_size)
     html = build_html(stocks, generated_at, payload.universe_size)
@@ -242,6 +294,17 @@ def main() -> None:
     config = load_email_config(args.to)
     message = create_message(config, subject, text, html)
     send_message(config, message)
+    save_report_history(
+        args.history,
+        previous_reports,
+        report_date=report_date,
+        symbols=selected_symbols,
+    )
+    if args.data:
+        args.data.write_text(
+            json.dumps(payload.model_dump(mode="json"), ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
     print(f"[ok] sent report to {', '.join(config.recipients)}")
 
 

@@ -55,7 +55,7 @@ notepad .env
 .\.venv\Scripts\python -m backend.app.email_report
 ```
 
-每日信件預設寄出科技產業優先的前 50 名，並列出三大分數、資料完整度、排名理由與主要風險。
+每日信件預設寄出科技產業優先的前 50 名，並列出單日及近三日漲跌、三大分數、資料完整度、排名理由與主要風險。連續三次以上入選者會以紅字提醒；追蹤紀錄保存在 `backend/data/email_report_history.json`。
 
 `.env` 主要設定：
 

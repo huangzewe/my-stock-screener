@@ -448,12 +448,12 @@ input[type="range"] {
 
 .stock-table {
   display: grid;
-  min-width: 1480px;
+  min-width: 1840px;
 }
 
 .table-row {
   display: grid;
-  grid-template-columns: 1.5fr 1.1fr 0.55fr 0.6fr 0.75fr 0.6fr 0.65fr 1.8fr 1.8fr;
+  grid-template-columns: 1.5fr 1.1fr 0.7fr 0.75fr 0.72fr 0.55fr 0.6fr 0.75fr 0.6fr 0.65fr 1.8fr 1.8fr;
   min-height: 60px;
   align-items: center;
   gap: 12px;
@@ -464,6 +464,15 @@ input[type="range"] {
 .reason-cell,
 .risk-cell {
   line-height: 1.45;
+}
+
+.streak-alert-row {
+  background: #fff1f2;
+}
+
+.streak-alert-row .stock-symbol-line strong,
+.streak-alert {
+  color: #b91c1c;
 }
 
 .reason-cell {
