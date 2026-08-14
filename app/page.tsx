@@ -62,6 +62,7 @@ type Stock = {
 
 type ScreenerPayload = {
   generated_at: string;
+  market_date: string | null;
   source: string;
   universe_size: number;
   stocks: Stock[];
@@ -277,6 +278,7 @@ export default function Home() {
       "股票代號",
       "公司名稱",
       "產業",
+      "收盤價",
       "單日漲跌幅",
       "近三日漲跌幅",
       "連續入選次數",
@@ -293,6 +295,7 @@ export default function Home() {
         stock.symbol,
         stock.name,
         stock.industry,
+        stock.price,
         `${stock.change_percent ?? ""}%`,
         `${stock.change_3d_percent ?? ""}%`,
         stock.notification_streak,
@@ -511,7 +514,7 @@ export default function Home() {
             <div className="alert-box" id="alerts">
               <Bell size={18} />
               <p>
-                每天台灣時間 22:00 更新並寄出前 50 名。連續三次以上都在寄信名單中的股票會顯示紅字，方便觀察策略訊號是否持續。
+                每天台灣時間 22:00 開始確認官方行情，待正式收盤資料完成後更新並寄出前 50 名。同一交易日只寄一次；連續三次以上入選會顯示紅字。
               </p>
             </div>
           </section>
@@ -522,7 +525,9 @@ export default function Home() {
             <div>
               <p>篩選結果</p>
               <h2>{filtered.length} 檔候選股票</h2>
-              <small>資料時間：{payload ? formatDate(payload.generated_at) : "尚未載入"}</small>
+              <small>
+                行情交易日：{payload?.market_date ?? "—"}・產生時間：{payload ? formatDate(payload.generated_at) : "尚未載入"}
+              </small>
             </div>
             <button className="ghost-button" type="button" onClick={exportCsv}>
               <Download size={16} />
@@ -534,6 +539,7 @@ export default function Home() {
             <div className="table-row table-head" role="row">
               <span>股票</span>
               <span>產業</span>
+              <span>收盤價</span>
               <span>單日漲跌</span>
               <span>近三日漲跌</span>
               <span>連續入選</span>
@@ -575,6 +581,7 @@ export default function Home() {
                   </div>
                 </div>
                 <span>{stock.industry}</span>
+                <strong>{formatPrice(stock)}</strong>
                 <span className={(stock.change_percent ?? 0) >= 0 ? "up" : "down"}>
                   {formatPercent(stock.change_percent)}
                 </span>
@@ -647,7 +654,11 @@ function formatRatio(value: number | null | undefined) {
 
 function formatPrice(stock: Stock) {
   if (stock.price === null) return "-";
-  const prefix = stock.currency === "TWD" ? "NT$" : stock.currency === "USD" ? "$" : "";
+  const prefix = stock.market === "TW" || stock.market === "TWO" || stock.currency === "TWD"
+    ? "NT$"
+    : stock.currency === "USD"
+      ? "$"
+      : "";
   return `${prefix}${stock.price.toLocaleString("zh-TW", { maximumFractionDigits: 2 })}`;
 }
 

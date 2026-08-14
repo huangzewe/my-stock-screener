@@ -15,6 +15,10 @@ def load_report_history(path: Path) -> list[dict]:
     return [report for report in reports if isinstance(report, dict)]
 
 
+def has_report_for_date(reports: list[dict], report_date: str) -> bool:
+    return any(report.get("report_date") == report_date for report in reports)
+
+
 def calculate_notification_streaks(
     current_symbols: list[str],
     previous_reports: list[dict],

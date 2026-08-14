@@ -6,12 +6,19 @@ from pathlib import Path
 
 from backend.app.report_history import (
     calculate_notification_streaks,
+    has_report_for_date,
     load_report_history,
     save_report_history,
 )
 
 
 class ReportHistoryTests(unittest.TestCase):
+    def test_existing_market_date_prevents_duplicate_report(self):
+        reports = [{"report_date": "2026-08-13", "symbols": ["2330.TW"]}]
+
+        self.assertTrue(has_report_for_date(reports, "2026-08-13"))
+        self.assertFalse(has_report_for_date(reports, "2026-08-14"))
+
     def test_streak_requires_presence_in_each_previous_report(self):
         reports = [
             {"report_date": "2026-08-10", "symbols": ["2330.TW", "2454.TW"]},

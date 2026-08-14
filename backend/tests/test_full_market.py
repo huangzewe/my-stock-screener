@@ -8,7 +8,7 @@ import pandas as pd
 
 from backend.app.factors import build_stock
 from backend.app.models import UniverseStock
-from backend.app.official_daily import fetch_official_daily_quotes
+from backend.app.official_daily import _validate_final_quotes, fetch_official_daily_quotes
 from backend.app.universe import load_full_taiwan_universe
 from backend.app.yfinance_client import MarketSnapshot, _filter_taiwan_trading_days
 
@@ -124,6 +124,38 @@ class FactorCoverageTests(unittest.TestCase):
 
 
 class TradingCalendarTests(unittest.TestCase):
+    @patch("backend.app.official_daily._reference_close")
+    def test_rejects_bulk_quotes_before_prices_are_final(self, reference_close_mock) -> None:
+        reference_close_mock.side_effect = [2435.0, 1025.0]
+        quotes = {
+            "2330.TW": (date(2026, 8, 13), 2415.0, 1000.0),
+            "6488.TWO": (date(2026, 8, 13), 1025.0, 1000.0),
+        }
+
+        with self.assertRaisesRegex(RuntimeError, "not finalized"):
+            _validate_final_quotes(quotes)
+
+    @patch("backend.app.official_daily._reference_close")
+    def test_accepts_bulk_quotes_matching_official_detail(self, reference_close_mock) -> None:
+        reference_close_mock.side_effect = [2435.0, 1025.0]
+        quotes = {
+            "2330.TW": (date(2026, 8, 13), 2435.0, 1000.0),
+            "6488.TWO": (date(2026, 8, 13), 1025.0, 1000.0),
+        }
+
+        _validate_final_quotes(quotes)
+
+    @patch("backend.app.official_daily._reference_close")
+    def test_rejects_mixed_exchange_dates(self, reference_close_mock) -> None:
+        reference_close_mock.side_effect = [2435.0, 1025.0]
+        quotes = {
+            "2330.TW": (date(2026, 8, 14), 2435.0, 1000.0),
+            "6488.TWO": (date(2026, 8, 13), 1025.0, 1000.0),
+        }
+
+        with self.assertRaisesRegex(RuntimeError, "do not share one market date"):
+            _validate_final_quotes(quotes)
+
     def test_phantom_holiday_quote_is_removed_before_moving_average(self) -> None:
         history = pd.DataFrame(
             {"Close": [100, 999, 101], "Volume": [10, 10, 10]},
@@ -158,7 +190,7 @@ class TradingCalendarTests(unittest.TestCase):
             ],
         ]
 
-        quotes = fetch_official_daily_quotes()
+        quotes = fetch_official_daily_quotes(validate_final=False)
 
         self.assertEqual(quotes["2330.TW"], (date(2026, 8, 7), 2370.0, 12345.0))
         self.assertEqual(quotes["6488.TWO"], (date(2026, 8, 7), 880.0, 6789.0))

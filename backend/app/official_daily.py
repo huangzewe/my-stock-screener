@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from datetime import date
 from pathlib import Path
+from urllib.parse import urlencode
 
 import pandas as pd
 
@@ -12,6 +13,7 @@ from .taiwan_open_data import (
     fetch_json,
     fetch_taiwan_fundamentals,
     fetch_taiwan_valuations,
+    _request_json,
 )
 from .yfinance_client import MarketSnapshot
 
@@ -19,6 +21,8 @@ from .yfinance_client import MarketSnapshot
 TWSE_DAILY_URL = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
 TPEX_DAILY_URL = "https://www.tpex.org.tw/openapi/v1/tpex_mainboard_daily_close_quotes"
 MAX_HISTORY_DAYS = 260
+TWSE_REFERENCE_URL = "https://www.twse.com.tw/rwd/zh/afterTrading/STOCK_DAY"
+TPEX_REFERENCE_URL = "https://www.tpex.org.tw/www/zh-tw/afterTrading/tradingStock"
 
 
 def _roc_date(value: object) -> date:
@@ -28,7 +32,71 @@ def _roc_date(value: object) -> date:
     return date(int(text[:3]) + 1911, int(text[3:5]), int(text[5:7]))
 
 
-def fetch_official_daily_quotes() -> dict[str, tuple[date, float, float]]:
+def _roc_slash_date(value: object) -> date:
+    year, month, day = (int(part) for part in str(value or "").split("/"))
+    return date(year + 1911, month, day)
+
+
+def _reference_close(symbol: str, market_date: date) -> float | None:
+    code = symbol.split(".", 1)[0]
+    if symbol.endswith(".TW"):
+        query = urlencode(
+            {
+                "date": market_date.strftime("%Y%m%d"),
+                "stockNo": code,
+                "response": "json",
+            }
+        )
+        payload = _request_json(f"{TWSE_REFERENCE_URL}?{query}")
+        rows = payload.get("data", []) if isinstance(payload, dict) else []
+    else:
+        query = urlencode(
+            {
+                "code": code,
+                "date": market_date.strftime("%Y/%m/%d"),
+                "response": "json",
+            }
+        )
+        payload = _request_json(f"{TPEX_REFERENCE_URL}?{query}")
+        tables = payload.get("tables", []) if isinstance(payload, dict) else []
+        rows = tables[0].get("data", []) if tables else []
+
+    for row in reversed(rows):
+        try:
+            if _roc_slash_date(row[0]) == market_date:
+                return clean_number(row[6])
+        except (TypeError, ValueError, IndexError):
+            continue
+    return None
+
+
+def _validate_final_quotes(quotes: dict[str, tuple[date, float, float]]) -> None:
+    """Reject bulk files whose date advanced before their prices finalized."""
+    anchors = ("2330.TW", "6488.TWO")
+    anchor_dates: set[date] = set()
+    for symbol in anchors:
+        quote = quotes.get(symbol)
+        if quote is None:
+            raise RuntimeError(f"Official bulk quote is missing validation anchor {symbol}")
+        market_date, bulk_close, _ = quote
+        anchor_dates.add(market_date)
+        reference_close = _reference_close(symbol, market_date)
+        if reference_close is None or abs(reference_close - bulk_close) > 0.001:
+            raise RuntimeError(
+                f"Official bulk quotes are not finalized for {market_date}: "
+                f"{symbol} bulk={bulk_close}, official detail={reference_close}"
+            )
+    if len(anchor_dates) != 1:
+        formatted_dates = ", ".join(sorted(value.isoformat() for value in anchor_dates))
+        raise RuntimeError(
+            f"TWSE and TPEx closing files do not share one market date: {formatted_dates}"
+        )
+
+
+def fetch_official_daily_quotes(
+    *,
+    validate_final: bool = True,
+) -> dict[str, tuple[date, float, float]]:
     quotes: dict[str, tuple[date, float, float]] = {}
 
     for row in fetch_json(TWSE_DAILY_URL):
@@ -45,6 +113,8 @@ def fetch_official_daily_quotes() -> dict[str, tuple[date, float, float]]:
         if len(code) == 4 and code.isdigit() and close is not None:
             quotes[f"{code}.TWO"] = (_roc_date(row.get("Date")), close, volume or 0)
 
+    if validate_final:
+        _validate_final_quotes(quotes)
     return quotes
 
 

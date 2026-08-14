@@ -67,6 +67,7 @@ class ScreenerStock(BaseModel):
 
 class ScreenerPayload(BaseModel):
     generated_at: datetime
+    market_date: str | None = None
     source: str
     universe_size: int
     processed_size: int = 0

@@ -3,22 +3,21 @@ name: Daily Taiwan Market Screener
 on:
   workflow_dispatch:
   schedule:
-    # Start a few minutes early because GitHub scheduled jobs are not real-time.
-    - cron: "59 21 * * *"
-      timezone: "Asia/Taipei"
+    # 14:00 UTC = 22:00 Asia/Taipei. Poll until official closing files finalize.
+    - cron: "0 14 * * 1-5"
 
 permissions:
   contents: write
 
 concurrency:
   group: taiwan-screener-email
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   refresh-and-send:
     name: Refresh official market data and send report
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 150
 
     steps:
       - name: Checkout repository
@@ -35,18 +34,22 @@ jobs:
           python -m pip install -r backend/requirements.txt
 
       - name: Refresh complete Taiwan market data
-        timeout-minutes: 5
-        continue-on-error: true
-        run: >-
-          python -m backend.app.export_static
-          --full-taiwan-market
-          --official-daily
-          --min-score 0
-          --max-pe 999
-          --include-non-bullish
+        id: refresh
+        timeout-minutes: 125
+        run: |
+          for attempt in $(seq 1 9); do
+            python -m backend.app.export_static \
+              --full-taiwan-market \
+              --official-daily \
+              --min-score 0 \
+              --max-pe 999 \
+              --include-non-bullish && exit 0
+            echo "Official closing data is not final yet (attempt ${attempt}/9)."
+            if [ "$attempt" -lt 9 ]; then sleep 900; fi
+          done
+          exit 1
 
       - name: Send report
-        if: always()
         env:
           SCREENER_EMAIL_TO: ${{ secrets.SCREENER_EMAIL_TO }}
           SCREENER_EMAIL_ADDITIONAL_TO: ${{ secrets.SCREENER_EMAIL_ADDITIONAL_TO }}
@@ -67,7 +70,7 @@ jobs:
           exit 1
 
       - name: Publish latest dataset
-        if: always()
+        if: ${{ !cancelled() && steps.refresh.outcome == 'success' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

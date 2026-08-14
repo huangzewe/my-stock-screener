@@ -17,6 +17,7 @@ from .export_static import generate_payload
 from .models import ScreenerFilters, ScreenerPayload, ScreenerStock
 from .report_history import (
     calculate_notification_streaks,
+    has_report_for_date,
     load_report_history,
     save_report_history,
 )
@@ -99,6 +100,13 @@ def format_number(value: float | None, suffix: str = "") -> str:
     return f"{value:,.2f}{suffix}"
 
 
+def format_price(stock: ScreenerStock) -> str:
+    if stock.price is None:
+        return "-"
+    prefix = "NT$" if stock.market in {"TW", "TWO"} else ""
+    return f"{prefix}{format_number(stock.price)}"
+
+
 def build_text(stocks: list[ScreenerStock], generated_at: str, universe_size: int) -> str:
     lines = [
         "台股多頭排列篩選結果",
@@ -124,6 +132,7 @@ def build_text(stocks: list[ScreenerStock], generated_at: str, universe_size: in
         lines.extend(
             [
                 f"{index}. {stock.symbol} {stock.name}（{market_label(stock.market)} / {stock.industry}） {streak_note}",
+                f"   收盤價：{format_price(stock)}",
                 f"   單日漲跌：{format_number(stock.change_percent, '%')}；近三日漲跌：{format_number(stock.change_3d_percent, '%')}",
                 f"   總分：{format_number(stock.score)}；價值：{format_number(stock.value_score)}；品質成長：{format_number(stock.quality_growth_score)}；動能：{format_number(stock.momentum_score)}",
                 f"   資料完整度：{format_number(stock.data_completeness, '%')}",
@@ -151,6 +160,7 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
             f"<tr{row_style}>"
             f"<td><strong>{escape(stock.symbol)}</strong><br><span>{escape(stock.name)}</span></td>"
             f"<td>{escape(stock.industry)}</td>"
+            f"<td>{format_price(stock)}</td>"
             f"<td>{format_number(stock.change_percent, '%')}</td>"
             f"<td>{format_number(stock.change_3d_percent, '%')}</td>"
             f"<td>{escape(streak_label)}</td>"
@@ -165,7 +175,7 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
         )
 
     if not rows:
-        rows.append('<tr><td colspan="12">今天沒有股票符合篩選條件。</td></tr>')
+        rows.append('<tr><td colspan="13">今天沒有股票符合篩選條件。</td></tr>')
 
     return f"""<!doctype html>
 <html lang="zh-Hant">
@@ -179,6 +189,7 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
       <tr>
         <th>股票</th>
         <th>產業</th>
+        <th>收盤價</th>
         <th>單日漲跌</th>
         <th>近三日漲跌</th>
         <th>連續入選</th>
@@ -268,11 +279,11 @@ def main() -> None:
         )
         stocks = payload.stocks
     stocks = stocks[: max(args.limit, 1)]
-    report_date = payload.generated_at.astimezone(TAIPEI).strftime("%Y-%m-%d")
+    report_date = payload.market_date or payload.generated_at.astimezone(TAIPEI).strftime("%Y-%m-%d")
+    all_reports = load_report_history(args.history)
+    already_sent = has_report_for_date(all_reports, report_date)
     previous_reports = [
-        report
-        for report in load_report_history(args.history)
-        if report.get("report_date") != report_date
+        report for report in all_reports if report.get("report_date") != report_date
     ]
     selected_symbols = [stock.symbol for stock in stocks]
     streaks = calculate_notification_streaks(selected_symbols, previous_reports)
@@ -281,9 +292,18 @@ def main() -> None:
         stock.notification_streak = streaks.get(stock.symbol, 0) if stock.symbol in selected_set else 0
 
     generated_at = payload.generated_at.astimezone(TAIPEI).strftime("%Y-%m-%d %H:%M")
-    subject = f"台股成長科技選股：前 {len(stocks)} 名"
+    subject = f"台股成長科技選股：{report_date} 收盤排名前 {len(stocks)} 名"
     text = build_text(stocks, generated_at, payload.universe_size)
     html = build_html(stocks, generated_at, payload.universe_size)
+
+    if already_sent and not args.dry_run:
+        if args.data:
+            args.data.write_text(
+                json.dumps(payload.model_dump(mode="json"), ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+        print(f"[skip] report for market date {report_date} was already sent")
+        return
 
     if args.dry_run:
         print("Subject:", subject)

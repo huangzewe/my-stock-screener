@@ -448,12 +448,12 @@ input[type="range"] {
 
 .stock-table {
   display: grid;
-  min-width: 1840px;
+  min-width: 1960px;
 }
 
 .table-row {
   display: grid;
-  grid-template-columns: 1.5fr 1.1fr 0.7fr 0.75fr 0.72fr 0.55fr 0.6fr 0.75fr 0.6fr 0.65fr 1.8fr 1.8fr;
+  grid-template-columns: 1.5fr 1.1fr 0.75fr 0.7fr 0.75fr 0.72fr 0.55fr 0.6fr 0.75fr 0.6fr 0.65fr 1.8fr 1.8fr;
   min-height: 60px;
   align-items: center;
   gap: 12px;

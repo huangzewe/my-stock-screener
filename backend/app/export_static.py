@@ -37,6 +37,7 @@ def generate_payload(
         universe = load_universe(DEFAULT_UNIVERSE)
 
     stocks = []
+    latest_market_date = None
 
     if official_daily:
         history_payload, latest_market_date = update_history_store(TAIWAN_HISTORY, universe)
@@ -59,6 +60,7 @@ def generate_payload(
     results = run_screener(stocks, filters)
     return ScreenerPayload(
         generated_at=datetime.now(timezone.utc),
+        market_date=latest_market_date,
         source=(
             "TWSE/TPEx official daily"
             if official_daily
