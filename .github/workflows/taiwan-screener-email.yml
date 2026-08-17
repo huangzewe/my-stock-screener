@@ -5,6 +5,9 @@ on:
   schedule:
     # 14:00 UTC = 22:00 Asia/Taipei. Poll until official closing files finalize.
     - cron: "0 14 * * 1-5"
+    # 01:00 UTC = 09:00 Asia/Taipei, Tuesday-Saturday. Catch up if either
+    # exchange published its final closing file too late for the prior run.
+    - cron: "0 1 * * 2-6"
 
 permissions:
   contents: write
