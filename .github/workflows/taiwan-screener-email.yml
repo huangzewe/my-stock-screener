@@ -2,6 +2,15 @@ name: Daily Taiwan Market Screener
 
 on:
   workflow_dispatch:
+    inputs:
+      resend_ref:
+        description: "Git commit containing the historical screener JSON to resend"
+        required: false
+        type: string
+      resend_market_date:
+        description: "Expected historical market date (YYYY-MM-DD)"
+        required: false
+        type: string
   schedule:
     # 14:00 UTC = 22:00 Asia/Taipei. Poll until official closing files finalize.
     - cron: "0 14 * * 1-5"
@@ -25,6 +34,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -36,7 +47,26 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -r backend/requirements.txt
 
+      - name: Prepare historical report for resend
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.resend_ref != '' }}
+        env:
+          RESEND_REF: ${{ inputs.resend_ref }}
+          RESEND_MARKET_DATE: ${{ inputs.resend_market_date }}
+        run: |
+          if [[ ! "$RESEND_REF" =~ ^[0-9a-fA-F]{7,40}$ ]]; then
+            echo "resend_ref must be a Git commit SHA"
+            exit 1
+          fi
+          git show "${RESEND_REF}:public/data/screener-data.json" > /tmp/resend-screener-data.json
+          actual_market_date=$(python -c 'import json; print(json.load(open("/tmp/resend-screener-data.json", encoding="utf-8"))["market_date"])')
+          if [[ -z "$RESEND_MARKET_DATE" || "$actual_market_date" != "$RESEND_MARKET_DATE" ]]; then
+            echo "Historical payload date $actual_market_date does not match requested date $RESEND_MARKET_DATE"
+            exit 1
+          fi
+          mv /tmp/resend-screener-data.json public/data/screener-data.json
+
       - name: Refresh complete Taiwan market data
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.resend_ref == '' }}
         id: refresh
         timeout-minutes: 125
         run: |
@@ -54,6 +84,7 @@ jobs:
 
       - name: Send report
         env:
+          RESEND_REF: ${{ inputs.resend_ref }}
           SCREENER_EMAIL_TO: ${{ secrets.SCREENER_EMAIL_TO }}
           SCREENER_EMAIL_ADDITIONAL_TO: ${{ secrets.SCREENER_EMAIL_ADDITIONAL_TO }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
@@ -66,14 +97,16 @@ jobs:
           SMTP_USE_SSL: "false"
         run: |
           for attempt in 1 2 3; do
-            python -m backend.app.email_report --data public/data/screener-data.json && exit 0
+            email_args=(--data public/data/screener-data.json)
+            if [[ -n "$RESEND_REF" ]]; then email_args+=(--force); fi
+            python -m backend.app.email_report "${email_args[@]}" && exit 0
             echo "Email attempt ${attempt} failed; retrying..."
             sleep 20
           done
           exit 1
 
       - name: Publish latest dataset
-        if: ${{ !cancelled() && steps.refresh.outcome == 'success' }}
+        if: ${{ !cancelled() && (github.event_name != 'workflow_dispatch' || inputs.resend_ref == '') && steps.refresh.outcome == 'success' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

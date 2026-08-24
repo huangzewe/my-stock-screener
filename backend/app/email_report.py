@@ -258,6 +258,11 @@ def main() -> None:
     parser.add_argument("--min-volume-ratio", type=float, default=0)
     parser.add_argument("--limit", type=int, default=50)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Resend an existing market date. Use only for an explicit manual resend.",
+    )
     args = parser.parse_args()
 
     filters = ScreenerFilters(
@@ -292,11 +297,12 @@ def main() -> None:
         stock.notification_streak = streaks.get(stock.symbol, 0) if stock.symbol in selected_set else 0
 
     generated_at = payload.generated_at.astimezone(TAIPEI).strftime("%Y-%m-%d %H:%M")
-    subject = f"台股成長科技選股：{report_date} 收盤排名前 {len(stocks)} 名"
+    resend_prefix = "補寄｜" if args.force else ""
+    subject = f"{resend_prefix}台股成長科技選股：{report_date} 收盤排名前 {len(stocks)} 名"
     text = build_text(stocks, generated_at, payload.universe_size)
     html = build_html(stocks, generated_at, payload.universe_size)
 
-    if already_sent and not args.dry_run:
+    if already_sent and not args.dry_run and not args.force:
         if args.data:
             args.data.write_text(
                 json.dumps(payload.model_dump(mode="json"), ensure_ascii=False, indent=2) + "\n",
