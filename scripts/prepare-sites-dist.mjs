@@ -202,6 +202,8 @@ async function buildStock(candidate) {
     momentum_score: scoring.momentumScore,
     data_completeness: scoring.completeness,
     notification_streak: 0,
+    first_selected_price: null,
+    change_since_first_selected_percent: null,
     ranking_reasons: ["即時查詢僅使用股價動能"],
     risks: ["基本面資料未併入即時查詢"],
     tags

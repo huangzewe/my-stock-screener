@@ -55,6 +55,8 @@ type Stock = {
   momentum_score: number | null;
   data_completeness: number;
   notification_streak: number;
+  first_selected_price: number | null;
+  change_since_first_selected_percent: number | null;
   ranking_reasons: string[];
   risks: string[];
   tags: string[];
@@ -75,6 +77,7 @@ type SortKey =
   | "momentum_score"
   | "data_completeness"
   | "notification_streak"
+  | "change_since_first_selected_percent"
   | "change_3d_percent"
   | "change_percent"
   | "momentum_60d"
@@ -279,6 +282,8 @@ export default function Home() {
       "公司名稱",
       "產業",
       "收盤價",
+      "首次入選價",
+      "首次入選至今漲跌幅",
       "單日漲跌幅",
       "近三日漲跌幅",
       "連續入選次數",
@@ -296,6 +301,8 @@ export default function Home() {
         stock.name,
         stock.industry,
         stock.price,
+        stock.first_selected_price,
+        `${stock.change_since_first_selected_percent ?? ""}%`,
         `${stock.change_percent ?? ""}%`,
         `${stock.change_3d_percent ?? ""}%`,
         stock.notification_streak,
@@ -472,6 +479,7 @@ export default function Home() {
                     <option value="value_score">價值分數</option>
                     <option value="data_completeness">資料完整度</option>
                     <option value="notification_streak">連續入選次數</option>
+                    <option value="change_since_first_selected_percent">首次入選至今績效</option>
                     <option value="change_3d_percent">近三日漲跌</option>
                     <option value="momentum_60d">60 日動能</option>
                     <option value="alignment_gap">股價離 MA60</option>
@@ -540,6 +548,7 @@ export default function Home() {
               <span>股票</span>
               <span>產業</span>
               <span>收盤價</span>
+              <span>首次入選價差</span>
               <span>單日漲跌</span>
               <span>近三日漲跌</span>
               <span>連續入選</span>
@@ -582,6 +591,9 @@ export default function Home() {
                 </div>
                 <span>{stock.industry}</span>
                 <strong>{formatPrice(stock)}</strong>
+                <span className={(stock.change_since_first_selected_percent ?? 0) >= 0 ? "up" : "down"}>
+                  {formatFirstSelectionPerformance(stock)}
+                </span>
                 <span className={(stock.change_percent ?? 0) >= 0 ? "up" : "down"}>
                   {formatPercent(stock.change_percent)}
                 </span>
@@ -660,6 +672,17 @@ function formatPrice(stock: Stock) {
       ? "$"
       : "";
   return `${prefix}${stock.price.toLocaleString("zh-TW", { maximumFractionDigits: 2 })}`;
+}
+
+function formatFirstSelectionPerformance(stock: Stock) {
+  if (stock.first_selected_price === null || stock.first_selected_price === undefined) return "—";
+  const prefix = stock.market === "TW" || stock.market === "TWO" || stock.currency === "TWD"
+    ? "NT$"
+    : stock.currency === "USD"
+      ? "$"
+      : "";
+  const price = stock.first_selected_price.toLocaleString("zh-TW", { maximumFractionDigits: 2 });
+  return `${prefix}${price}（${formatPercent(stock.change_since_first_selected_percent)}）`;
 }
 
 function Metric({

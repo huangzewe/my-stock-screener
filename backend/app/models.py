@@ -60,6 +60,8 @@ class ScreenerStock(BaseModel):
     momentum_score: float | None = None
     data_completeness: float = 0
     notification_streak: int = 0
+    first_selected_price: float | None = None
+    change_since_first_selected_percent: float | None = None
     ranking_reasons: list[str] = Field(default_factory=list)
     risks: list[str] = Field(default_factory=list)
     tags: list[str] = Field(default_factory=list)

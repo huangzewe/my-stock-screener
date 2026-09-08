@@ -16,6 +16,7 @@ from dotenv import load_dotenv
 from .export_static import generate_payload
 from .models import ScreenerFilters, ScreenerPayload, ScreenerStock
 from .report_history import (
+    calculate_first_selected_prices,
     calculate_notification_streaks,
     has_report_for_date,
     load_report_history,
@@ -107,6 +108,16 @@ def format_price(stock: ScreenerStock) -> str:
     return f"{prefix}{format_number(stock.price)}"
 
 
+def format_first_selection_performance(stock: ScreenerStock) -> str:
+    if stock.first_selected_price is None:
+        return "-"
+    prefix = "NT$" if stock.market in {"TW", "TWO"} else ""
+    change = format_number(stock.change_since_first_selected_percent, "%")
+    if stock.change_since_first_selected_percent is not None and stock.change_since_first_selected_percent > 0:
+        change = "+" + change
+    return f"{prefix}{format_number(stock.first_selected_price)}（{change}）"
+
+
 def build_text(stocks: list[ScreenerStock], generated_at: str, universe_size: int) -> str:
     lines = [
         "台股多頭排列篩選結果",
@@ -133,6 +144,7 @@ def build_text(stocks: list[ScreenerStock], generated_at: str, universe_size: in
             [
                 f"{index}. {stock.symbol} {stock.name}（{market_label(stock.market)} / {stock.industry}） {streak_note}",
                 f"   收盤價：{format_price(stock)}",
+                f"   首次入選價差：{format_first_selection_performance(stock)}",
                 f"   單日漲跌：{format_number(stock.change_percent, '%')}；近三日漲跌：{format_number(stock.change_3d_percent, '%')}",
                 f"   總分：{format_number(stock.score)}；價值：{format_number(stock.value_score)}；品質成長：{format_number(stock.quality_growth_score)}；動能：{format_number(stock.momentum_score)}",
                 f"   資料完整度：{format_number(stock.data_completeness, '%')}",
@@ -161,6 +173,7 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
             f"<td><strong>{escape(stock.symbol)}</strong><br><span>{escape(stock.name)}</span></td>"
             f"<td>{escape(stock.industry)}</td>"
             f"<td>{format_price(stock)}</td>"
+            f"<td>{format_first_selection_performance(stock)}</td>"
             f"<td>{format_number(stock.change_percent, '%')}</td>"
             f"<td>{format_number(stock.change_3d_percent, '%')}</td>"
             f"<td>{escape(streak_label)}</td>"
@@ -175,7 +188,7 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
         )
 
     if not rows:
-        rows.append('<tr><td colspan="13">今天沒有股票符合篩選條件。</td></tr>')
+        rows.append('<tr><td colspan="14">今天沒有股票符合篩選條件。</td></tr>')
 
     return f"""<!doctype html>
 <html lang="zh-Hant">
@@ -190,6 +203,7 @@ def build_html(stocks: list[ScreenerStock], generated_at: str, universe_size: in
         <th>股票</th>
         <th>產業</th>
         <th>收盤價</th>
+        <th>首次入選價差</th>
         <th>單日漲跌</th>
         <th>近三日漲跌</th>
         <th>連續入選</th>
@@ -292,9 +306,18 @@ def main() -> None:
     ]
     selected_symbols = [stock.symbol for stock in stocks]
     streaks = calculate_notification_streaks(selected_symbols, previous_reports)
+    current_prices = {stock.symbol: stock.price for stock in stocks}
+    first_prices = calculate_first_selected_prices(current_prices, all_reports)
     selected_set = set(selected_symbols)
     for stock in payload.stocks:
         stock.notification_streak = streaks.get(stock.symbol, 0) if stock.symbol in selected_set else 0
+        if stock.symbol in selected_set:
+            stock.first_selected_price = first_prices.get(stock.symbol)
+            if stock.price is not None and stock.first_selected_price not in (None, 0):
+                stock.change_since_first_selected_percent = round(
+                    (stock.price - stock.first_selected_price) / stock.first_selected_price * 100,
+                    2,
+                )
 
     generated_at = payload.generated_at.astimezone(TAIPEI).strftime("%Y-%m-%d %H:%M")
     resend_prefix = "補寄｜" if args.force else ""
@@ -322,9 +345,10 @@ def main() -> None:
     send_message(config, message)
     save_report_history(
         args.history,
-        previous_reports,
+        all_reports,
         report_date=report_date,
         symbols=selected_symbols,
+        prices=current_prices,
     )
     if args.data:
         args.data.write_text(
