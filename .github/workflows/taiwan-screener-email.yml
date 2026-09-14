@@ -87,6 +87,7 @@ jobs:
           RESEND_REF: ${{ inputs.resend_ref }}
           SCREENER_EMAIL_TO: ${{ secrets.SCREENER_EMAIL_TO }}
           SCREENER_EMAIL_ADDITIONAL_TO: ${{ secrets.SCREENER_EMAIL_ADDITIONAL_TO }}
+          SCREENER_EMAIL_EXTRA_TO: ${{ secrets.SCREENER_EMAIL_EXTRA_TO }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}

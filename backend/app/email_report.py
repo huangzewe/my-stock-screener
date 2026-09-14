@@ -54,6 +54,7 @@ def load_email_config(to_override: str | None = None) -> EmailConfig:
             [
                 os.getenv("SCREENER_EMAIL_TO", ""),
                 os.getenv("SCREENER_EMAIL_ADDITIONAL_TO", ""),
+                os.getenv("SCREENER_EMAIL_EXTRA_TO", ""),
             ]
         )
     recipient_list = list(
