@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T21:23:31.907103Z",
+  "generated_at": "2026-10-09T07:23:17.075946Z",
   "market_date": "2026-10-08",
   "source": "TWSE/TPEx official daily",
   "universe_size": 1505,
@@ -48,7 +48,7 @@
       "quality_growth_score": 98.2,
       "momentum_score": 88.0,
       "data_completeness": 84.8,
-      "notification_streak": 31,
+      "notification_streak": 30,
       "first_selected_price": 531.0,
       "change_since_first_selected_percent": 0.19,
       "ranking_reasons": [
@@ -978,7 +978,7 @@
       "quality_growth_score": 90.2,
       "momentum_score": 51.0,
       "data_completeness": 84.8,
-      "notification_streak": 31,
+      "notification_streak": 30,
       "first_selected_price": 298.5,
       "change_since_first_selected_percent": -10.55,
       "ranking_reasons": [
@@ -1221,7 +1221,7 @@
       "quality_growth_score": 96.5,
       "momentum_score": 63.4,
       "data_completeness": 84.8,
-      "notification_streak": 31,
+      "notification_streak": 30,
       "first_selected_price": 12520.0,
       "change_since_first_selected_percent": -15.22,
       "ranking_reasons": [
