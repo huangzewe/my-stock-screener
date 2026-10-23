@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T05:30:03.700774Z",
+  "generated_at": "2026-10-23T18:02:25.882617Z",
   "market_date": "2026-10-22",
   "source": "TWSE/TPEx official daily",
   "universe_size": 1507,
@@ -1413,7 +1413,7 @@
       "quality_growth_score": 98.2,
       "momentum_score": 41.7,
       "data_completeness": 84.8,
-      "notification_streak": 31,
+      "notification_streak": 30,
       "first_selected_price": 531.0,
       "change_since_first_selected_percent": -22.03,
       "ranking_reasons": [
@@ -42554,50 +42554,6 @@
       ]
     },
     {
-      "symbol": "2249.TWO",
-      "name": "湧盛",
-      "market": "TWO",
-      "industry": "電機機械",
-      "currency": null,
-      "price": 68.2,
-      "change_percent": null,
-      "change_3d_percent": null,
-      "pe": 6.9,
-      "dividend_yield": 2.93,
-      "pbr": 1.32,
-      "roe": null,
-      "gross_margin": null,
-      "debt_to_equity": null,
-      "peg": null,
-      "free_cashflow_yield": null,
-      "revenue_growth_yoy": null,
-      "eps_growth_yoy": null,
-      "ma5": null,
-      "ma20": null,
-      "ma60": null,
-      "is_bullish_alignment": false,
-      "alignment_gap": null,
-      "momentum_60d": null,
-      "momentum_120d": null,
-      "volume_ratio_20d": null,
-      "drawdown_1y": null,
-      "score": 98.6,
-      "value_score": 98.6,
-      "quality_growth_score": null,
-      "momentum_score": null,
-      "data_completeness": 9.8,
-      "notification_streak": 0,
-      "first_selected_price": null,
-      "change_since_first_selected_percent": null,
-      "ranking_reasons": [
-        "估值相對合理"
-      ],
-      "risks": [
-        "可用資料偏少，分數不確定性較高"
-      ],
-      "tags": []
-    },
-    {
       "symbol": "5209.TWO",
       "name": "新鼎",
       "market": "TWO",
@@ -44248,6 +44204,50 @@
         "多頭排列",
         "動能強"
       ]
+    },
+    {
+      "symbol": "2249.TWO",
+      "name": "湧盛",
+      "market": "TWO",
+      "industry": "電機機械",
+      "currency": null,
+      "price": 68.2,
+      "change_percent": null,
+      "change_3d_percent": null,
+      "pe": 6.9,
+      "dividend_yield": 2.93,
+      "pbr": 1.32,
+      "roe": 18.78,
+      "gross_margin": 22.34,
+      "debt_to_equity": 49.75,
+      "peg": null,
+      "free_cashflow_yield": null,
+      "revenue_growth_yoy": null,
+      "eps_growth_yoy": null,
+      "ma5": null,
+      "ma20": null,
+      "ma60": null,
+      "is_bullish_alignment": false,
+      "alignment_gap": null,
+      "momentum_60d": null,
+      "momentum_120d": null,
+      "volume_ratio_20d": null,
+      "drawdown_1y": null,
+      "score": 54.4,
+      "value_score": 98.6,
+      "quality_growth_score": 34.7,
+      "momentum_score": null,
+      "data_completeness": 31.8,
+      "notification_streak": 0,
+      "first_selected_price": null,
+      "change_since_first_selected_percent": null,
+      "ranking_reasons": [
+        "估值相對合理"
+      ],
+      "risks": [
+        "可用資料偏少，分數不確定性較高"
+      ],
+      "tags": []
     },
     {
       "symbol": "2034.TW",
